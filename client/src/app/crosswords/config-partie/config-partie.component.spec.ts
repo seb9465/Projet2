@@ -19,11 +19,9 @@ describe("ConfigPartieComponent", () => {
             declarations: [ConfigPartieComponent],
             imports: [HttpClientTestingModule],
             providers: [ServiceHttp, { provide: Router, useValue: mockRouter }, SocketService]
-
         })
 
             .compileComponents()
-
             .catch();
     }));
 
