@@ -13,8 +13,8 @@ import { OpaciteCase} from "../grille/librairieGrille/opaciteCase";
 })
 
 export class DefinitionComponent implements OnInit, OnDestroy {
-  private mots: Mot[];
-  private matriceDesMotsSurGrille: Array<Array<LettreGrille>>;
+  private _mots: Mot[];
+  private _matriceDesMotsSurGrille: Array<Array<LettreGrille>>;
 
   private subscriptionMots: Subscription;
   private subscriptionMatrice: Subscription;
@@ -25,8 +25,8 @@ export class DefinitionComponent implements OnInit, OnDestroy {
   private motSelectionne: Mot;
 
   public constructor(private listeMotsService: ServiceInteractionComponent) {
-    this.mots = this.listeMotsService.mots;
-    this.matriceDesMotsSurGrille = this.listeMotsService.matrice;
+    this._mots = this.listeMotsService.mots;
+    this._matriceDesMotsSurGrille = this.listeMotsService.matrice;
 
     this.initialiserSouscriptions();
   }
@@ -39,6 +39,22 @@ export class DefinitionComponent implements OnInit, OnDestroy {
     this.subscriptionMotSelec.unsubscribe();
   }
 
+  public get mots(): Mot[] {
+      return this._mots;
+  }
+
+  public set mots(desMots: Mot[]) {
+      this._mots = desMots;
+  }
+
+  public get matriceDesMotsSurGrille(): Array<Array<LettreGrille>> {
+      return this._matriceDesMotsSurGrille;
+  }
+
+  public set matriceDesMotsSurGrille(matrice: Array<Array<LettreGrille>>) {
+      this._matriceDesMotsSurGrille = matrice;
+  }
+  
   // Souscriptions
 
   private initialiserSouscriptions(): void {
@@ -51,7 +67,7 @@ export class DefinitionComponent implements OnInit, OnDestroy {
 
   private souscrireReceptionMots(): void {
     this.subscriptionMots = this.listeMotsService.serviceReceptionMots()
-      .subscribe((mots) => this.mots = mots);
+      .subscribe((mots) => this._mots = mots);
   }
 
   private souscrireSelectionMots(): void {
@@ -63,7 +79,7 @@ export class DefinitionComponent implements OnInit, OnDestroy {
 
   private souscrireReceptionMatrice(): void {
     this.subscriptionMatrice = this.listeMotsService.serviceReceptionMatriceLettres()
-      .subscribe((matrice) => this.matriceDesMotsSurGrille = matrice);
+      .subscribe((matrice) => this._matriceDesMotsSurGrille = matrice);
   }
 
   private souscrireMotsTrouves(): void {
@@ -95,17 +111,17 @@ export class DefinitionComponent implements OnInit, OnDestroy {
   }
 
   private changementMot(mot: Mot): void {
-    this.mots.forEach((element: Mot) => element.activer = false);
+    this._mots.forEach((element: Mot) => element.activer = false);
     this.motSelectionne = mot;
     mot.activer = !mot.activer;
   }
 
   private decouvrirCases(mot: Mot): void {
-    OpaciteCase.decouvrirCases(mot, this.matriceDesMotsSurGrille);
+    OpaciteCase.decouvrirCases(mot, this._matriceDesMotsSurGrille);
     this.envoieMatrice();
   }
 
   private envoieMatrice(): void {
-    this.listeMotsService.serviceEnvoieMatriceLettres(this.matriceDesMotsSurGrille);
+    this.listeMotsService.serviceEnvoieMatriceLettres(this._matriceDesMotsSurGrille);
   }
 }
