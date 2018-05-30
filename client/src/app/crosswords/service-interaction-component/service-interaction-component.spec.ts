@@ -26,10 +26,10 @@ describe("RequeteDeGrilleService", () => {
     serviceGrille["matriceDesMotsSurGrille"] = grilleLettres;
     infojoueur = new InfojoueurService();
     definition = new DefinitionComponent(serviceGrille);
-    definition["motSelectionne"] = listeMotsLongue[1];
+    definition["motSelectionne"] = listeMotsLongue[0];
     grille = new GrilleComponent(serviceGrille, infojoueur);
     grille.ngOnInit();
-    grille["motSelectionne"] = listeMotsLongue[1];
+    grille["motSelectionne"] = listeMotsLongue[0];
 
   })
 );
