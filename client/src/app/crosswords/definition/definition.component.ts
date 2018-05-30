@@ -22,16 +22,16 @@ export class DefinitionComponent implements OnInit, OnDestroy {
   private subscriptionMotTrouve: Subscription;
   private subscriptionMotPerdu: Subscription;
 
-  private motSelectionne: Mot;
+  private _motSelectionne: Mot;
 
   public constructor(private listeMotsService: ServiceInteractionComponent) {
     this._mots = this.listeMotsService.mots;
     this._matriceDesMotsSurGrille = this.listeMotsService.matrice;
-
-    this.initialiserSouscriptions();
   }
 
-  public ngOnInit(): void { }
+  public ngOnInit(): void {
+    this.initialiserSouscriptions();
+  }
 
   public ngOnDestroy(): void {
     this.subscriptionMots.unsubscribe();
@@ -54,7 +54,15 @@ export class DefinitionComponent implements OnInit, OnDestroy {
   public set matriceDesMotsSurGrille(matrice: Array<Array<LettreGrille>>) {
       this._matriceDesMotsSurGrille = matrice;
   }
-  
+
+  public get motSelectionne(): Mot {
+    return this._motSelectionne;
+}
+
+public set motSelectionne(mot: Mot) {
+    this._motSelectionne = mot;
+}
+
   // Souscriptions
 
   private initialiserSouscriptions(): void {
@@ -72,8 +80,8 @@ export class DefinitionComponent implements OnInit, OnDestroy {
 
   private souscrireSelectionMots(): void {
     this.subscriptionMotSelec = this.listeMotsService.serviceReceptionMotSelectionne().subscribe((motSelect) => {
-      this.motSelectionne = motSelect;
-      this.miseAJourMotSelectionne(this.motSelectionne);
+      this._motSelectionne = motSelect;
+      this.miseAJourMotSelectionne(this._motSelectionne);
     });
   }
 
@@ -102,7 +110,7 @@ export class DefinitionComponent implements OnInit, OnDestroy {
   }
 
   private envoieMotSelectionne(): void {
-    this.listeMotsService.serviceEnvoieMotSelectionne(this.motSelectionne);
+    this.listeMotsService.serviceEnvoieMotSelectionne(this._motSelectionne);
   }
 
   private miseAJourMotSelectionne(mot: Mot): void {
@@ -112,7 +120,7 @@ export class DefinitionComponent implements OnInit, OnDestroy {
 
   private changementMot(mot: Mot): void {
     this._mots.forEach((element: Mot) => element.activer = false);
-    this.motSelectionne = mot;
+    this._motSelectionne = mot;
     mot.activer = !mot.activer;
   }
 
