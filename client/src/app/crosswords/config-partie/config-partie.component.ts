@@ -17,7 +17,7 @@ export class ConfigPartieComponent implements OnInit {
 
     private nomPartie: string;
     private nomJoueur: string;
-    private difficultee: string;
+    private _difficultee: string;
     private listePartie: Array<Array<string>>;
     private estCreateur: boolean;
 
@@ -26,6 +26,14 @@ export class ConfigPartieComponent implements OnInit {
                        private router: Router) {}
 
     public ngOnInit(): void { }
+
+    public get difficultee(): string {
+        return this._difficultee;
+    }
+
+    public set difficultee(dif: string) {
+        this._difficultee = dif;
+    }
 
     public apparaitreSection(laSection: string): void {
         document.getElementById(laSection).classList.remove("pasVisible");
@@ -43,7 +51,7 @@ export class ConfigPartieComponent implements OnInit {
     }
 
     public ajouterDifficulte(difficulte: Difficulte): void {
-        this.difficultee = difficulte;
+        this._difficultee = difficulte;
         if (difficulte !== undefined) {
             this.serviceHTTP.difficulte = difficulte;
         }
@@ -56,7 +64,7 @@ export class ConfigPartieComponent implements OnInit {
     }
 
     public creerPartie(): void {
-        this.serviceSocket.creerPartie(this.nomPartie, this.difficultee, this.nomJoueur);
+        this.serviceSocket.creerPartie(this.nomPartie, this._difficultee, this.nomJoueur);
         this.commencerPartie();
         this.demandeEtEnvoieGrille();
     }

@@ -3,6 +3,8 @@ import { ConfigPartieComponent } from "./config-partie.component";
 import { ServiceHttp } from "../serviceHttp/http-request.service";
 import { SocketService } from "../service-socket/service-socket";
 import { Router } from "@angular/router";
+import { Difficulte } from "../../../../../common/communication/Difficulte";
+import { of } from "rxjs/observable/of";
 
 describe("ConfigPartie (shallow test)", () => {
     let fixture: ComponentFixture<ConfigPartieComponent>;
@@ -32,5 +34,39 @@ describe("ConfigPartie (shallow test)", () => {
 
     it("should do nothing", () => {
         expect(true).toBe(true);
+    });
+
+    describe("should set difficulte correctly", () => {
+        it("when receiving undefined value", () => {
+            fixture.componentInstance.ajouterDifficulte(undefined);
+
+            expect(fixture.componentInstance.difficultee).toBe(undefined);
+        });
+
+        it("when receiving Facile difficultee", () => {
+            fixture.componentInstance.ajouterDifficulte(Difficulte.Facile);
+
+            expect(fixture.componentInstance.difficultee).toEqual("facile");
+        });
+
+        it("when receiving Facile difficultee", () => {
+            fixture.componentInstance.ajouterDifficulte(Difficulte.Normal);
+
+            expect(fixture.componentInstance.difficultee).toEqual("normal");
+        });
+
+        it("when receiving Facile difficultee", () => {
+            fixture.componentInstance.ajouterDifficulte(Difficulte.Difficile);
+
+            expect(fixture.componentInstance.difficultee).toEqual("difficile");
+        });
+    });
+
+    it("should call rejoindrePartie from the service when commencerPartie is called", () => {
+        mockServiceSocket.chargementComplete.and.returnValue(of());
+
+        fixture.componentInstance["commencerPartie"]();
+
+        expect(mockServiceSocket.chargementComplete).toHaveBeenCalled();
     });
 });
