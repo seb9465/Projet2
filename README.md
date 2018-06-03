@@ -2,6 +2,7 @@
 
 ## Exigences - Requirements
 [NodeJs](https://nodejs.org/en/)
+Angular CLI     `npm install -g @angular/cli`
 
 # Log2990
 Projet généré avec [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
