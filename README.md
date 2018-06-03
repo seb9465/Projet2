@@ -13,6 +13,14 @@
     | `cd client` | `cd server` |
     | `npm install` | `npm install` |
 
+## Démarrer la solution - Run the solution
+FFCE55
+Depuis le dossier source - From the root folder
+    | Côté client - Client side | Côté serveur - Server side |
+    | --- | --- |
+    | `cd client` | `cd server` |
+    | `npm start` | `npm start` |
+    | http://localhost:4200 | https://localhost:3000 |
 
 
 
