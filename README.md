@@ -1,17 +1,17 @@
 # Projet Intégrateur 2e année - 2nd Year School Project
 
 ## Exigences - Requirements
-[NodeJs](https://nodejs.org/en/) <br />
-[Angular CLI](https://cli.angular.io)         `npm install -g @angular/cli`
+- [NodeJs](https://nodejs.org/en/) <br />
+- [Angular CLI](https://cli.angular.io)         `npm install -g @angular/cli`
 
 ## Installation
 1. `git clone https://github.com/seb9465/Projet2.git` <br />
 2. `cd Projet2` <br />
 3. 
-    | Côté client - Client side | Côté serveur - Server side |
-    | --- | --- |
-    | `cd client` | `cd server` |
-    | `npm install` | `npm install` |
+...| Côté client - Client side | Côté serveur - Server side |
+...| --- | --- |
+...| `cd client` | `cd server` |
+...| `npm install` | `npm install` |
 
 
 
