@@ -20,7 +20,7 @@ Depuis le dossier source - From the root folder <br />
 | ----- | ----- |
 | `cd client` | `cd server` |
 | `npm start` | `npm start` |
-| `cd client` | `cd server` |
+| http://localhost:4200 | http://localhost:3000 |
 
 
 
