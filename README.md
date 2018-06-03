@@ -8,11 +8,12 @@ Angular CLI     `npm install -g @angular/cli`
 1. `git clone https://github.com/seb9465/Projet2.git` <br />
 2. `cd Projet2` <br />
 3. 
+<div>
 | Côté client - Client side | Côté serveur - Server side |
 | --- | --- |
 | `cd client` | `cd server` |
 | `npm install` | `npm install` |
-
+</div>
 
 
 
