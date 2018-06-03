@@ -1,8 +1,7 @@
 # Projet Intégrateur 2e année - 2nd Year School Project
 
 ## Exigences - Requirements
-NPM
-(https://nodejs.org/en/)
+[NodeJs](https://nodejs.org/en/)
 
 # Log2990
 Projet généré avec [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
