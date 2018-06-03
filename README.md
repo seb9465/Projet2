@@ -15,17 +15,10 @@
 
 ## Démarrer la solution - Run the solution
 Depuis le dossier source - From the root folder <br />
-| Côté client - Client side | Côté serveur - Server side |
-| --- | --- |
-| `cd client` | `cd server` |
-| `npm start` | `npm start` |
-| http://localhost:4200 | https://localhost:3000 |
-<br />
+
 | Côté client | Côté serveur |
 | ----- | ----- |
 | `cd client` | `cd server` |
-| dasda | dsdad |
-| dsdasda | dsada |
 
 
 
