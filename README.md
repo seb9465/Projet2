@@ -20,7 +20,12 @@ Depuis le dossier source - From the root folder <br />
 | `cd client` | `cd server` |
 | `npm start` | `npm start` |
 | http://localhost:4200 | https://localhost:3000 |
-
+<br />
+| Côté client | Côté serveur |
+| ----- | ----- |
+| `cd client` | `cd server` |
+| dasda | dsdad |
+| dsdasda | dsada |
 
 
 
