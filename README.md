@@ -14,8 +14,7 @@
     | `npm install` | `npm install` |
 
 ## Démarrer la solution - Run the solution
-FFCE55
-Depuis le dossier source - From the root folder
+Depuis le dossier source - From the root folder <br />
     | Côté client - Client side | Côté serveur - Server side |
     | --- | --- |
     | `cd client` | `cd server` |
