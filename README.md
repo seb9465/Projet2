@@ -4,6 +4,19 @@
 [NodeJs](https://nodejs.org/en/) <br />
 Angular CLI     `npm install -g @angular/cli`
 
+## Installation
+`git clone https://github.com/seb9465/Projet2.git`
+`cd Projet2`
+
+| Côté client - Client side | Côté serveur - Server side |
+| --- | --- |
+| `cd client` | `cd server` |
+| `npm install` | `npm install` |
+
+
+
+
+
 # Log2990
 Projet généré avec [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
