@@ -1,7 +1,7 @@
 # Projet Intégrateur 2e année - 2nd Year School Project
 
 ## Exigences - Requirements
-[NodeJs](https://nodejs.org/en/)  
+[NodeJs](https://nodejs.org/en/) <br />
 Angular CLI     `npm install -g @angular/cli`
 
 # Log2990
