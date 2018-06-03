@@ -2,7 +2,7 @@
 
 ## Exigences - Requirements
 [NodeJs](https://nodejs.org/en/) <br />
-Angular CLI         `npm install -g @angular/cli`
+[Angular CLI](https://cli.angular.io)         `npm install -g @angular/cli`
 
 ## Installation
 1. `git clone https://github.com/seb9465/Projet2.git` <br />
