@@ -20,6 +20,7 @@ Depuis le dossier source - From the root folder <br />
 | ----- | ----- |
 | `cd client` | `cd server` |
 | `cd client` | `cd server` |
+| `cd client` | `cd server` |
 
 
 
