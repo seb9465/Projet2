@@ -24,13 +24,13 @@ Depuis le dossier source - From the root folder <br />
 
 
 ## Tests unitaires - Unit tests
-Exécuter `ng test` pour lancer les tests unitaires avec [Karma](https://karma-runner.github.io) sur le client.
+Exécuter `ng test` pour lancer les tests unitaires avec  sur le client.
 
-Exécuter `npm test` pour lancer les tests unitaires avec [Mocha](https://mochajs.org/) sur le serveur.
+Exécuter `npm test` pour lancer les tests unitaires avec  sur le serveur.
 
 Depuis le dossier source - From the root folder <br />
 
-| Côté client | Côté serveur |
+| Côté client avec [Karma](https://karma-runner.github.io) | Côté serveur [Mocha](https://mochajs.org/) |
 | ----- | ----- |
 | `cd client` | `cd server` |
 | `npm start` | `npm start` |
