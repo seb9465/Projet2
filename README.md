@@ -33,14 +33,14 @@ Depuis le dossier source - From the root folder <br />
 
 # Touches à utiliser pour le jeu de course - Keys to use for the racing game
 
-|    Fonctionnalité - Feature | Touche - Keys |
-|:--------------------:	|:------:	|
-|        Avancer - Forward |    W   	|
-|        Arrêter - Brake       	|    S   	|
-|        Gauche - Left        	|    A   	|
-|        Droite - Right        	|    D   	|
-|       Lumières - Lights       	|    L   	|
-|       Mode nuit - Night Mode |    N   	|
-|      Zoom avant - Zoom in      	|    +   	|
-|     Zoom arrière - Zoom out     	|    -   	|
-| Changement de caméra - Camera change	|    C   	|
+| Fonctionnalité - Feature | Touche - Keys |
+| :--------------------: |:------: |
+| Avancer - Forward | W |
+| Arrêter - Brake | S |
+| Gauche - Left | A |
+| Droite - Right | D |
+| Lumières - Lights | L |
+| Mode nuit - Night Mode | N |
+| Zoom avant - Zoom in | + |
+| Zoom arrière - Zoom out | - |
+| Changement de caméra - Camera change | C |
