@@ -31,7 +31,7 @@ Depuis le dossier source - From the root folder <br />
 | `cd client` | `cd server` |
 | `ng test` | `npm test` |
 
-# Touches à utiliser pour le jeu de course - Keys to use for the racing game
+## Touches à utiliser pour le jeu de course - Keys to use for the racing game
 
 | Fonctionnalité - Feature | Touche - Keys |
 | :--------------------: |:------: |
