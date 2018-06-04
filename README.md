@@ -33,19 +33,17 @@ Depuis le dossier source - From the root folder <br />
 
 # Touches à utiliser pour le jeu de course - Keys to use for the racing game
 
-Cette liste de touches sert à standardiser les jeux et ainsi faciliter la correction. Un non respect de la touche sera considéré comme une fonctionnalité non livrée au client (note de 0).
-
-|    Fonctionnalité    	| Touche 	|
+|    Fonctionnalité - Feature | Touche - Keys |
 |:--------------------:	|:------:	|
-|        Avancer       	|    W   	|
-|        Arrêter       	|    S   	|
-|        Gauche        	|    A   	|
-|        Droite        	|    D   	|
-|       Lumières       	|    L   	|
-|       Mode nuit      	|    N   	|
-|      Zoom avant      	|    +   	|
-|     Zoom arrière     	|    -   	|
-| Changement de caméra 	|    C   	|
+|        Avancer - Forward |    W   	|
+|        Arrêter - Brake       	|    S   	|
+|        Gauche - Left        	|    A   	|
+|        Droite - Right        	|    D   	|
+|       Lumières - Lights       	|    L   	|
+|       Mode nuit - Night Mode |    N   	|
+|      Zoom avant - Zoom in      	|    +   	|
+|     Zoom arrière - Zoom out     	|    -   	|
+| Changement de caméra - Camera change	|    C   	|
 
 # Cadriciel
 
