@@ -23,24 +23,18 @@ Depuis le dossier source - From the root folder <br />
 | http://localhost:4200 | http://localhost:3000 |
 
 
-
-# Log2990
-Projet généré avec [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
-
-## Développement du client
-Pour lancer le client, il suffit d'exécuter: `ng serve`. Vous pouvez ensuite naviger à `http://localhost:4200/`. L'application va se relancer automatiquement si vous modifier le code source de celle-ci.
-
-## Génération de composants
-Pour créer de nouveaux composants, nous vous recommandons l'utilisation d'angular CLI. Il suffit d'exécuter `ng generate component component-name` pour créer un nouveau composant. 
-
-Il est aussi possible de générer des directives, pipes, services, guards, interfaces, enums, muodules, classes, avec cette commande `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Exécution des tests unitaires
+## Tests unitaires - Unit tests
 Exécuter `ng test` pour lancer les tests unitaires avec [Karma](https://karma-runner.github.io) sur le client.
 
-Exécuter `ng test --watch=false --code-coverage` pour générer un rapport de code coverage avec [Karma](https://karma-runner.github.io) sur le client.
-
 Exécuter `npm test` pour lancer les tests unitaires avec [Mocha](https://mochajs.org/) sur le serveur.
+
+Depuis le dossier source - From the root folder <br />
+
+| Côté client | Côté serveur |
+| ----- | ----- |
+| `cd client` | `cd server` |
+| `npm start` | `npm start` |
+| http://localhost:4200 | http://localhost:3000 |
 
 ## Exécution de TSLint
 Exécuter `npm run lint` pour lancer TSLint.
