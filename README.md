@@ -1,6 +1,4 @@
 # Projet Intégrateur 2e année - 2nd Year School Project
-[![npm version](https://badge.fury.io/js/npm.svg)](https://badge.fury.io/js/npm)
-[![Npm Package](https://img.shields.io/npm/v/git-master-merged.svg)](https://www.npmjs.com/package/git-master-merged)
 
 ## Exigences - Requirements
 - [NodeJs](https://nodejs.org/en/) <br />
