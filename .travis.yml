@@ -5,7 +5,7 @@ addons:
 
 before_script:
 - cd client/
-- npm install npm@5 -g
+- npm install npm -g
 - npm cache verify
 - npm update
 - npm install
