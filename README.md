@@ -1,10 +1,6 @@
 # Projet Intégrateur 2e année - 2nd Year School Project
-### Global
-[![Maintainability](https://api.codeclimate.com/v1/badges/9f7b3d6644e3111ea5fa/maintainability)](https://codeclimate.com/github/seb9465/Projet2/maintainability)   
-
-### Client   
-[![Build Status](https://travis-ci.org/seb9465/Projet2.svg?branch=master)](https://travis-ci.org/seb9465/Projet2)    
-### Serveur - Server
+[![Maintainability](https://api.codeclimate.com/v1/badges/9f7b3d6644e3111ea5fa/maintainability)](https://codeclimate.com/github/seb9465/Projet2/maintainability)    
+[![Build Status](https://travis-ci.org/seb9465/Projet2.svg?branch=master)](https://travis-ci.org/seb9465/Projet2)
 
 ## Exigences - Requirements
 - [NodeJs](https://nodejs.org/en/) <br />
