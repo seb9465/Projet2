@@ -1,5 +1,8 @@
 language: nodejs
 
+addons:
+  chrome: stable
+
 before_script:
 - cd client/
 - npm install npm@5 -g
@@ -12,6 +15,6 @@ install:
 - npm install
 
 script:
-- npm run test
+- npm run test:ci
 - npm run build
 - npm start
