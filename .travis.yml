@@ -2,8 +2,16 @@ language: nodejs
 
 before_script:
 - cd client/
+- npm install npm@5 -g
+- npm cache verify
+- npm update
 - npm install
 - npm run build
 
+install:
+- npm install
+
 script:
 - npm run test
+- npm run build
+- npm start
