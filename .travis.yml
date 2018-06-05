@@ -1,0 +1,9 @@
+language: nodejs
+
+before_script:
+- cd client/
+- npm install
+- npm run build
+
+script:
+- npm run test
