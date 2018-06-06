@@ -3,7 +3,7 @@ import { PositionalAudio } from "three";
 
 export class SonCollision extends SonAbstrait {
 
-    private _audio: PositionalAudio;
+    // private _audio: PositionalAudio;
 
     public constructor() {
         super();
@@ -19,14 +19,14 @@ export class SonCollision extends SonAbstrait {
         },                     () => {}, () => {});
     }
 
-    public get obtenirSon(): PositionalAudio {
-        return this._audio;
-    }
+    // public get obtenirSon(): PositionalAudio {
+    //     return this._audio;
+    // }
 
-    public jouerSon(): void {
-        if (!this._audio.isPlaying) {
-            this._audio.play();
-        }
-    }
+    // public jouerSon(): void {
+    //     if (!this._audio.isPlaying) {
+    //         this._audio.play();
+    //     }
+    // }
 
 }

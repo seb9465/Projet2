@@ -1,13 +1,13 @@
 import { SonAbstrait, LISTENER } from "./SonAbstrait";
-import { Audio } from "three";
+import { PositionalAudio } from "three";
 
 export class SonDepart extends SonAbstrait {
 
-    private _audio: Audio;
+    // private _audio: Audio;
 
     public constructor() {
         super();
-        this._audio = new Audio(LISTENER);
+        this._audio = new PositionalAudio(LISTENER);
         this.initialisationSon();
     }
 
@@ -18,12 +18,12 @@ export class SonDepart extends SonAbstrait {
         },                     () => {}, () => {});
     }
 
-    public get obtenirSon(): Audio {
-        return this._audio;
-    }
+    // public get obtenirSon(): Audio {
+    //     return this._audio;
+    // }
 
-    public jouerSon(): void {
-        this._audio.play();
-    }
+    // public jouerSon(): void {
+    //     this._audio.play();
+    // }
 
 }
