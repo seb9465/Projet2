@@ -8,7 +8,7 @@ import { ErreurModificationBaseDonnees } from "../exceptions/erreurModificationB
 import { ErreurConnectionBD } from "../exceptions/erreurConnectionBD";
 import "reflect-metadata";
 
-const URL_BD: string = "mongodb://admin:admin@ds123129.mlab.com:23129/log2990";
+const URL_BD: string = "mongodb://admin:Projet2@ds151180.mlab.com:51180/projet2db";
 
 @injectable()
 export class BaseDonneesCourse {
