@@ -6,8 +6,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --sourcemaps=false",
+    "test": "ng test",
     "test:ci": "karma start karma.ci.conf.js",
+    "test:single": "ng test --watch=false",
     "lint": "ng lint --type-check --format stylish",
     "git-master-merged": "git-master-merged"
   },
