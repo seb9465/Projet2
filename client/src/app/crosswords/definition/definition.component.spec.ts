@@ -282,9 +282,7 @@ describe("DefinitionComponent", () => {
 
             for (let indice: number = 0; indice < unMot.longueur; indice++) {
                 expect(
-                    fixture.componentInstance.matriceDesMotsSurGrille[
-                        unMot.premierX + indice
-                    ][unMot.premierY]
+                    fixture.componentInstance.matriceDesMotsSurGrille[unMot.premierX + indice][unMot.premierY]
                 ).toBeTruthy();
             }
         });
