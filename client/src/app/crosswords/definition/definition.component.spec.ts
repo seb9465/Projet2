@@ -7,7 +7,7 @@ describe("DefinitionComponent", () => {
     let mockServiceInteractionComp: jasmine.SpyObj<ServiceInteractionComponent>;
 
     beforeEach(() => {
-        // Ajouter les noms d'attributs utilisés de Service Interaction ici.
+        // Ajouter les noms d"attributs utilisés de Service Interaction ici.
         mockServiceInteractionComp = jasmine.createSpyObj([
             "mots",
             "matrice",
@@ -22,14 +22,25 @@ describe("DefinitionComponent", () => {
         TestBed.configureTestingModule({
             declarations: [DefinitionComponent],
             providers: [
-                { provide: ServiceInteractionComponent, useValue: mockServiceInteractionComp}
+                {
+                    provide: ServiceInteractionComponent,
+                    useValue: mockServiceInteractionComp
+                }
             ]
         });
 
         fixture = TestBed.createComponent(DefinitionComponent);
     });
 
+    afterEach(() => {
+
+    });
+
     it("should do nothing", () => {
         expect(true).toBe(true);
+    });
+
+    it("should be define", () => {
+        expect(fixture).toBeDefined();
     });
 });
