@@ -103,12 +103,20 @@ export class DefinitionComponent implements OnInit, OnDestroy {
 
     private souscrireMotsTrouves(): void {
         this.subscriptionMotTrouve = this.listeMotsService.serviceReceptionMotTrouve()
-            .subscribe((mot: Mot) => document.getElementById(mot.mot).classList.add("motTrouve"));
+            .subscribe((mot: Mot) => {
+                if (document.getElementById(mot.mot)) {
+                    document.getElementById(mot.mot).classList.add("motTrouve");
+                }
+            });
     }
 
     private souscrireMotsPerdus(): void {
         this.subscriptionMotPerdu = this.listeMotsService.serviceReceptionMotPerdu()
-            .subscribe((mot: Mot) => document.getElementById(mot.mot).classList.add("motPerdu"));
+            .subscribe((mot: Mot) => {
+                if (document.getElementById(mot.mot)) {
+                    document.getElementById(mot.mot).classList.add("motPerdu");
+                }
+            });
     }
 
     // Changement d'un mot
