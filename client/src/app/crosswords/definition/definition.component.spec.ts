@@ -20,19 +20,7 @@ describe("DefinitionComponent", () => {
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
         ],
         [
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
-        ],
-        [
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "k", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
@@ -44,19 +32,7 @@ describe("DefinitionComponent", () => {
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
         ],
         [
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
-        ],
-        [
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "e", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
@@ -68,19 +44,7 @@ describe("DefinitionComponent", () => {
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
         ],
         [
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
-        ],
-        [
-            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "t", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
@@ -92,7 +56,43 @@ describe("DefinitionComponent", () => {
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
         ],
         [
+            { caseDecouverte: false, lettre: "c", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+        ],
+        [
+            { caseDecouverte: false, lettre: "h", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+        ],
+        [
+            { caseDecouverte: false, lettre: "u", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+            { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+        ],
+        [
+            { caseDecouverte: false, lettre: "p", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
@@ -128,7 +128,7 @@ describe("DefinitionComponent", () => {
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
         ]
     ];
-    const unMot: Mot = {
+    const unMotHorizontal: Mot = {
         mot: "moutarde",
         definitions: undefined,
         estVertical: false,
@@ -140,8 +140,20 @@ describe("DefinitionComponent", () => {
         cheat: false,
         positionsLettres: []
     };
-    const mockMots: Mot[] = [unMot];
-    const mockMot: Mot = unMot;
+    const unMotVertical: Mot = {
+        mot: "ketchup",
+        definitions: undefined,
+        estVertical: true,
+        longueur: 7,
+        premierX: 0,
+        premierY: 1,
+        activer: false,
+        motTrouve: false,
+        cheat: false,
+        positionsLettres: []
+    };
+    const mockMots: Mot[] = [unMotHorizontal];
+    const mockMot: Mot = unMotHorizontal;
     let fixture: ComponentFixture<DefinitionComponent>;
     let mockServiceInteractionComp: jasmine.SpyObj<ServiceInteractionComponent>;
 
@@ -275,27 +287,65 @@ describe("DefinitionComponent", () => {
         });
     });
     describe("Decouvrir cases", () => {
-        it("Should have put truthy the newly undercovered boxes.", () => {
-            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+        describe("with an horizontal word", () => {
+            it("Should have put truthy the newly undercovered boxes.", () => {
+                fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
 
-            fixture.componentInstance["decouvrirCases"](unMot);
+                fixture.componentInstance["decouvrirCases"](unMotHorizontal);
 
-            for (let indice: number = 0; indice < unMot.longueur; indice++) {
-                expect(
-                    fixture.componentInstance.matriceDesMotsSurGrille[unMot.premierX + indice][unMot.premierY]
-                ).toBeTruthy();
-            }
+                for (
+                    let indice: number = 0;
+                    indice < unMotHorizontal.longueur;
+                    indice++
+                ) {
+                    expect(
+                        fixture.componentInstance.matriceDesMotsSurGrille[
+                            unMotHorizontal.premierX + indice
+                        ][unMotHorizontal.premierY]
+                    ).toBeTruthy();
+                }
+            });
+            it("Should have call the Envoie Matrice function.", () => {
+                const spy = spyOn<any>(
+                    DefinitionComponent.prototype,
+                    "envoieMatrice"
+                );
+                fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+
+                fixture.componentInstance["decouvrirCases"](unMotHorizontal);
+
+                expect(spy).toHaveBeenCalled();
+            });
         });
-        it("Should have call the Envoie Matrice function.", () => {
-            const spy = spyOn<any>(
-                DefinitionComponent.prototype,
-                "envoieMatrice"
-            );
-            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+        describe("with a vertical word", () => {
+            it("Should have put truthy the newly undercovered boxes.", () => {
+                fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
 
-            fixture.componentInstance["decouvrirCases"](unMot);
+                fixture.componentInstance["decouvrirCases"](unMotVertical);
 
-            expect(spy).toHaveBeenCalled();
+                for (
+                    let indice: number = 0;
+                    indice < unMotVertical.longueur;
+                    indice++
+                ) {
+                    expect(
+                        fixture.componentInstance.matriceDesMotsSurGrille[
+                            unMotVertical.premierX
+                        ][unMotVertical.premierY + indice]
+                    ).toBeTruthy();
+                }
+            });
+            it("Should have call the Envoie Matrice function.", () => {
+                const spy = spyOn<any>(
+                    DefinitionComponent.prototype,
+                    "envoieMatrice"
+                );
+                fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+
+                fixture.componentInstance["decouvrirCases"](unMotVertical);
+
+                expect(spy).toHaveBeenCalled();
+            });
         });
     });
 });
