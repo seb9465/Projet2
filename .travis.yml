@@ -1,8 +1,5 @@
 language: nodejs
 
-addons:
-  chrome: stable
-
 before_script:
 - cd client/
 - npm install npm -g
