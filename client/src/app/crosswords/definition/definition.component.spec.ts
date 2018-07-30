@@ -126,7 +126,7 @@ describe("DefinitionComponent", () => {
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
             { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
-        ],
+        ]
     ];
     const unMot: Mot = {
         mot: "moutarde",
@@ -140,9 +140,7 @@ describe("DefinitionComponent", () => {
         cheat: false,
         positionsLettres: []
     };
-    const mockMots: Mot[] = [
-        unMot
-    ];
+    const mockMots: Mot[] = [unMot];
     const mockMot: Mot = unMot;
     let fixture: ComponentFixture<DefinitionComponent>;
     let mockServiceInteractionComp: jasmine.SpyObj<ServiceInteractionComponent>;
@@ -209,71 +207,97 @@ describe("DefinitionComponent", () => {
         });
         describe("Reception Matrice", () => {
             it("Service's function should be called to return a value.", () => {
-                mockServiceInteractionComp.serviceReceptionMatriceLettres.and.returnValue(of(mockMatrice));
+                mockServiceInteractionComp.serviceReceptionMatriceLettres.and.returnValue(
+                    of(mockMatrice)
+                );
 
                 fixture.componentInstance["souscrireReceptionMatrice"]();
 
-                expect(mockServiceInteractionComp.serviceReceptionMatriceLettres).toHaveBeenCalled();
+                expect(
+                    mockServiceInteractionComp.serviceReceptionMatriceLettres
+                ).toHaveBeenCalled();
             });
             it("Current component should receive the good value from the service.", () => {
-                mockServiceInteractionComp.serviceReceptionMatriceLettres.and.returnValue(of(mockMatrice));
+                mockServiceInteractionComp.serviceReceptionMatriceLettres.and.returnValue(
+                    of(mockMatrice)
+                );
 
                 fixture.componentInstance["souscrireReceptionMatrice"]();
 
-                expect(fixture.componentInstance.matriceDesMotsSurGrille).toBe(mockMatrice);
+                expect(fixture.componentInstance.matriceDesMotsSurGrille).toBe(
+                    mockMatrice
+                );
             });
         });
         describe("Reception Mot Trouve", () => {
             it("Service's function should be called to return a value.", () => {
-                mockServiceInteractionComp.serviceReceptionMotTrouve.and.returnValue(of(mockMot));
+                mockServiceInteractionComp.serviceReceptionMotTrouve.and.returnValue(
+                    of(mockMot)
+                );
 
                 fixture.componentInstance["souscrireMotsTrouves"]();
 
-                expect(mockServiceInteractionComp.serviceReceptionMotTrouve).toHaveBeenCalled();
+                expect(
+                    mockServiceInteractionComp.serviceReceptionMotTrouve
+                ).toHaveBeenCalled();
             });
         });
         describe("Reception Mot Perdu", () => {
             it("Services's function shoudl be called to return a value.", () => {
-                mockServiceInteractionComp.serviceReceptionMotPerdu.and.returnValue(of(mockMot));
+                mockServiceInteractionComp.serviceReceptionMotPerdu.and.returnValue(
+                    of(mockMot)
+                );
 
                 fixture.componentInstance["souscrireMotsPerdus"]();
 
-                expect(mockServiceInteractionComp.serviceReceptionMotPerdu).toHaveBeenCalled();
+                expect(
+                    mockServiceInteractionComp.serviceReceptionMotPerdu
+                ).toHaveBeenCalled();
             });
         });
         describe("Envoie Matrice Lettres", () => {
             it("Should call the service's function.", () => {
                 fixture.componentInstance["envoieMatrice"]();
 
-                expect(mockServiceInteractionComp.serviceEnvoieMatriceLettres).toHaveBeenCalled();
+                expect(
+                    mockServiceInteractionComp.serviceEnvoieMatriceLettres
+                ).toHaveBeenCalled();
             });
         });
         describe("Envoie Mot Selectionne", () => {
             it("Should call the service's function.", () => {
                 fixture.componentInstance["envoieMotSelectionne"]();
 
-                expect(mockServiceInteractionComp.serviceEnvoieMotSelectionne).toHaveBeenCalled();
+                expect(
+                    mockServiceInteractionComp.serviceEnvoieMotSelectionne
+                ).toHaveBeenCalled();
             });
         });
     });
-    it("decouvrir case", () => {
-        const spy = spyOn<any>(DefinitionComponent.prototype, "envoieMatrice");
-        fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+    describe("Decouvrir cases", () => {
+        it("Should have put truthy the newly undercovered boxes.", () => {
+            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
 
-        fixture.componentInstance["decouvrirCases"](unMot);
+            fixture.componentInstance["decouvrirCases"](unMot);
 
-        expect(spy).toHaveBeenCalled();
-        // expect(fixture.componentInstance["decouvrirCases"]).toHaveBeenCalled();
-        for (let indice: number = 0; indice < unMot.longueur; indice++) {
-            expect(fixture.componentInstance.matriceDesMotsSurGrille[unMot.premierX + indice][unMot.premierY]).toBeTruthy();
-        }
-    });
-    it("Decouvrir cases", () => {
-        const spy = spyOn<any>(DefinitionComponent.prototype, "envoieMatrice");
-        fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+            for (let indice: number = 0; indice < unMot.longueur; indice++) {
+                expect(
+                    fixture.componentInstance.matriceDesMotsSurGrille[
+                        unMot.premierX + indice
+                    ][unMot.premierY]
+                ).toBeTruthy();
+            }
+        });
+        it("Should have call the Envoie Matrice function.", () => {
+            const spy = spyOn<any>(
+                DefinitionComponent.prototype,
+                "envoieMatrice"
+            );
+            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
 
-        fixture.componentInstance["decouvrirCases"](unMot);
+            fixture.componentInstance["decouvrirCases"](unMot);
 
-        expect(spy).toHaveBeenCalled();
+            expect(spy).toHaveBeenCalled();
+        });
     });
 });
