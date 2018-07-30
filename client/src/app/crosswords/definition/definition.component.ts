@@ -33,11 +33,21 @@ export class DefinitionComponent implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this.subscriptionMots.unsubscribe();
-        this.subscriptionMatrice.unsubscribe();
-        this.subscriptionMotSelec.unsubscribe();
-        this.subscriptionMotTrouve.unsubscribe();
-        this.subscriptionMotPerdu.unsubscribe();
+        if (this.subscriptionMots) {
+            this.subscriptionMots.unsubscribe();
+        }
+        if (this.subscriptionMatrice) {
+            this.subscriptionMatrice.unsubscribe();
+        }
+        if (this.subscriptionMotSelec) {
+            this.subscriptionMotSelec.unsubscribe();
+        }
+        if (this.subscriptionMotTrouve) {
+            this.subscriptionMotTrouve.unsubscribe();
+        }
+        if (this.subscriptionMotPerdu) {
+            this.subscriptionMotPerdu.unsubscribe();
+        }
     }
 
     public get mots(): Mot[] {
