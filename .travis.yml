@@ -1,6 +1,7 @@
 language: nodejs
 
 before_script:
+- npm install -g @angular/cli
 - cd client/
 - npm install npm -g
 - npm install -g codecov
