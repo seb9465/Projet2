@@ -183,8 +183,6 @@ describe("DefinitionComponent", () => {
         fixture = TestBed.createComponent(DefinitionComponent);
     });
 
-    afterEach(() => {});
-
     it("should do nothing", () => {
         expect(true).toBe(true);
     });
@@ -384,6 +382,33 @@ describe("DefinitionComponent", () => {
 
                 expect(fixture.componentInstance["_motSelectionne"]).toBe(mockMot);
             });
+        });
+    });
+    describe("ChangementMot function", () => {
+        beforeEach(() => {
+            fixture.componentInstance.mots = mockMots;
+
+            fixture.componentInstance["changementMot"](unMotHorizontal);
+        });
+        it("Should set the property motSelectionne with the good value.", () => {
+            expect(fixture.componentInstance.motSelectionne).toBe(unMotHorizontal);
+        });
+        it("Should set the property activer of motSelectionne to true.", () => {
+            expect(fixture.componentInstance.motSelectionne.activer).toBeTruthy();
+        });
+    });
+    describe("DecouvrirCase function.", () => {
+        beforeEach(() => {
+            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+
+            // fixture.componentInstance["decouvrirCases"](unMotHorizontal);
+        });
+        it("Should be calling the EnvoieMatriceLettres function of the listeMotsService service.", () => {
+            const stub: jasmine.Spy = mockServiceInteractionComp.serviceEnvoieMatriceLettres.and.stub();
+
+            fixture.componentInstance["decouvrirCases"](unMotHorizontal);
+
+            expect(stub).toHaveBeenCalled();
         });
     });
 });
