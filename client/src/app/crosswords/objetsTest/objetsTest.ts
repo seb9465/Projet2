@@ -3,7 +3,7 @@ import { LettreGrille } from "./lettreGrille";
 
 export const listeMotsLongue: Mot[] = [
     {
-        definitions: [{definition: "beneath the surface of the water"}],
+        definitions: [{ definition: "beneath the surface of the water" }],
         estVertical: false,
         longueur: 10,
         mot: "underwater",
@@ -15,7 +15,7 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "destroyed physically or morally"}],
+        definitions: [{ definition: "destroyed physically or morally" }],
         estVertical: true,
         longueur: 9,
         mot: "destroyed",
@@ -27,7 +27,9 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "a person employed to watch for something to happen"}],
+        definitions: [
+            { definition: "a person employed to watch for something to happen" }
+        ],
         estVertical: false,
         longueur: 8,
         mot: "sentinel",
@@ -39,7 +41,7 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "the act of robbing a helpless person"}],
+        definitions: [{ definition: "the act of robbing a helpless person" }],
         estVertical: true,
         longueur: 7,
         mot: "rolling",
@@ -51,7 +53,7 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "anew"}],
+        definitions: [{ definition: "anew" }],
         estVertical: false,
         longueur: 5,
         mot: "again",
@@ -63,7 +65,7 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "a strong restless desire"}],
+        definitions: [{ definition: "a strong restless desire" }],
         estVertical: true,
         longueur: 5,
         mot: "urged",
@@ -75,7 +77,7 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "a branch of the Tai languages"}],
+        definitions: [{ definition: "a branch of the Tai languages" }],
         estVertical: true,
         longueur: 4,
         mot: "thai",
@@ -87,7 +89,9 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "a way especially designed for a particular use"}],
+        definitions: [
+            { definition: "a way especially designed for a particular use" }
+        ],
         estVertical: true,
         longueur: 4,
         mot: "path",
@@ -99,7 +103,12 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "the act of rolling something (as the ball in bowling)"}],
+        definitions: [
+            {
+                definition:
+                    "the act of rolling something (as the ball in bowling)"
+            }
+        ],
         estVertical: true,
         longueur: 4,
         mot: "roll",
@@ -111,7 +120,7 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "eat a meal; take a meal"}],
+        definitions: [{ definition: "eat a meal; take a meal" }],
         estVertical: false,
         longueur: 3,
         mot: "eat",
@@ -123,7 +132,9 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "a surface excavation for extracting stone or slate"}],
+        definitions: [
+            { definition: "a surface excavation for extracting stone or slate" }
+        ],
         estVertical: false,
         longueur: 3,
         mot: "pit",
@@ -135,7 +146,12 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "(nautical) the distance traveled by a sailing vessel on a single tack"}],
+        definitions: [
+            {
+                definition:
+                    "(nautical) the distance traveled by a sailing vessel on a single tack"
+            }
+        ],
         estVertical: false,
         longueur: 3,
         mot: "leg",
@@ -147,7 +163,12 @@ export const listeMotsLongue: Mot[] = [
         positionsLettres: []
     },
     {
-        definitions: [{definition: "a movable top or cover (hinged or separate) for closing the opening of a container"}],
+        definitions: [
+            {
+                definition:
+                    "a movable top or cover (hinged or separate) for closing the opening of a container"
+            }
+        ],
         estVertical: false,
         longueur: 3,
         mot: "lid",
@@ -161,8 +182,13 @@ export const listeMotsLongue: Mot[] = [
     {
         // On ne peut pas separer un string sur plusieurs lignes
         // tslint:disable-next-line:max-line-length
-        definitions: [{definition: "the fourth caliph of Islam who is considered to be the first caliph by Shiites;he was a cousin" +
-                                  "and son-in-law of Muhammad; after his assination Islam was divided into Shiite and Sunnite sects"}],
+        definitions: [
+            {
+                definition:
+                    "the fourth caliph of Islam who is considered to be the first caliph by Shiites;he was a cousin" +
+                    "and son-in-law of Muhammad; after his assination Islam was divided into Shiite and Sunnite sects"
+            }
+        ],
         estVertical: false,
         longueur: 3,
         mot: "ali",
@@ -297,3 +323,152 @@ export const grilleLettres: LettreGrille[][] = [
         { caseDecouverte: false, lettre: "n", lettreDecouverte: false }
     ]
 ];
+
+export const mockMatrice: LettreGrille[][] = [
+    [
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "o", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "u", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "t", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "a", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "r", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "d", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "e", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: false, lettre: "k", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: false, lettre: "e", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: false, lettre: "t", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: false, lettre: "c", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: false, lettre: "h", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: false, lettre: "u", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: false, lettre: "p", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: false, lettre: "m", lettreDecouverte: false }
+    ]
+];
+
+export const unMotHorizontal: Mot = {
+    mot: "moutarde",
+    definitions: undefined,
+    estVertical: false,
+    longueur: 8,
+    premierX: 0,
+    premierY: 0,
+    activer: false,
+    motTrouve: false,
+    cheat: false,
+    positionsLettres: []
+};
+
+export const unMotVertical: Mot = {
+    mot: "ketchup",
+    definitions: undefined,
+    estVertical: true,
+    longueur: 7,
+    premierX: 0,
+    premierY: 1,
+    activer: false,
+    motTrouve: false,
+    cheat: false,
+    positionsLettres: []
+};
