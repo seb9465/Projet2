@@ -33,7 +33,36 @@ describe("Grille Focus", () => {
 
     describe("focusSurBonneLettre function", () => {});
 
-    describe("focusOnNextLetter function", () => {});
+    describe("focusOnNextLetter function", () => {
+        it("Should return false when positionCourante is at 0.", () => {
+            const result: boolean = component["focusOnNextLetter"](unMot);
+
+            expect(result).toBeFalsy();
+        });
+        it("Should return true when positionCourante is at the last word's letter.", () => {
+            component["positionCourante"] = unMot.longueur - 1;
+
+            const result: boolean = component["focusOnNextLetter"](unMot);
+
+            expect(result).toBeTruthy();
+        });
+        it("Should return false when positionCourante is anywhere between 0 and the last-before word's letter.", () => {
+            const positionCouranteRandom: number = 2;
+            component["positionCourante"] = positionCouranteRandom;
+
+            const result: boolean = component["focusOnNextLetter"](unMot);
+
+            expect(result).toBeFalsy();
+        });
+        it("Should return false when positionCourante is over the word's length.", () => {
+            const positionCourante: number = unMot.longueur = 5;
+            component["positionCourante"] = positionCourante;
+
+            const result: boolean = component["focusOnNextLetter"](unMot);
+
+            expect(result).toBeFalsy();
+        });
+    });
 
     describe("removeFocusFromSelectedWord function", () => {});
 
