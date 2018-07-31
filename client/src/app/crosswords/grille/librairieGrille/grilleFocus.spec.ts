@@ -55,10 +55,15 @@ describe("Grille Focus", () => {
             expect(result).toBeFalsy();
         });
         it("Should return false when positionCourante is over the word's length.", () => {
-            const positionCourante: number = unMot.longueur = 5;
+            const positionCourante: number = unMot.longueur + 5;
             component["positionCourante"] = positionCourante;
 
             const result: boolean = component["focusOnNextLetter"](unMot);
+
+            expect(result).toBeFalsy();
+        });
+        it("Should return false if the word given is empty.", () => {
+            const result: boolean = component["focusOnNextLetter"](unMotVide);
 
             expect(result).toBeFalsy();
         });
