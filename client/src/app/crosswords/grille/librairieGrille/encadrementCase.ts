@@ -40,5 +40,4 @@ export class EncadrementCase {
             uneCase.style.borderRightWidth = largeur;
         }
     }
-
 }
