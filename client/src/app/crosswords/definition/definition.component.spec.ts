@@ -348,4 +348,42 @@ describe("DefinitionComponent", () => {
             });
         });
     });
+    describe("Getter - Setter", () => {
+        describe("For the property mots", () => {
+            it("Should get the good value.", () => {
+                fixture.componentInstance["_mots"] = mockMots;
+
+                expect(fixture.componentInstance.mots).toBe(mockMots);
+            });
+            it("Should set the good value.", () => {
+                fixture.componentInstance.mots = mockMots;
+
+                expect(fixture.componentInstance["_mots"]).toBe(mockMots);
+            });
+        });
+        describe("For the property matriceDesMotsSurGrille.", () => {
+            it("Should get the good value.", () => {
+                fixture.componentInstance["_matriceDesMotsSurGrille"] = mockMatrice;
+
+                expect(fixture.componentInstance.matriceDesMotsSurGrille).toBe(mockMatrice);
+            });
+            it("Should set the good value.", () => {
+                fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+
+                expect(fixture.componentInstance["_matriceDesMotsSurGrille"]).toBe(mockMatrice);
+            });
+        });
+        describe("For the property motSelectionne.", () => {
+            it("Should get the good value.", () => {
+                fixture.componentInstance["_motSelectionne"] = mockMot;
+
+                expect(fixture.componentInstance.motSelectionne).toBe(mockMot);
+            });
+            it("Should set the good value.", () => {
+                fixture.componentInstance.motSelectionne = mockMot;
+
+                expect(fixture.componentInstance["_motSelectionne"]).toBe(mockMot);
+            });
+        });
+    });
 });
