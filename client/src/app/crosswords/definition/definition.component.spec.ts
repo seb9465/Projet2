@@ -304,7 +304,7 @@ describe("DefinitionComponent", () => {
                 }
             });
             it("Should have call the Envoie Matrice function.", () => {
-                const spy = spyOn<any>(
+                const spy: jasmine.Spy = spyOn<any>(
                     DefinitionComponent.prototype,
                     "envoieMatrice"
                 );
@@ -316,9 +316,10 @@ describe("DefinitionComponent", () => {
             });
         });
         describe("with a vertical word", () => {
-            it("Should have put truthy the newly undercovered boxes.", () => {
+            beforeEach(() => {
                 fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
-
+            });
+            it("Should have put truthy the newly undercovered boxes.", () => {
                 fixture.componentInstance["decouvrirCases"](unMotVertical);
 
                 for (
@@ -338,11 +339,17 @@ describe("DefinitionComponent", () => {
                     DefinitionComponent.prototype,
                     "envoieMatrice"
                 );
-                fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
 
                 fixture.componentInstance["decouvrirCases"](unMotVertical);
 
                 expect(spy).toHaveBeenCalled();
+            });
+            it("Should e calling the EnvoieMatriceLettres function, in another way.", () => {
+                const stub: jasmine.Spy = mockServiceInteractionComp.serviceEnvoieMatriceLettres.and.stub();
+
+                fixture.componentInstance["decouvrirCases"](unMotHorizontal);
+
+                expect(stub).toHaveBeenCalled();
             });
         });
     });
@@ -395,20 +402,6 @@ describe("DefinitionComponent", () => {
         });
         it("Should set the property activer of motSelectionne to true.", () => {
             expect(fixture.componentInstance.motSelectionne.activer).toBeTruthy();
-        });
-    });
-    describe("DecouvrirCase function.", () => {
-        beforeEach(() => {
-            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
-
-            // fixture.componentInstance["decouvrirCases"](unMotHorizontal);
-        });
-        it("Should be calling the EnvoieMatriceLettres function of the listeMotsService service.", () => {
-            const stub: jasmine.Spy = mockServiceInteractionComp.serviceEnvoieMatriceLettres.and.stub();
-
-            fixture.componentInstance["decouvrirCases"](unMotHorizontal);
-
-            expect(stub).toHaveBeenCalled();
         });
     });
 });
