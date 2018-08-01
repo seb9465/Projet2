@@ -2,7 +2,7 @@ import { EncadrementCase } from "./encadrementCase";
 import { LARGEUR_BORDURE_CASE_DEFAUT, COULEUR_BORDURE_CASE_DEFAUT } from "../../constantes";
 
 describe("Encadrement Case", () => {
-    describe("Border", () => {
+    describe("appliquerBordure... function", () => {
         let uneCase: HTMLElement;
         let uneCouleur: string;
         let uneLargeur: string;
@@ -62,4 +62,51 @@ describe("Encadrement Case", () => {
             });
         });
     });
+
+    describe("appliquerStyleDefautGrille function", () => {
+        let doc: Document;
+        let tagElem: HTMLElement;
+
+        beforeEach(() => {
+            doc = new Document();
+            tagElem = document.createElement("td");
+            doc.appendChild(tagElem);
+
+            EncadrementCase.appliquerStyleDefautGrille(doc);
+        });
+
+        it("Should get a defined tag element.", () => {
+            expect(doc.getElementsByTagName("td")[0]).toBeDefined();
+        });
+        it("Should get a tag element with the default top border color.", () => {
+            expect(doc.getElementsByTagName("td")[0].style.borderTopColor).toBe(COULEUR_BORDURE_CASE_DEFAUT);
+        });
+        it("Should get a tag element with the default top border style.", () => {
+            const expectedColor: string = COULEUR_BORDURE_CASE_DEFAUT;
+            const expectedWidth: string = LARGEUR_BORDURE_CASE_DEFAUT;
+
+            expect(doc.getElementsByTagName("td")[0].style.borderTopColor).toBe(expectedColor);
+            expect(doc.getElementsByTagName("td")[0].style.borderTopWidth).toBe(expectedWidth);
+        });
+        it("Should get a tag element with the default bottom border style.", () => {
+            const expectedColor: string = COULEUR_BORDURE_CASE_DEFAUT;
+            const expectedWidth: string = LARGEUR_BORDURE_CASE_DEFAUT;
+
+            expect(doc.getElementsByTagName("td")[0].style.borderBottomColor).toBe(expectedColor);
+            expect(doc.getElementsByTagName("td")[0].style.borderBottomWidth).toBe(expectedWidth);
+        });
+        it("Should get a tag element with the default right border style.", () => {
+            const expectedColor: string = COULEUR_BORDURE_CASE_DEFAUT;
+            const expectedWidth: string = LARGEUR_BORDURE_CASE_DEFAUT;
+
+            expect(doc.getElementsByTagName("td")[0].style.borderRightColor).toBe(expectedColor);
+            expect(doc.getElementsByTagName("td")[0].style.borderRightWidth).toBe(expectedWidth);
+        });
+        it("Should get a tag element with the default left border style.", () => {
+            const expectedColor: string = COULEUR_BORDURE_CASE_DEFAUT;
+            const expectedWidth: string = LARGEUR_BORDURE_CASE_DEFAUT;
+
+            expect(doc.getElementsByTagName("td")[0].style.borderLeftColor).toBe(expectedColor);
+            expect(doc.getElementsByTagName("td")[0].style.borderLeftWidth).toBe(expectedWidth);
+        });
 });
