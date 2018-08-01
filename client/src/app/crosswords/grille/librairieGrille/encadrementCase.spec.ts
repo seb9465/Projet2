@@ -207,4 +207,6 @@ describe("Encadrement Case", () => {
                 expect(spy).toHaveBeenCalledTimes(TAILLE_TABLEAU * TAILLE_TABLEAU);
             });
         });
+
+    });
 });
