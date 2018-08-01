@@ -7,19 +7,67 @@ import {
 } from "./../../objetsTest/objetsTest";
 import { TAILLE_TABLEAU } from "./../../../../../../server/app/generateurGrille/constantes";
 import { LettreGrille } from "./../../objetsTest/lettreGrille";
+import { Mot } from "../../objetsTest/mot";
 
 describe("Opacite Case", () => {
-    beforeEach(() => {});
+    beforeEach(() => {
+        for (const ligne of matriceCaseDecouverteTrue) {
+            for (const lettre of ligne) {
+                lettre.caseDecouverte = true;
+            }
+        }
+    });
 
     it("Should do nothing.", () => {
         expect(true).toBe(true);
     });
 
-    describe("decouvrirCase function", () => {});
+    describe("decouvrirCase function", () => {
+        it("Should set every letter's caseDecouverte property to true of the horizontal word given as a parameter.", () => {
+            const mockMatriceCaseDecouverte: Array<
+                Array<LettreGrille>
+            > = matriceCaseDecouverteTrue;
+            const mockMotHorizontal: Mot = unMotHorizontal;
+
+            OpaciteCase.decouvrirCases(
+                mockMotHorizontal,
+                mockMatriceCaseDecouverte
+            );
+
+            for (let i: number = 0; i < mockMotHorizontal.longueur; i++) {
+                const result: boolean =
+                    mockMatriceCaseDecouverte[mockMotHorizontal.premierX + i][
+                        mockMotHorizontal.premierY
+                    ].caseDecouverte;
+                expect(result).toBeTruthy();
+            }
+        });
+        it("Should set every letter's caseDecouverte property to true of the vertical word given as a parameter.", () => {
+            const mockMatriceCaseDecouverte: Array<
+                Array<LettreGrille>
+            > = matriceCaseDecouverteTrue;
+            const mockMotVertical: Mot = unMotVertical;
+
+            OpaciteCase.decouvrirCases(
+                mockMotVertical,
+                mockMatriceCaseDecouverte
+            );
+
+            for (let i: number = 0; i < mockMotVertical.longueur; i++) {
+                const result: boolean =
+                    mockMatriceCaseDecouverte[mockMotVertical.premierX][
+                        mockMotVertical.premierY + i
+                    ].caseDecouverte;
+                expect(result).toBeTruthy();
+            }
+        });
+    });
 
     describe("cacherCase function", () => {
         it("Should set every letter's caseDecouverte to false.", () => {
-            const mockMatriceCaseDecouverteTrue: Array<Array<LettreGrille>> = matriceCaseDecouverteTrue;
+            const mockMatriceCaseDecouverteTrue: Array<
+                Array<LettreGrille>
+            > = matriceCaseDecouverteTrue;
             for (const ligne of mockMatriceCaseDecouverteTrue) {
                 for (const lettre of ligne) {
                     expect(lettre.caseDecouverte).toBeTruthy();
@@ -133,12 +181,16 @@ describe("Opacite Case", () => {
             expect(result.lettre).not.toBe(expectedResult.lettre);
         });
         it("Should return undefined if the index goes out of the matrice's bounds.", () => {
-            const result: LettreGrille = OpaciteCase["obtenirLettreGrilleMotHorizontal"](unMotHorizontal, TAILLE_TABLEAU + 1, mockMatrice);
+            const result: LettreGrille = OpaciteCase[
+                "obtenirLettreGrilleMotHorizontal"
+            ](unMotHorizontal, TAILLE_TABLEAU + 1, mockMatrice);
 
             expect(result).toBeUndefined();
         });
         it("Should return undefined if the index is lower than 0.", () => {
-            const result: LettreGrille = OpaciteCase["obtenirLettreGrilleMotHorizontal"](unMotHorizontal, -1, mockMatrice);
+            const result: LettreGrille = OpaciteCase[
+                "obtenirLettreGrilleMotHorizontal"
+            ](unMotHorizontal, -1, mockMatrice);
 
             expect(result).toBeUndefined();
         });
