@@ -573,7 +573,7 @@ export const matriceCaseDecouverteTrue: LettreGrille[][] = [
 export const unMotVertical: Mot = {
     mot: "moutarde",
     definitions: undefined,
-    estVertical: false,
+    estVertical: true,
     longueur: 8,
     premierX: 0,
     premierY: 0,
@@ -586,7 +586,7 @@ export const unMotVertical: Mot = {
 export const unMotHorizontal: Mot = {
     mot: "ketchup",
     definitions: undefined,
-    estVertical: true,
+    estVertical: false,
     longueur: 7,
     premierX: 1,
     premierY: 0,
