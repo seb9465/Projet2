@@ -447,7 +447,7 @@ export const mockMatrice: LettreGrille[][] = [
     ]
 ];
 
-export const unMotHorizontal: Mot = {
+export const unMotVertical: Mot = {
     mot: "moutarde",
     definitions: undefined,
     estVertical: false,
@@ -460,13 +460,13 @@ export const unMotHorizontal: Mot = {
     positionsLettres: []
 };
 
-export const unMotVertical: Mot = {
+export const unMotHorizontal: Mot = {
     mot: "ketchup",
     definitions: undefined,
     estVertical: true,
     longueur: 7,
-    premierX: 0,
-    premierY: 1,
+    premierX: 1,
+    premierY: 0,
     activer: false,
     motTrouve: false,
     cheat: false,
