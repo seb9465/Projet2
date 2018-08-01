@@ -1,5 +1,6 @@
 import { Mot } from "../../objetsTest/mot";
 import { LettreGrille } from "../../objetsTest/lettreGrille";
+import { TAILLE_TABLEAU } from './../../constantes';
 
 export class OpaciteCase {
     public static decouvrirCases(mot: Mot, matriceDesMotsSurGrille: Array<Array<LettreGrille>> ): void {
@@ -20,10 +21,18 @@ export class OpaciteCase {
       }
 
     private static obtenirLettreGrilleMotVertical(mot: Mot, indice: number, matrice: Array<Array<LettreGrille>>): LettreGrille {
-    return matrice[mot.premierX][indice + mot.premierY];
+        if (mot.premierX >= TAILLE_TABLEAU || mot.premierY + indice >= TAILLE_TABLEAU) {
+            return undefined;
+        }
+
+        return matrice[mot.premierX][indice + mot.premierY];
     }
 
     private static obtenirLettreGrilleMotHorizontal(mot: Mot, indice: number, matrice: Array<Array<LettreGrille>>): LettreGrille {
-    return matrice[indice + mot.premierX][mot.premierY];
+        if (mot.premierX + indice >= TAILLE_TABLEAU || mot.premierY >= TAILLE_TABLEAU ) {
+            return undefined;
+        }
+
+        return matrice[indice + mot.premierX][mot.premierY];
     }
 }
