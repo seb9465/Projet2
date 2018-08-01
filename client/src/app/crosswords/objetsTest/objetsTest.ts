@@ -447,6 +447,129 @@ export const mockMatrice: LettreGrille[][] = [
     ]
 ];
 
+export const matriceCaseDecouverteTrue: LettreGrille[][] = [
+    [
+        { caseDecouverte: true, lettre: "o", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "u", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "t", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "a", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "r", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "d", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "e", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: true, lettre: "k", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: true, lettre: "e", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: true, lettre: "t", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: true, lettre: "c", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: true, lettre: "h", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: true, lettre: "u", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: true, lettre: "p", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ],
+    [
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false },
+        { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
+    ]
+];
+
 export const unMotVertical: Mot = {
     mot: "moutarde",
     definitions: undefined,
