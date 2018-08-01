@@ -29,7 +29,7 @@ export class OpaciteCase {
     }
 
     private static obtenirLettreGrilleMotHorizontal(mot: Mot, indice: number, matrice: Array<Array<LettreGrille>>): LettreGrille {
-        if (mot.premierX + indice >= TAILLE_TABLEAU || mot.premierY >= TAILLE_TABLEAU ) {
+        if (mot.premierX + indice >= TAILLE_TABLEAU || indice < 0 || mot.premierY >= TAILLE_TABLEAU || mot.premierY < 0) {
             return undefined;
         }
 
