@@ -1,6 +1,6 @@
 import { Mot } from "../../objetsTest/mot";
 import { LettreGrille } from "../../objetsTest/lettreGrille";
-import { TAILLE_TABLEAU } from './../../constantes';
+import { TAILLE_TABLEAU } from "./../../constantes";
 
 export class OpaciteCase {
     public static decouvrirCases(mot: Mot, matriceDesMotsSurGrille: Array<Array<LettreGrille>> ): void {
