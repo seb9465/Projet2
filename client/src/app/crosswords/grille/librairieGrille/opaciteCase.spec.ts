@@ -2,7 +2,8 @@ import { OpaciteCase } from "./opaciteCase";
 import {
     unMotVertical,
     mockMatrice,
-    unMotHorizontal
+    unMotHorizontal,
+    matriceCaseDecouverteTrue
 } from "./../../objetsTest/objetsTest";
 import { TAILLE_TABLEAU } from "./../../../../../../server/app/generateurGrille/constantes";
 import { LettreGrille } from "./../../objetsTest/lettreGrille";
@@ -16,7 +17,24 @@ describe("Opacite Case", () => {
 
     describe("decouvrirCase function", () => {});
 
-    describe("cacherCase function", () => {});
+    describe("cacherCase function", () => {
+        it("Should set every letter's caseDecouverte to false.", () => {
+            const mockMatriceCaseDecouverteTrue: Array<Array<LettreGrille>> = matriceCaseDecouverteTrue;
+            for (const ligne of mockMatriceCaseDecouverteTrue) {
+                for (const lettre of ligne) {
+                    expect(lettre.caseDecouverte).toBeTruthy();
+                }
+            }
+
+            OpaciteCase["cacherCases"](mockMatriceCaseDecouverteTrue);
+
+            for (const ligne of mockMatriceCaseDecouverteTrue) {
+                for (const lettre of ligne) {
+                    expect(lettre.caseDecouverte).toBeFalsy();
+                }
+            }
+        });
+    });
 
     describe("obtenirLettreGrilleMotVertical function", () => {
         it("Should return the letter m from the word moutarde.", () => {
@@ -45,7 +63,7 @@ describe("Opacite Case", () => {
 
             expect(result.lettre).toBe(expectedResult.lettre);
         });
-        it("Should return another letter if positionCourante is bigger than the word's length, but still inside the matrice.", () => {
+        it("Should return another letter if index is bigger than the word's length, but still inside the matrice.", () => {
             const expectedResult: LettreGrille = {
                 caseDecouverte: false,
                 lettre: "e",
@@ -58,14 +76,14 @@ describe("Opacite Case", () => {
 
             expect(result.lettre).not.toBe(expectedResult.lettre);
         });
-        it("Should return undefined if the positionCourante goes out of the matrice's bounds.", () => {
+        it("Should return undefined if the index goes out of the matrice's bounds.", () => {
             const result: LettreGrille = OpaciteCase[
                 "obtenirLettreGrilleMotVertical"
             ](unMotVertical, TAILLE_TABLEAU + 1, mockMatrice);
 
             expect(result).toBeUndefined();
         });
-        it("Should return undefined if the positionCourante is lower than 0.", () => {
+        it("Should return undefined if the index is lower than 0.", () => {
             const result: LettreGrille = OpaciteCase[
                 "obtenirLettreGrilleMotVertical"
             ](unMotVertical, -1, mockMatrice);
@@ -101,7 +119,7 @@ describe("Opacite Case", () => {
 
             expect(result.lettre).toBe(expectedResult.lettre);
         });
-        it("Should return another letter if positionCourante is bigger than the word's length, but still inside the matrice.", () => {
+        it("Should return another letter if index is bigger than the word's length, but still inside the matrice.", () => {
             const expectedResult: LettreGrille = {
                 caseDecouverte: false,
                 lettre: "p",
@@ -114,8 +132,13 @@ describe("Opacite Case", () => {
 
             expect(result.lettre).not.toBe(expectedResult.lettre);
         });
-        it("Should return undefined if the positionCourante goes out of the matrice's bounds.", () => {
+        it("Should return undefined if the index goes out of the matrice's bounds.", () => {
             const result: LettreGrille = OpaciteCase["obtenirLettreGrilleMotHorizontal"](unMotHorizontal, TAILLE_TABLEAU + 1, mockMatrice);
+
+            expect(result).toBeUndefined();
+        });
+        it("Should return undefined if the index is lower than 0.", () => {
+            const result: LettreGrille = OpaciteCase["obtenirLettreGrilleMotHorizontal"](unMotHorizontal, -1, mockMatrice);
 
             expect(result).toBeUndefined();
         });
