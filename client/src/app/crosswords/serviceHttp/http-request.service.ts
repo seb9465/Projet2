@@ -7,7 +7,7 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 
 export const DIFFICULTE_DEFAUT: Difficulte = Difficulte.Facile;
-const URL_REQUETE: string = "http://localhost:3000/grille/";
+export const URL_REQUETE: string = "http://localhost:3000/grille/";
 
 @Injectable()
 export class ServiceHttp {
