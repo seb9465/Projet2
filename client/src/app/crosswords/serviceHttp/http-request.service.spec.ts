@@ -1,5 +1,8 @@
 import { ServiceHttp, DIFFICULTE_DEFAUT, URL_REQUETE } from "./http-request.service";
 import { HttpClient } from "@angular/common/http";
+import { listeMotsLongue } from "../objetsTest/objetsTest";
+import { of } from "../../../../node_modules/rxjs/observable/of";
+import { Mot } from "../objetsTest/mot";
 
 describe("HTTP Service", () => {
     let service: ServiceHttp;
@@ -28,5 +31,11 @@ describe("HTTP Service", () => {
         expect(service["url"]).toBe(expectedUrl);
     });
 
-    
+    it("Should return a list of word", () => {
+        mockHttpClient.get.and.returnValue(of(listeMotsLongue));
+
+        service.obtenirMots().subscribe((liste: Mot[]) =>
+            expect(liste).toBe(listeMotsLongue)
+        );
+    });
 });
