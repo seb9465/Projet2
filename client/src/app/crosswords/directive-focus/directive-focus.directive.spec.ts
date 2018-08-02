@@ -1,10 +1,4 @@
 import { DirectiveFocusDirective } from "./directive-focus.directive";
-// import { Component } from "../../../../node_modules/@angular/core";
-
-// @Component({
-//     template: `<input type="text" appDirectiveFocus>`
-// })
-// class TestAppDirectiveFocusComponent { }
 
 describe("Directive Focus", () => {
     it("Should create an instance.", () => {
@@ -18,6 +12,7 @@ describe("Directive Focus", () => {
 
         beforeEach(() => {
             directive = new DirectiveFocusDirective();
+            directive.appDirectiveFocus = true;
         });
 
         describe("Should be false", () => {
@@ -79,6 +74,102 @@ describe("Directive Focus", () => {
                 const result: boolean = directive["estUneLettre"](keyboardEvent);
 
                 expect(result).toBeTruthy();
+            });
+        });
+
+        afterEach(() => {
+            directive = null;
+        });
+    });
+
+    describe("onKeyDown function", () => {
+        let directive: DirectiveFocusDirective;
+
+        beforeEach(() => {
+            directive = new DirectiveFocusDirective();
+            directive.appDirectiveFocus = true;
+        });
+
+        describe("Should call the preventDefault function", () => {
+            it("When giving ArrowDown as a parameter.", () => {
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "ArrowDown" }
+                );
+                const spy: jasmine.Spy = spyOn(keyboardEvent, "preventDefault");
+
+                directive.onKeyDown(keyboardEvent);
+
+                expect(spy).toHaveBeenCalled();
+            });
+            it("When giving A as a parameter.", () => {
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "A" }
+                );
+                const spy: jasmine.Spy = spyOn(keyboardEvent, "preventDefault");
+
+                directive.onKeyDown(keyboardEvent);
+
+                expect(spy).toHaveBeenCalled();
+            });
+            it("When giving Z as a parameter.", () => {
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "Z" }
+                );
+                const spy: jasmine.Spy = spyOn(keyboardEvent, "preventDefault");
+
+                directive.onKeyDown(keyboardEvent);
+
+                expect(spy).toHaveBeenCalled();
+            });
+            it("When giving M as a parameter.", () => {
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "M" }
+                );
+                const spy: jasmine.Spy = spyOn(keyboardEvent, "preventDefault");
+
+                directive.onKeyDown(keyboardEvent);
+
+                expect(spy).toHaveBeenCalled();
+            });
+        });
+
+        describe("Should not call the preventDefault function", () => {
+            it("When giving the letter a.", () => {
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "a" }
+                );
+                const spy: jasmine.Spy = spyOn(keyboardEvent, "preventDefault");
+
+                directive.onKeyDown(keyboardEvent);
+
+                expect(spy).not.toHaveBeenCalled();
+            });
+            it("When giving the letter z.", () => {
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "z" }
+                );
+                const spy: jasmine.Spy = spyOn(keyboardEvent, "preventDefault");
+
+                directive.onKeyDown(keyboardEvent);
+
+                expect(spy).not.toHaveBeenCalled();
+            });
+            it("When giving the letter m.", () => {
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "m" }
+                );
+                const spy: jasmine.Spy = spyOn(keyboardEvent, "preventDefault");
+
+                directive.onKeyDown(keyboardEvent);
+
+                expect(spy).not.toHaveBeenCalled();
             });
         });
 
