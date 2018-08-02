@@ -87,7 +87,15 @@ describe("Service Interaction Component", () => {
 
     describe("AssignerLettre function", () => {});
 
-    describe("ObtenirLettre function", () => {});
+    describe("ObtenirLettre function", () => {
+        it("Should return the first letter", () => {
+            const expectedResult: LettreGrille = { caseDecouverte: false, lettre: unMotHorizontal.mot[0], lettreDecouverte: false };
+
+            const result: LettreGrille = service["obtenirLettre"](unMotHorizontal, 0);
+
+            expect(result).toEqual(expectedResult);
+        });
+    });
 
     describe("ServiceEnvoieMots function", () => {
         it("Should call the 'next' function", () => {
