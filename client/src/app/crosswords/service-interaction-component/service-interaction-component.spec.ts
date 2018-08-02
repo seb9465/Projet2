@@ -10,7 +10,8 @@ import {
     listeMotsLongue,
     mockMatrice,
     unMotHorizontal,
-    listeMotsCourte
+    listeMotsCourte,
+    unMotVertical
 } from "./../objetsTest/objetsTest";
 import { Mot } from "../objetsTest/mot";
 import { LettreGrille } from "../objetsTest/lettreGrille";
@@ -85,7 +86,52 @@ describe("Service Interaction Component", () => {
 
     describe("InsererMotsDansGrille function", () => {});
 
-    describe("AssignerLettre function", () => {});
+    describe("AssignerLettre function", () => {
+        it("Should return the first letter of an horizontal word", () => {
+            const expectedResult: LettreGrille = { caseDecouverte: false, lettre: unMotHorizontal.mot[0], lettreDecouverte: false };
+
+            service["assignerLettre"](unMotHorizontal, 0);
+
+            const result: LettreGrille = service.matrice[unMotHorizontal.premierX][unMotHorizontal.premierY];
+
+            expect(result).toEqual(expectedResult);
+        });
+        it("Should return the last letter of an horizontal word", () => {
+            const expectedResult: LettreGrille = {
+                caseDecouverte: false,
+                lettre: unMotHorizontal.mot[unMotHorizontal.longueur - 1],
+                lettreDecouverte: false
+            };
+
+            service["assignerLettre"](unMotHorizontal, unMotHorizontal.longueur - 1);
+
+            const result: LettreGrille = service.matrice[unMotHorizontal.premierX + unMotHorizontal.longueur - 1][unMotHorizontal.premierY];
+
+            expect(result).toEqual(expectedResult);
+        });
+        it("Should return the first letter of a vertical word", () => {
+            const expectedResult: LettreGrille = { caseDecouverte: false, lettre: unMotVertical.mot[0], lettreDecouverte: false };
+
+            service["assignerLettre"](unMotVertical, 0);
+
+            const result: LettreGrille = service.matrice[unMotVertical.premierX][unMotVertical.premierY];
+
+            expect(result).toEqual(expectedResult);
+        });
+        it("Should return the last letter of an vertical word", () => {
+            const expectedResult: LettreGrille = {
+                caseDecouverte: false,
+                lettre: unMotVertical.mot[unMotVertical.longueur - 1],
+                lettreDecouverte: false
+            };
+
+            service["assignerLettre"](unMotVertical, unMotVertical.longueur - 1);
+
+            const result: LettreGrille = service.matrice[unMotVertical.premierX][unMotVertical.premierY + unMotVertical.longueur - 1];
+
+            expect(result).toEqual(expectedResult);
+        });
+    });
 
     describe("ObtenirLettre function", () => {
         it("Should return the first letter", () => {
