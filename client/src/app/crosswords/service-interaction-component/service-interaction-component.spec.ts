@@ -148,6 +148,14 @@ describe("Service Interaction Component", () => {
                 }
             }
         });
+        it("Should call the assignerLettre function", () => {
+            const spy: jasmine.Spy = spyOn<any>(service, "assignerLettre");
+            service["_mots"] = listeMotsCourte;
+
+            service["insererMotsDansGrille"]();
+
+            expect(spy).toHaveBeenCalled();
+        });
     });
 
     describe("AssignerLettre function", () => {
