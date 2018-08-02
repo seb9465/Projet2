@@ -1,6 +1,37 @@
 import { Mot } from "./mot";
 import { LettreGrille } from "./lettreGrille";
 
+export const unMotVertical: Mot = {
+    mot: "moutarde",
+    definitions: undefined,
+    estVertical: true,
+    longueur: 8,
+    premierX: 0,
+    premierY: 0,
+    activer: false,
+    motTrouve: false,
+    cheat: false,
+    positionsLettres: []
+};
+
+export const unMotHorizontal: Mot = {
+    mot: "ketchup",
+    definitions: undefined,
+    estVertical: false,
+    longueur: 7,
+    premierX: 1,
+    premierY: 0,
+    activer: false,
+    motTrouve: false,
+    cheat: false,
+    positionsLettres: []
+};
+
+export const listeMotsCourte: Mot[] = [
+    unMotHorizontal,
+    unMotVertical
+];
+
 export const listeMotsLongue: Mot[] = [
     {
         definitions: [{ definition: "beneath the surface of the water" }],
@@ -569,29 +600,3 @@ export const matriceCaseDecouverteTrue: LettreGrille[][] = [
         { caseDecouverte: true, lettre: "m", lettreDecouverte: false }
     ]
 ];
-
-export const unMotVertical: Mot = {
-    mot: "moutarde",
-    definitions: undefined,
-    estVertical: true,
-    longueur: 8,
-    premierX: 0,
-    premierY: 0,
-    activer: false,
-    motTrouve: false,
-    cheat: false,
-    positionsLettres: []
-};
-
-export const unMotHorizontal: Mot = {
-    mot: "ketchup",
-    definitions: undefined,
-    estVertical: false,
-    longueur: 7,
-    premierX: 1,
-    premierY: 0,
-    activer: false,
-    motTrouve: false,
-    cheat: false,
-    positionsLettres: []
-};
