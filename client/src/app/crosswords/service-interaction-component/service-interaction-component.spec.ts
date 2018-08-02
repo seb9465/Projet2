@@ -6,6 +6,8 @@ import { TAILLE_TABLEAU } from "./../constantes";
 import { listeMotsLongue, mockMatrice } from "./../objetsTest/objetsTest";
 import { Mot } from "../objetsTest/mot";
 import { LettreGrille } from "../objetsTest/lettreGrille";
+import { Subject } from "../../../../node_modules/rxjs/Subject";
+import { Observable } from "../../../../node_modules/rxjs/Observable";
 
 describe("Service Interaction Component", () => {
     let mockServiceHttp: jasmine.SpyObj<ServiceHttp>;
@@ -103,22 +105,47 @@ describe("Service Interaction Component", () => {
     });
 
     describe("ServiceReceptionMots function", () => {
+        it("Should get the listeDesMotsObservale", () => {
+            const mock: Observable<Mot[]> = new Subject<Mot[]>().asObservable();
+            service["listeMotsObservable$"] = mock;
 
+            expect(service.serviceReceptionMots()).toBe(mock);
+        });
     });
 
     describe("ServiceReceptionMatriceLettres function", () => {
+        it("Should get the matriceDesMotsSurGrilleObservable", () => {
+            const mock: Observable<Array<Array<LettreGrille>>> = (new Subject<Array<Array<LettreGrille>>>()).asObservable();
+            service["matriceDesMotsSurGrilleObservable$"] = mock;
 
+            expect(service.serviceReceptionMatriceLettres()).toBe(mock);
+        });
     });
 
     describe("ServiceReceptionMotSelectionne function", () => {
+        it("Should get the motSelectionneObservable", () => {
+            const mockMotSelectObs$: Observable<Mot> = (new Subject<Mot>()).asObservable();
+            service["motSelectionneObservable$"] = mockMotSelectObs$;
 
+            expect(service.serviceReceptionMotSelectionne()).toBe(mockMotSelectObs$);
+        });
     });
 
     describe("ServiceReceptionMotTrouve function", () => {
+        it("Should get the motTrouveObservable", () => {
+            const mockMotTrouveObs$: Observable<Mot> = (new Subject<Mot>()).asObservable();
+            service["motTrouveObservable$"] = mockMotTrouveObs$;
 
+            expect(service.serviceReceptionMotTrouve()).toBe(mockMotTrouveObs$);
+        });
     });
 
     describe("ServiceReceptionMotPerdu function", () => {
+        it("Should get the motPerduObservable", () => {
+            const mockMotPerduObs$: Observable<Mot> = (new Subject<Mot>()).asObservable();
+            service["motPerduObservable$"] = mockMotPerduObs$;
 
+            expect(service.serviceReceptionMotPerdu()).toBe(mockMotPerduObs$);
+        });
     });
 });
