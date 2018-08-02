@@ -17,6 +17,7 @@ import { Mot } from "../objetsTest/mot";
 import { LettreGrille } from "../objetsTest/lettreGrille";
 import { Subject } from "../../../../node_modules/rxjs/Subject";
 import { Observable } from "../../../../node_modules/rxjs/Observable";
+import { of } from "../../../../node_modules/rxjs/observable/of";
 
 describe("Service Interaction Component", () => {
     let mockServiceHttp: jasmine.SpyObj<ServiceHttp>;
@@ -82,9 +83,57 @@ describe("Service Interaction Component", () => {
 
     describe("SouscrireServiceSocket function", () => {});
 
-    describe("SouscrireRequeteGrille function", () => {});
+    describe("SouscrireRequeteGrille function", () => {
+        beforeEach(() => {
+            mockServiceHttp.obtenirMots.and.returnValue(of(listeMotsCourte));
+        });
 
-    describe("InsererMotsDansGrille function", () => {});
+        it("Should get a list of words from the Http Service", () => {
+            service.souscrireRequeteGrille();
+
+            expect(service["_mots"]).not.toBeUndefined();
+        });
+        it("Should call the serviceEnvoieMots function", () => {
+            const spy: jasmine.Spy = spyOn(service, "serviceEnvoieMots");
+
+            service.souscrireRequeteGrille();
+
+            expect(spy).toHaveBeenCalled();
+        });
+        it("Should call the envoieMatrice function", () => {
+            const spy: jasmine.Spy = spyOn(service, "serviceEnvoieMatriceLettres");
+
+            service.souscrireRequeteGrille();
+
+            expect(spy).toHaveBeenCalled();
+        });
+        it("Should call the insererMotsDansGrille function", () => {
+            // <any> for the private function.
+            const spy: jasmine.Spy = spyOn<any>(service, "insererMotsDansGrille");
+
+            service.souscrireRequeteGrille();
+
+            expect(spy).toHaveBeenCalled();
+        });
+    });
+
+    describe("InsererMotsDansGrille function", () => {
+        it("Should insert the words in the grid", () => {
+            service["_mots"] = listeMotsCourte;
+
+            service["insererMotsDansGrille"]();
+
+            let result: LettreGrille;
+            for (const mot of listeMotsCourte) {
+                for (let i: number = 0; i < mot.longueur; i++) {
+                    mot.estVertical ?
+                        (result = service.matrice[mot.premierX][mot.premierY + i]) :
+                        (result = service.matrice[mot.premierX + i][mot.premierY]);
+                    expect(result.lettre).toEqual(mot.mot[i]);
+                }
+            }
+        });
+    });
 
     describe("AssignerLettre function", () => {
         it("Should return the first letter of an horizontal word", () => {
