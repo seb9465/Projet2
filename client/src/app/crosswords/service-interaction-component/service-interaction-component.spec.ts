@@ -81,7 +81,22 @@ describe("Service Interaction Component", () => {
         });
     });
 
-    describe("SouscrireServiceSocket function", () => {});
+    describe("SouscrireServiceSocket function", () => {
+        it("Should call the serviceEnvoieMots function", () => {
+            const spy: jasmine.Spy = spyOn(service, "serviceEnvoieMots");
+
+            service.souscrireServiceSocket();
+
+            expect(spy).toHaveBeenCalled();
+        });
+        it("Should call the serviceEnvoieMatriceLettres function", () => {
+            const spy: jasmine.Spy = spyOn(service, "serviceEnvoieMatriceLettres");
+
+            service.souscrireServiceSocket();
+
+            expect(spy).toHaveBeenCalled();
+        });
+    });
 
     describe("SouscrireRequeteGrille function", () => {
         beforeEach(() => {
