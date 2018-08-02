@@ -138,6 +138,7 @@ describe("DefinitionComponent", () => {
             });
         });
     });
+
     describe("Decouvrir cases", () => {
         describe("with an horizontal word", () => {
             it("Should have put truthy the newly undercovered boxes.", () => {
@@ -207,6 +208,7 @@ describe("DefinitionComponent", () => {
             });
         });
     });
+
     describe("Getter - Setter", () => {
         describe("For the property mots", () => {
             it("Should get the good value.", () => {
@@ -245,17 +247,43 @@ describe("DefinitionComponent", () => {
             });
         });
     });
+
     describe("ChangementMot function", () => {
         beforeEach(() => {
             fixture.componentInstance.mots = mockMots;
-
-            fixture.componentInstance["changementMot"](unMotHorizontal);
         });
+
         it("Should set the property motSelectionne with the good value.", () => {
+            fixture.componentInstance["changementMot"](unMotHorizontal);
+
             expect(fixture.componentInstance.motSelectionne).toBe(unMotHorizontal);
         });
         it("Should set the property activer of motSelectionne to true.", () => {
+            fixture.componentInstance["changementMot"](unMotHorizontal);
+
             expect(fixture.componentInstance.motSelectionne.activer).toBeTruthy();
+        });
+    });
+
+    describe("MiseAJourMotSelectionne function", () => {
+        beforeEach(() => {
+            fixture.componentInstance.mots = mockMots;
+            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+        });
+
+        it("Should call the changementMot function", () => {
+            const spy: jasmine.Spy = spyOn<any>(fixture.componentInstance, "changementMot");
+
+            fixture.componentInstance["miseAJourMotSelectionne"](unMotHorizontal);
+
+            expect(spy).toHaveBeenCalled();
+        });
+        it("Should call the decouvrirCases function", () => {
+            const spy: jasmine.Spy = spyOn<any>(fixture.componentInstance, "decouvrirCases");
+
+            fixture.componentInstance["miseAJourMotSelectionne"](unMotHorizontal);
+
+            expect(spy).toHaveBeenCalled();
         });
     });
 });
