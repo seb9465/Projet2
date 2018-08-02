@@ -6,7 +6,7 @@ import { LettreGrille } from "../objetsTest/lettreGrille";
 import { Injectable } from "@angular/core";
 import { ServiceHttp } from "../serviceHttp/http-request.service";
 
-const CASE_NOIR: LettreGrille = { caseDecouverte: false, lettre: "1", lettreDecouverte: false };
+export const CASE_NOIR: LettreGrille = { caseDecouverte: false, lettre: "1", lettreDecouverte: false };
 
 // Classe sans HttpReq: pourrait être réutilisée pour le service de socket..?
 
