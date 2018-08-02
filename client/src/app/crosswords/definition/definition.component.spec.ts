@@ -69,7 +69,7 @@ describe("DefinitionComponent", () => {
                 expect(fixture.componentInstance.mots).toBe(mockMots);
             });
         });
-        describe("Reception Matrice", () => {
+        describe("SouscrireReceptionMatrice function", () => {
             it("Service's function should be called to return a value.", () => {
                 mockServiceInteractionComp.serviceReceptionMatriceLettres.and.returnValue(
                     of(mockMatrice)
@@ -128,7 +128,7 @@ describe("DefinitionComponent", () => {
                 ).toHaveBeenCalled();
             });
         });
-        describe("Envoie Mot Selectionne", () => {
+        describe("EnvoieMotSelectionne function", () => {
             it("Should call the service's function.", () => {
                 fixture.componentInstance["envoieMotSelectionne"]();
 
@@ -262,6 +262,16 @@ describe("DefinitionComponent", () => {
             fixture.componentInstance["changementMot"](unMotHorizontal);
 
             expect(fixture.componentInstance.motSelectionne.activer).toBeTruthy();
+        });
+    });
+
+    describe("ChangementMotsSelectionne function", () => {
+        beforeEach(() => {
+            fixture.componentInstance.mots = mockMots;
+            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+        });
+        it("Should call the miseAJourMotSelectionne function", () => {
+            const spy: jasmine.Spy = spyOn<any>(fixture.componentInstance, "miseAJourMotSelectionne");
         });
     });
 
