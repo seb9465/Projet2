@@ -3,7 +3,7 @@ import { ServiceHttp } from "../serviceHttp/http-request.service";
 import { TestBed } from "../../../../node_modules/@angular/core/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { TAILLE_TABLEAU } from "./../constantes";
-import { listeMotsLongue, mockMatrice } from "./../objetsTest/objetsTest";
+import { listeMotsLongue, mockMatrice, unMotHorizontal } from "./../objetsTest/objetsTest";
 import { Mot } from "../objetsTest/mot";
 import { LettreGrille } from "../objetsTest/lettreGrille";
 import { Subject } from "../../../../node_modules/rxjs/Subject";
@@ -101,7 +101,14 @@ describe("Service Interaction Component", () => {
     });
 
     describe("ServiceEnvoieMotPerdu function", () => {
+        it("Should call the 'next' function", () => {
+            // I need to put <...> for the private functions and attributes to be spied.
+            const spy: jasmine.Spy = spyOn<Subject<Mot>>(service["motPerduSujet"], "next");
 
+            service.serviceEnvoieMotPerdu(unMotHorizontal);
+
+            expect(spy).toHaveBeenCalled();
+        });
     });
 
     describe("ServiceReceptionMots function", () => {
