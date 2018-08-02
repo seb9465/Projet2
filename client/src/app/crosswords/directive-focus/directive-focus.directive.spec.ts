@@ -17,30 +17,50 @@ describe("Directive Focus", () => {
 
         describe("Should be false", () => {
             it("When giving ArrowDown.", () => {
-                const keyboardEvent: KeyboardEvent = new KeyboardEvent("keydown", { key: "ArrowDown" });
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "ArrowDown" }
+                );
 
-                const result: boolean = directive["estUneLettre"](keyboardEvent);
+                const result: boolean = directive["estUneLettre"](
+                    keyboardEvent
+                );
 
                 expect(result).toBeFalsy();
             });
             it("When giving Backspace.", () => {
-                const keyboardEvent: KeyboardEvent = new KeyboardEvent("keydown", { key: "Backspace" });
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "Backspace" }
+                );
 
-                const result: boolean = directive["estUneLettre"](keyboardEvent);
+                const result: boolean = directive["estUneLettre"](
+                    keyboardEvent
+                );
 
                 expect(result).toBeFalsy();
             });
             it("When giving Enter.", () => {
-                const keyboardEvent: KeyboardEvent = new KeyboardEvent("keydown", { key: "Enter" });
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "Enter" }
+                );
 
-                const result: boolean = directive["estUneLettre"](keyboardEvent);
+                const result: boolean = directive["estUneLettre"](
+                    keyboardEvent
+                );
 
                 expect(result).toBeFalsy();
             });
             it("When giving Undo.", () => {
-                const keyboardEvent: KeyboardEvent = new KeyboardEvent("keydown", { key: "Undo" });
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "Undo" }
+                );
 
-                const result: boolean = directive["estUneLettre"](keyboardEvent);
+                const result: boolean = directive["estUneLettre"](
+                    keyboardEvent
+                );
 
                 expect(result).toBeFalsy();
             });
@@ -48,30 +68,50 @@ describe("Directive Focus", () => {
 
         describe("Should be true", () => {
             it("When giving the letter a", () => {
-                const keyboardEvent: KeyboardEvent = new KeyboardEvent("keydown", { key: "a" });
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "a" }
+                );
 
-                const result: boolean = directive["estUneLettre"](keyboardEvent);
+                const result: boolean = directive["estUneLettre"](
+                    keyboardEvent
+                );
 
                 expect(result).toBeTruthy();
             });
             it("When giving the letter z", () => {
-                const keyboardEvent: KeyboardEvent = new KeyboardEvent("keydown", { key: "z" });
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "z" }
+                );
 
-                const result: boolean = directive["estUneLettre"](keyboardEvent);
+                const result: boolean = directive["estUneLettre"](
+                    keyboardEvent
+                );
 
                 expect(result).toBeTruthy();
             });
             it("When giving the letter g", () => {
-                const keyboardEvent: KeyboardEvent = new KeyboardEvent("keydown", { key: "g" });
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "g" }
+                );
 
-                const result: boolean = directive["estUneLettre"](keyboardEvent);
+                const result: boolean = directive["estUneLettre"](
+                    keyboardEvent
+                );
 
                 expect(result).toBeTruthy();
             });
             it("When giving the letter r", () => {
-                const keyboardEvent: KeyboardEvent = new KeyboardEvent("keydown", { key: "r" });
+                const keyboardEvent: KeyboardEvent = new KeyboardEvent(
+                    "keydown",
+                    { key: "r" }
+                );
 
-                const result: boolean = directive["estUneLettre"](keyboardEvent);
+                const result: boolean = directive["estUneLettre"](
+                    keyboardEvent
+                );
 
                 expect(result).toBeTruthy();
             });
