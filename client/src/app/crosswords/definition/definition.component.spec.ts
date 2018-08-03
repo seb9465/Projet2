@@ -248,6 +248,87 @@ describe("DefinitionComponent", () => {
         });
     });
 
+    describe("ngOnInit", () => {
+        beforeEach(() => {
+            fixture.componentInstance.mots = mockMots;
+            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+
+            mockServiceInteractionComp.serviceReceptionMotSelectionne.and.returnValue(of(unMotHorizontal));
+            mockServiceInteractionComp.serviceReceptionMots.and.returnValue(of(mockMots));
+            mockServiceInteractionComp.serviceReceptionMatriceLettres.and.returnValue(of(mockMatrice));
+            mockServiceInteractionComp.serviceReceptionMotTrouve.and.returnValue(of(unMotVertical));
+            mockServiceInteractionComp.serviceReceptionMotPerdu.and.returnValue(of(unMotHorizontal));
+        });
+
+        it("Should call all the subscriptions function", () => {
+            const spy1: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireReceptionMots");
+            const spy2: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireSelectionMots");
+            const spy3: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireReceptionMatrice");
+            const spy4: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireMotsTrouves");
+            const spy5: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireMotsPerdus");
+
+            fixture.detectChanges();
+
+            expect(spy1).toHaveBeenCalled();
+            expect(spy2).toHaveBeenCalled();
+            expect(spy3).toHaveBeenCalled();
+            expect(spy4).toHaveBeenCalled();
+            expect(spy5).toHaveBeenCalled();
+        });
+    }); 
+
+    describe("InitialiserSouscriptions function", () => {
+        beforeEach(() => {
+            fixture.componentInstance.mots = mockMots;
+            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+
+            mockServiceInteractionComp.serviceReceptionMotSelectionne.and.returnValue(of(unMotHorizontal));
+            mockServiceInteractionComp.serviceReceptionMots.and.returnValue(of(mockMots));
+            mockServiceInteractionComp.serviceReceptionMatriceLettres.and.returnValue(of(mockMatrice));
+            mockServiceInteractionComp.serviceReceptionMotTrouve.and.returnValue(of(unMotVertical));
+            mockServiceInteractionComp.serviceReceptionMotPerdu.and.returnValue(of(unMotHorizontal));
+        });
+
+        it("Should call all the subscriptions function", () => {
+            const spy1: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireReceptionMots");
+            const spy2: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireSelectionMots");
+            const spy3: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireReceptionMatrice");
+            const spy4: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireMotsTrouves");
+            const spy5: jasmine.Spy = spyOn<any>(fixture.componentInstance, "souscrireMotsPerdus");
+
+            fixture.componentInstance["initialiserSouscriptions"]();
+
+            expect(spy1).toHaveBeenCalled();
+            expect(spy2).toHaveBeenCalled();
+            expect(spy3).toHaveBeenCalled();
+            expect(spy4).toHaveBeenCalled();
+            expect(spy5).toHaveBeenCalled();
+        });
+    }); 
+
+    describe("souscrireSelectionMots function", () => {
+        beforeEach(() => {
+            fixture.componentInstance.mots = mockMots;
+            fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
+            mockServiceInteractionComp.serviceReceptionMotSelectionne.and.returnValue(of(unMotHorizontal));
+        });
+
+        it("Should receive the mot selectionne", () => {
+            fixture.componentInstance["souscrireSelectionMots"]();
+
+            const result: Mot = fixture.componentInstance["_motSelectionne"];
+
+            expect(result).toEqual(unMotHorizontal);
+        });
+        it("Should call the miseAJourMotSelectionne function", () => {
+            const spy: jasmine.Spy = spyOn<any>(fixture.componentInstance, "miseAJourMotSelectionne");
+
+            fixture.componentInstance["souscrireSelectionMots"]();
+
+            expect(spy).toHaveBeenCalled();
+        });
+    });
+
     describe("ChangementMot function", () => {
         beforeEach(() => {
             fixture.componentInstance.mots = mockMots;
