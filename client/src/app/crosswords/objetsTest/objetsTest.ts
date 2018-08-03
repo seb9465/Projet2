@@ -27,6 +27,19 @@ export const unMotHorizontal: Mot = {
     positionsLettres: []
 };
 
+export const unMotHorizontalTrouve: Mot = {
+    mot: "ketchup",
+    definitions: undefined,
+    estVertical: false,
+    longueur: 7,
+    premierX: 1,
+    premierY: 0,
+    activer: false,
+    motTrouve: true,
+    cheat: false,
+    positionsLettres: []
+};
+
 export const listeMotsCourte: Mot[] = [
     unMotHorizontal,
     unMotVertical

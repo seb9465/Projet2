@@ -3,7 +3,7 @@ import { DefinitionComponent } from "./definition.component";
 import { ServiceInteractionComponent } from "../service-interaction-component/service-interaction-component";
 import { Mot } from "../objetsTest/mot";
 import { of } from "../../../../node_modules/rxjs/observable/of";
-import { mockMatrice, unMotHorizontal, unMotVertical } from "./../objetsTest/objetsTest";
+import { mockMatrice, unMotHorizontal, unMotVertical, unMotHorizontalTrouve } from "./../objetsTest/objetsTest";
 
 describe("DefinitionComponent", () => {
     const mockMots: Mot[] = [unMotHorizontal];
@@ -270,8 +270,33 @@ describe("DefinitionComponent", () => {
             fixture.componentInstance.mots = mockMots;
             fixture.componentInstance.matriceDesMotsSurGrille = mockMatrice;
         });
-        it("Should call the miseAJourMotSelectionne function", () => {
+        it("Should call the miseAJourMotSelectionne function if motTrouve property is false", () => {
             const spy: jasmine.Spy = spyOn<any>(fixture.componentInstance, "miseAJourMotSelectionne");
+
+            fixture.componentInstance.changementMotSelectionne(unMotHorizontal);
+
+            expect(spy).toHaveBeenCalled();
+        });
+        it("Should call the envoieMotSelectionne function if motTrouve property is false", () => {
+            const spy: jasmine.Spy = spyOn<any>(fixture.componentInstance, "envoieMotSelectionne");
+
+            fixture.componentInstance.changementMotSelectionne(unMotHorizontal);
+
+            expect(spy).toHaveBeenCalled();
+        });
+        it("Should not call the miseAJourMotSelectionne function if motTrouve property is true", () => {
+            const spy: jasmine.Spy = spyOn<any>(fixture.componentInstance, "miseAJourMotSelectionne");
+
+            fixture.componentInstance.changementMotSelectionne(unMotHorizontalTrouve);
+
+            expect(spy).not.toHaveBeenCalled();
+        });
+        it("Should not call the envoieMotSelectionne function if motTrouve property is true", () => {
+            const spy: jasmine.Spy = spyOn<any>(fixture.componentInstance, "envoieMotSelectionne");
+
+            fixture.componentInstance.changementMotSelectionne(unMotHorizontalTrouve);
+
+            expect(spy).not.toHaveBeenCalled();
         });
     });
 
