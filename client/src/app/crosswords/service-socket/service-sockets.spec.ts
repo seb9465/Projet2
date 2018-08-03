@@ -21,4 +21,88 @@ describe("Service Socket", () => {
     it("Should be defined", () => {
         expect(service).toBeDefined();
     });
+
+    describe("connectionServeur function", () => {
+
+    });
+
+    describe("creerPartie function", () => {
+
+    });
+
+    describe("joueurVeutJoindre function", () => {
+
+    });
+
+    describe("demanderListePartie function", () => {
+
+    });
+
+    describe("chargementComplete function", () => {
+
+    });
+
+    describe("demandeDeGrille function", () => {
+
+    });
+
+    describe("envoyerGrille function", () => {
+
+    });
+
+    describe("recevoirListePartie function", () => {
+
+    });
+
+    describe("commencerPartie function", () => {
+
+    });
+
+    describe("telechargerPaquetPartie function", () => {
+
+    });
+    
+    describe("envoyerMotSelect function", () => {
+
+    });
+
+    describe("envoyerMotSelectFromDef function", () => {
+
+    });
+
+    describe("recevoirMotDef function", () => {
+
+    });
+    
+    describe("recevoirMotSelectJ2 function", () => {
+
+    });
+
+    describe("envoyerTentative function", () => {
+
+    });
+
+    describe("recevoirMotPerdu function", () => {
+
+    });
+
+    describe("recevoirMotTrouve function", () => {
+
+    });
+
+    describe("recevoirScore function", () => {
+
+    });
+
+    describe("finPartie function", () => {
+
+    });
+
+    describe("rejouerPartie function", () => {
+
+    });
+
+    afterEach(() => {
+        service = null;
+    });
 });
