@@ -6,7 +6,7 @@ import { Mot } from "../objetsTest/mot";
 import { PaquetPartie } from "../objetsTest/paquetPartie";
 import { Router } from "@angular/router";
 
-const SERVER_URL: string = "http://localhost:3000/";
+export const SERVER_URL: string = "http://localhost:3000/";
 const MESSAGE_PROBLEME_CONNECTION: string = "Problème de connection avec le serveur! \nRetour à la page d'acceuil.";
 
 @Injectable()

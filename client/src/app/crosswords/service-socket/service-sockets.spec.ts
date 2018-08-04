@@ -1,7 +1,9 @@
 
-import { SocketService } from "./service-socket";
+import { SocketService, SERVER_URL } from "./service-socket";
 import { TestBed } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+import { DIFFICULTE_DEFAUT } from './../serviceHttp/http-request.service';
+
 describe("Service Socket", () => {
     let service: SocketService;
 
@@ -12,6 +14,8 @@ describe("Service Socket", () => {
         });
 
         service = TestBed.get(SocketService);
+
+        service["connectionServeur"]();
     });
 
     it("Should do nothing", () => {
@@ -27,7 +31,13 @@ describe("Service Socket", () => {
     });
 
     describe("creerPartie function", () => {
-
+        it("Should call connection service function", () => {
+            const spyConnectionServeur: jasmine.Spy = spyOn<any>(service, "connectionServeur");
+    
+            service.creerPartie("PartieTest", DIFFICULTE_DEFAUT, "joueurTest");
+    
+            expect(spyConnectionServeur).toHaveBeenCalled();
+        });
     });
 
     describe("joueurVeutJoindre function", () => {
@@ -99,7 +109,13 @@ describe("Service Socket", () => {
     });
 
     describe("rejouerPartie function", () => {
+        it("Should call the emit function of the SocketClient", () => {
+            const spy: jasmine.Spy = spyOn(service["socketClient"], "emit");
 
+            service.rejouerPartie();
+
+            expect(spy).toHaveBeenCalled();
+        });
     });
 
     afterEach(() => {
