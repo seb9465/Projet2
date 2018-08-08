@@ -168,28 +168,35 @@ describe("GrilleComponent", () => {
             expect(component["focus"]["positionCourante"]).toBeLessThan(initialPosition);
         });
         it("Should do nothing if the pressed key is an invalid one", () => {
+            const keyEvent: KeyboardEvent = new KeyboardEvent("keydown", { "key": "2" });
+            const initialPosition: number = 1;
+            component["focus"]["positionCourante"] = initialPosition;
+            component["motSelectionne"] = unMotHorizontal;
 
+            component.manageKeyEntry(keyEvent);
+
+            expect(component["focus"]["positionCourante"]).toEqual(initialPosition);
+        });
+        it("Should do nothing if the Backspace is pressed at the beginning of the word", () => {
+            const keyEvent: KeyboardEvent = new KeyboardEvent("keydown", { "key": "Backspace" });
+            const initialPosition: number = 0;
+            component["focus"]["positionCourante"] = initialPosition;
+            component["motSelectionne"] = unMotHorizontal;
+
+            component.manageKeyEntry(keyEvent);
+
+            expect(component["focus"]["positionCourante"]).toEqual(initialPosition);
+        });
+        it("Should call the validateWord function if the key is a letter and at the last letter of the word", () => {
+            const keyEvent: KeyboardEvent = new KeyboardEvent("keydown", { "key": "E" });
+            const initialPosition: number = unMotHorizontal.longueur - 1;
+            const spy: jasmine.Spy = spyOn<any>(component, "validateWord");
+            component["focus"]["positionCourante"] = initialPosition;
+            component["motSelectionne"] = unMotHorizontal;
+
+            component.manageKeyEntry(keyEvent);
+
+            expect(spy).toHaveBeenCalled();
         });
     });
-
-    //     it("Il ne se passe rien quand une touche invalide est appuyee", () => {
-    //       component["focus"]["positionCourante"] = 0;
-    //       const positionInit: number = component["focus"]["positionCourante"];
-    //       const touche: KeyboardEvent = new KeyboardEvent("keydown", {
-    //         "key": "2"
-    //       });
-    //       component.manageKeyEntry(touche);
-    //       expect(component["focus"]["positionCourante"]).toEqual(positionInit);
-    //     });
-    
-    //     it("Il ne se passe rien quand le backspace est appuyé si on est déjà au début du mot", () => {
-    //       component["focus"]["positionCourante"] = 0;
-    //       const positionInit: number = component["focus"]["positionCourante"];
-    //       const touche: KeyboardEvent = new KeyboardEvent("keydown", {
-    //         "key": "Backspace"
-    //       });
-    //       component.manageKeyEntry(touche);
-    //       expect(component["focus"]["positionCourante"]).toEqual(positionInit);
-    //     });
-    //   });
 });
