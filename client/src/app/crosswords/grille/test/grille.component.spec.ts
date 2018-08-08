@@ -3,6 +3,7 @@ import { GrilleComponent } from "./../solo/grille.component";
 import { ServiceInteractionComponent } from "../../service-interaction-component/service-interaction-component";
 import { InfojoueurService } from "../../service-info-joueur/infojoueur.service";
 import { TAILLE_TABLEAU } from "../../constantes";
+import { listeMotsLongue, mockMatrice } from "./../../objetsTest/objetsTest";
 
 describe("GrilleComponent", () => {
     let fixture: ComponentFixture<GrilleComponent>;
@@ -57,6 +58,28 @@ describe("GrilleComponent", () => {
         it("Should create a miseEnEvidence property", () => {
             expect(fixture.componentInstance["miseEnEvidence"]).toBeDefined();
             expect(fixture.componentInstance["miseEnEvidence"]).toBeTruthy();
+        });
+    });
+
+    describe("remettreCaseOpaque function", () => {
+        beforeEach(() => {
+            fixture.componentInstance["mots"] = listeMotsLongue;
+            fixture.componentInstance["matriceDesMotsSurGrille"] = mockMatrice;
+
+            fixture.componentInstance["remettreCasseOpaque"]();
+        });
+
+        it("Should set the activer property of each word to false", () => {
+            for (const mot of fixture.componentInstance["mots"]) {
+                expect(mot.activer).toBeFalsy();
+            }
+        });
+        it("Should set the caseDecouverte property of each letters of the grid to false", () => {
+            for (const ligne of fixture.componentInstance["matriceDesMotsSurGrille"]) {
+                for (const lettre of ligne) {
+                    expect(lettre.caseDecouverte).toBeFalsy();
+                }
+            }
         });
     });
 });
