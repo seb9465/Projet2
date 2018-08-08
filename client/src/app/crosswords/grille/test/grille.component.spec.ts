@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { GrilleComponent } from "./../solo/grille.component";
 import { ServiceInteractionComponent } from "../../service-interaction-component/service-interaction-component";
 import { InfojoueurService } from "../../service-info-joueur/infojoueur.service";
+import { TAILLE_TABLEAU } from "../../constantes";
 
 describe("GrilleComponent", () => {
     let fixture: ComponentFixture<GrilleComponent>;
@@ -39,5 +40,23 @@ describe("GrilleComponent", () => {
 
     it("Should do nothing", () => {
         expect(true).toBe(true);
+    });
+
+    describe("Constructor function", () => {
+        it("Should initialize the lockedLetter matrix with 'false'", () => {
+            for (let i: number = 0; i < TAILLE_TABLEAU; i++) {
+                for (let j: number = 0; j < TAILLE_TABLEAU; j++) {
+                    expect(fixture.componentInstance["lockedLetter"][i][j]).toBeFalsy();
+                }
+            }
+        });
+        it("Should create a focus property", () => {
+            expect(fixture.componentInstance["focus"]).toBeDefined();
+            expect(fixture.componentInstance["focus"]).toBeTruthy();
+        });
+        it("Should create a miseEnEvidence property", () => {
+            expect(fixture.componentInstance["miseEnEvidence"]).toBeDefined();
+            expect(fixture.componentInstance["miseEnEvidence"]).toBeTruthy();
+        });
     });
 });
