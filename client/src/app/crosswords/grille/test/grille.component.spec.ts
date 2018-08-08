@@ -3,7 +3,7 @@ import { GrilleComponent } from "./../solo/grille.component";
 import { ServiceInteractionComponent } from "../../service-interaction-component/service-interaction-component";
 import { InfojoueurService } from "../../service-info-joueur/infojoueur.service";
 import { TAILLE_TABLEAU } from "../../constantes";
-import { listeMotsLongue, mockMatrice } from "./../../objetsTest/objetsTest";
+import { listeMotsLongue, mockMatrice, unMotHorizontal } from "./../../objetsTest/objetsTest";
 import { REGLE_JEU } from "../grilleAbs";
 import { Mot } from "../../objetsTest/mot";
 import { LettreGrille } from "../../objetsTest/lettreGrille";
@@ -146,28 +146,32 @@ describe("GrilleComponent", () => {
         }
     });
 
+    describe("manageEntry function", () => {
+        it("Should jump to the next letter if a letter is pressed", () => {
+            const keyEvent: KeyboardEvent = new KeyboardEvent("keydown", { "key" : "E" });
+            const initialPosition: number = 0;
+            component["focus"]["positionCourante"] = initialPosition;
+            component["motSelectionne"] = unMotHorizontal;
 
-    // describe("Gestion des touches de clavier", () => {
-    //     it("Entree d'une lettre", () => {
-    //       component["focus"]["positionCourante"] = 0;
-    //       const positionInit: number = component["focus"]["positionCourante"];
-    //       const touche: KeyboardEvent = new KeyboardEvent("keydown", {
-    //         "key": "E"
-    //       });
-    //       component.manageKeyEntry(touche);
-    //       expect(component["focus"]["positionCourante"]).toBeGreaterThan(positionInit);
-    //     });
-    
-    //     it("Effacement d'une lettre", () => {
-    //       component["focus"]["positionCourante"] = 1;
-    //       const positionInit: number = component["focus"]["positionCourante"];
-    //       const touche: KeyboardEvent = new KeyboardEvent("keydown", {
-    //         "key": "Backspace"
-    //       });
-    //       component.manageKeyEntry(touche);
-    //       expect(component["focus"]["positionCourante"]).toBeLessThan(positionInit);
-    //     });
-    
+            component.manageKeyEntry(keyEvent);
+
+            expect(component["focus"]["positionCourante"]).toBeGreaterThan(initialPosition);
+        });
+        it("Should go back to the previous letter if backspace is pressed", () => {
+            const keyEvent: KeyboardEvent = new KeyboardEvent("keydown", { "key": "Backspace" });
+            const initialPosition: number = 1;
+            component["focus"]["positionCourante"] = initialPosition;
+            component["motSelectionne"] = unMotHorizontal;
+
+            component.manageKeyEntry(keyEvent);
+
+            expect(component["focus"]["positionCourante"]).toBeLessThan(initialPosition);
+        });
+        it("Should do nothing if the pressed key is an invalid one", () => {
+
+        });
+    });
+
     //     it("Il ne se passe rien quand une touche invalide est appuyee", () => {
     //       component["focus"]["positionCourante"] = 0;
     //       const positionInit: number = component["focus"]["positionCourante"];
