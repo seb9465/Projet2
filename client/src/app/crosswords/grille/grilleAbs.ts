@@ -61,7 +61,7 @@ export abstract class GrilleAbs implements OnDestroy {
         return this.matriceDesMotsSurGrille;
     }
 
-    public opacite(etat: boolean): String {
+    public opacite(etat: boolean): string {
         return etat ? "0" : ".3";
     }
 

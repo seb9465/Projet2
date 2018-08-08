@@ -8,6 +8,11 @@ import { REGLE_JEU } from "../grilleAbs";
 import { Mot } from "../../objetsTest/mot";
 import { LettreGrille } from "../../objetsTest/lettreGrille";
 
+interface OpaciteEntry {
+    input: boolean;
+    expectedOutput: string;
+}
+
 describe("GrilleComponent", () => {
     let fixture: ComponentFixture<GrilleComponent>;
     let component: GrilleComponent;
@@ -127,5 +132,17 @@ describe("GrilleComponent", () => {
         });
     });
 
-    
+    describe("opacite function", () => {
+        const entries: OpaciteEntry[] = [
+            { input: true, expectedOutput: "0" },
+            { input: false, expectedOutput: ".3"}
+        ];
+        for (const entry of entries) {
+            it("Should be " + entry.input.toString(), () => {
+                const result: string = component.opacite(entry.input);
+
+                expect(result).toEqual(entry.expectedOutput);
+            });
+        }
+    });
 });
