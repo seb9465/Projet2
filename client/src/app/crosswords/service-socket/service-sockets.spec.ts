@@ -41,11 +41,33 @@ describe("Service Socket", () => {
     });
 
     describe("joueurVeutJoindre function", () => {
-
+        it("Should call the emit function of the socketClient variable", () => {
+            const spy: jasmine.Spy = spyOn(service["socketClient"], "emit");
+    
+            service.joueurVeutJoindre("PartieTest");
+    
+            expect(spy).toHaveBeenCalled();
+        });
     });
 
     describe("demanderListePartie function", () => {
+        it("Should call the connectionServeur function", () => {
+            const spy: jasmine.Spy = spyOn<any>(service, "connectionServeur");
 
+            service.demanderListePartie();
+
+            expect(spy).toHaveBeenCalled();
+        });
+        it("Should call the emit function of the socketClient variable", () => {
+            // const spy: jasmine.Spy = spyOn(service["socketClient"], "emit");
+
+            // service.demanderListePartie();
+
+            // expect(spy).toHaveBeenCalled();
+        });
+        it("Should return an Observable", () => {
+
+        });
     });
 
     describe("chargementComplete function", () => {
