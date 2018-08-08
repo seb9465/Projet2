@@ -8,8 +8,7 @@ import { MiseEnEvidence } from "./librairieGrille/miseEnEvidence";
 import { GrilleFocus } from "./librairieGrille/grilleFocus";
 import { HostListener } from "@angular/core";
 import { EncadrementCase } from "./librairieGrille/encadrementCase";
-const REGLE_JEU: string =
-    "Cliquez sur une définition afin d'effectuer une tentative.";
+export const REGLE_JEU: string = "Cliquez sur une définition afin d'effectuer une tentative.";
 
 export abstract class GrilleAbs implements OnDestroy {
     protected mots: Mot[];
@@ -27,6 +26,8 @@ export abstract class GrilleAbs implements OnDestroy {
     public constructor(protected _servicePointage: InfojoueurService) {
         this.miseEnEvidence = new MiseEnEvidence();
         this.focus = new GrilleFocus(document, 0);
+        this.mots = [];
+        this.matriceDesMotsSurGrille = [];
         this.lockedLetter = [];
         for (let i: number = 0; i < CONST.TAILLE_TABLEAU; i++) {
             this.lockedLetter[i] = [];

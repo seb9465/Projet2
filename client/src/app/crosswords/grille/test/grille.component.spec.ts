@@ -4,9 +4,13 @@ import { ServiceInteractionComponent } from "../../service-interaction-component
 import { InfojoueurService } from "../../service-info-joueur/infojoueur.service";
 import { TAILLE_TABLEAU } from "../../constantes";
 import { listeMotsLongue, mockMatrice } from "./../../objetsTest/objetsTest";
+import { REGLE_JEU } from "../grilleAbs";
+import { Mot } from "../../objetsTest/mot";
+import { LettreGrille } from "../../objetsTest/lettreGrille";
 
 describe("GrilleComponent", () => {
     let fixture: ComponentFixture<GrilleComponent>;
+    let component: GrilleComponent;
     let mockServiceInteraction: jasmine.SpyObj<ServiceInteractionComponent>;
     let mockServiceInfoJoueur: jasmine.SpyObj<InfojoueurService>;
 
@@ -36,7 +40,7 @@ describe("GrilleComponent", () => {
         });
 
         fixture = TestBed.createComponent(GrilleComponent);
-
+        component = fixture.componentInstance;
     });
 
     it("Should do nothing", () => {
@@ -82,4 +86,46 @@ describe("GrilleComponent", () => {
             }
         });
     });
+
+    describe("afficherRegles function", () => {
+        it("Should call the alert function with the game rules", () => {
+            const spy: jasmine.Spy = spyOn(window, "alert");
+
+            component.afficherRegle();
+
+            expect(spy).toHaveBeenCalledWith(REGLE_JEU);
+        });
+    });
+
+    describe("getListeMots function", () => {
+        it("Should return mots with the good value", () => {
+            component["mots"] = listeMotsLongue;
+
+            const expectedResult: Mot[] = component.getListeMots();
+
+            expect(expectedResult).toBe(listeMotsLongue);
+        });
+        it("Should be truthy if the property has never been set", () => {
+            const expectedResult: Mot[] = component.getListeMots();
+
+            expect(expectedResult).toBeTruthy();
+        });
+    });
+
+    describe("getMatrice function", () => {
+        it("Should return matriceDesMotsSurGrille with the good value", () => {
+            component["matriceDesMotsSurGrille"] = mockMatrice;
+
+            const expectedResult: Array<Array<LettreGrille>> = component.getMatrice();
+
+            expect(expectedResult).toEqual(mockMatrice);
+        });
+        it("Should be truthy if the property has never been set", () => {
+            const expectedResult: Array<Array<LettreGrille>> = component.getMatrice();
+
+            expect(expectedResult).toBeTruthy();
+        });
+    });
+
+    
 });
