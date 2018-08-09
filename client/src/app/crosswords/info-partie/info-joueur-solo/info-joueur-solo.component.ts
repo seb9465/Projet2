@@ -79,9 +79,14 @@ export class InfoJoueurSoloComponent extends InfoPartieAbs implements OnInit, On
     }
 
     private desinscrireSouscriptions(): void {
-
-        this._subscriptionListeMots.unsubscribe();
-        this._subscriptionNbMotsDecouv.unsubscribe();
-        this._subscriptionTimer.unsubscribe();
+        if (this._subscriptionListeMots) {
+            this._subscriptionListeMots.unsubscribe();
+        }
+        if (this._subscriptionNbMotsDecouv) {
+            this._subscriptionNbMotsDecouv.unsubscribe();
+        }
+        if(this._subscriptionTimer) {
+            this._subscriptionTimer.unsubscribe();
+        }
     }
 }
