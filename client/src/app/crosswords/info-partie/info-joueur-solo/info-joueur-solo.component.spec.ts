@@ -4,6 +4,7 @@ import { InfojoueurService } from "../../service-info-joueur/infojoueur.service"
 import { ServiceInteractionComponent } from "../../service-interaction-component/service-interaction-component";
 import { ServiceHttp } from "../../serviceHttp/http-request.service";
 import { Router } from "@angular/router";
+import { ABREVIATION_HEURES, ABREVIATION_MINUTES, ABREVIATION_SECONDES } from "../../constantes";
 
 describe("Info Joueur Solo", () => {
     let fixture: ComponentFixture<InfoJoueurSoloComponent>;
@@ -36,5 +37,22 @@ describe("Info Joueur Solo", () => {
 
     it("Should do nothing", () => {
         expect(true).toBe(true);
+    });
+
+    it("Should be defined", () => {
+        expect(component).toBeDefined();
+    });
+
+    describe("formatterTimer function", () => {
+        it("Should format correctly the timer", () => {
+            const expectedResult: string = "0" + ABREVIATION_HEURES +
+                                        "0" + ABREVIATION_MINUTES +
+                                        "0" + ABREVIATION_SECONDES;
+            component["_timer"] = 0;
+
+            component.formatterTimer();
+
+            expect(component["_formatedTimer"]).toEqual(expectedResult);
+        });
     });
 });
