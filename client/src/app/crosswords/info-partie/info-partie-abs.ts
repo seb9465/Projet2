@@ -1,5 +1,4 @@
 import { Subscription } from "rxjs/Subscription";
-import { InfojoueurService } from "../service-info-joueur/infojoueur.service";
 import { Mot } from "../objetsTest/mot";
 import * as CONST from "../constantes";
 import { TimerObservable } from "rxjs/observable/TimerObservable";
@@ -16,7 +15,7 @@ export abstract class InfoPartieAbs {
   protected _subscriptionListeMots: Subscription;
   protected _subscriptionTimer: Subscription;
 
-  public constructor(protected _servicePointage: InfojoueurService) {
+  public constructor() {
     this._listeMots = [];
     this._timer = 0;
     this._timerObservable$ = TimerObservable.create(0, CONST.UNE_SECONDE_EN_MILISECONDES);
