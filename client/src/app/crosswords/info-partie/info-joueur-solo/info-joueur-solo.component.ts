@@ -85,7 +85,7 @@ export class InfoJoueurSoloComponent extends InfoPartieAbs implements OnInit, On
         if (this._subscriptionNbMotsDecouv) {
             this._subscriptionNbMotsDecouv.unsubscribe();
         }
-        if(this._subscriptionTimer) {
+        if (this._subscriptionTimer) {
             this._subscriptionTimer.unsubscribe();
         }
     }
