@@ -5,6 +5,8 @@ import { ServiceInteractionComponent } from "../../service-interaction-component
 import { ServiceHttp } from "../../serviceHttp/http-request.service";
 import { Router } from "@angular/router";
 import { ABREVIATION_HEURES, ABREVIATION_MINUTES, ABREVIATION_SECONDES } from "../../constantes";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { Difficulte } from "../../../../../../common/communication/Difficulte";
 
 describe("Info Joueur Solo", () => {
     let fixture: ComponentFixture<InfoJoueurSoloComponent>;
@@ -22,7 +24,7 @@ describe("Info Joueur Solo", () => {
 
         TestBed.configureTestingModule({
             declarations: [ InfoJoueurSoloComponent ],
-            imports: [],
+            imports: [HttpClientTestingModule],
             providers: [
                 { provide: InfojoueurService, useValue: mockInfoJoueurService },
                 { provide: ServiceInteractionComponent, useValue: mockServiceInteraction },
@@ -41,6 +43,24 @@ describe("Info Joueur Solo", () => {
 
     it("Should be defined", () => {
         expect(component).toBeDefined();
+    });
+
+    describe("Constructor function", () => {
+        it("Should set the _nomJoueur with initial value", () => {
+            expect(component["_nomJoueur"]).toBe("Nom du joueur");
+        });
+        it("Should set the _nbMotsDecouverts with initial value", () => {
+            expect(component["_nbMotsDecouverts"]).toEqual(0);
+        });
+        it("Should set the _difficulte with initial value", () => {
+            expect(component["_difficulte"]).toBe(Difficulte.Facile.toString());
+        });
+        it("Should define _listeMots", () => {
+            expect(component["_listeMots"]).toBeDefined();
+        });
+        it("Should define _formattedTimer", () => {
+            expect(component["_formatedTimer"]).toBeDefined();
+        });
     });
 
     describe("formatterTimer function", () => {
