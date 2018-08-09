@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, Injectable } from "@angular/core";
+import { InfojoueurService } from "../../service-info-joueur/infojoueur.service";
 import { ServiceHttp } from "../../serviceHttp/http-request.service";
 import { ServiceInteractionComponent } from "../../service-interaction-component/service-interaction-component";
 import { InfoPartieAbs } from "../../info-partie/info-partie-abs";
@@ -22,7 +23,8 @@ export class InfoJoueurSoloComponent extends InfoPartieAbs implements OnInit, On
   private _barreProgression: HTMLElement;
   private _subscriptionNbMotsDecouv: Subscription;
 
-  public constructor(private _requeteGrille: ServiceInteractionComponent,
+  public constructor(private _servicePointage: InfojoueurService,
+                     private _requeteGrille: ServiceInteractionComponent,
                      private httpReq: ServiceHttp,
                      private router: Router) {
     super();
