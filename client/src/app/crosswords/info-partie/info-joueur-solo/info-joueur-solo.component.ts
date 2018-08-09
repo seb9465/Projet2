@@ -6,6 +6,7 @@ import { InfoPartieAbs } from "../../info-partie/info-partie-abs";
 import * as CONST from "../../constantes";
 import { Subscription } from "rxjs/Subscription";
 import { Router } from "@angular/router";
+import { Difficulte } from "../../../../../../common/communication/Difficulte";
 
 const POURCENTAGE_MAX: number = 100;
 
@@ -30,10 +31,11 @@ export class InfoJoueurSoloComponent extends InfoPartieAbs implements OnInit, On
         super();
         this._nomJoueur = "Nom du joueur";
         this._nbMotsDecouverts = 0;
-        this._difficulte = this.httpReq.difficulte.toString();
+        this._difficulte = Difficulte.Facile.toString();
     }
 
     public ngOnInit(): void {
+        this._difficulte = this.httpReq.difficulte.toString();
         this.initialiserSouscriptions();
         this._barreProgression = document.getElementById("progress-bar");
     }
