@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
 import { ABREVIATION_HEURES, ABREVIATION_MINUTES, ABREVIATION_SECONDES } from "../../constantes";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { Difficulte } from "../../../../../../common/communication/Difficulte";
+import { InfoPartieAbs } from "../info-partie-abs";
 
 describe("Info Joueur Solo", () => {
     let fixture: ComponentFixture<InfoJoueurSoloComponent>;
@@ -60,6 +61,34 @@ describe("Info Joueur Solo", () => {
         });
         it("Should define _formattedTimer", () => {
             expect(component["_formatedTimer"]).toBeDefined();
+        });
+    });
+
+    describe("InitialiserSouscriptions function", () => {
+        let spyListeMots: jasmine.Spy;
+        let spyMotsDecouverts: jasmine.Spy;
+        let spySuperFunction: jasmine.Spy;
+
+        beforeEach(() => {
+            spyListeMots = spyOn<any>(component, "souscrireListeDeMots");
+            spyMotsDecouverts = spyOn<any>(component, "souscrireMotsDecouverts");
+            spySuperFunction = spyOn<any>(InfoPartieAbs.prototype, "initialiserSouscriptions");
+        });
+
+        it("Should call the souscrireListeDeMots function", () => {
+            component["initialiserSouscriptions"]();
+
+            expect(spyListeMots).toHaveBeenCalled();
+        });
+        it("Should call the souscrireMotsDecouverts function", () => {
+            component["initialiserSouscriptions"]();
+
+            expect(spyMotsDecouverts).toHaveBeenCalled();
+        });
+        it("Should call the super function", () => {
+            component["initialiserSouscriptions"]();
+
+            expect(spySuperFunction).toHaveBeenCalled();
         });
     });
 
