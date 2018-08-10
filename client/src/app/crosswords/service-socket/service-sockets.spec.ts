@@ -2,7 +2,7 @@
 import { SocketService } from "./service-socket";
 import { TestBed } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
-import { DIFFICULTE_DEFAUT } from './../serviceHttp/http-request.service';
+import { DIFFICULTE_DEFAUT } from "./../serviceHttp/http-request.service";
 
 describe("Service Socket", () => {
     let service: SocketService;
@@ -33,9 +33,9 @@ describe("Service Socket", () => {
     describe("creerPartie function", () => {
         it("Should call connection service function", () => {
             const spyConnectionServeur: jasmine.Spy = spyOn<any>(service, "connectionServeur");
-    
+
             service.creerPartie("PartieTest", DIFFICULTE_DEFAUT, "joueurTest");
-    
+
             expect(spyConnectionServeur).toHaveBeenCalled();
         });
     });
@@ -43,9 +43,9 @@ describe("Service Socket", () => {
     describe("joueurVeutJoindre function", () => {
         it("Should call the emit function of the socketClient variable", () => {
             const spy: jasmine.Spy = spyOn(service["socketClient"], "emit");
-    
+
             service.joueurVeutJoindre("PartieTest");
-    
+
             expect(spy).toHaveBeenCalled();
         });
     });
@@ -93,7 +93,7 @@ describe("Service Socket", () => {
     describe("telechargerPaquetPartie function", () => {
 
     });
-    
+
     describe("envoyerMotSelect function", () => {
 
     });
@@ -105,7 +105,7 @@ describe("Service Socket", () => {
     describe("recevoirMotDef function", () => {
 
     });
-    
+
     describe("recevoirMotSelectJ2 function", () => {
 
     });
