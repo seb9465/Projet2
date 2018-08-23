@@ -1,0 +1,3 @@
+describe("Choix Course Component", () => {
+
+});
