@@ -54,6 +54,67 @@ describe("Camera Jeu 2D Class", () => {
         });
     });
 
+    describe("Methode zoomer", () => {
+        it("Ne depasse pas la valeur maximale", () => {
+            let zoomDebut: number;
+            let zoomFin: number;
+
+            do {
+                zoomDebut = cls["zoom"];
+                cls.zoomer();
+                zoomFin = cls["zoom"];
+            }
+            while (zoomDebut !== ZOOM_MAXIMUM);
+
+            expect(zoomFin).toEqual(ZOOM_MAXIMUM);
+        });
+
+        it("Augmente le zoom", () => {
+            const zoomDebut: number = cls["zoom"];
+            cls.zoomer();
+            const zoomFin: number = cls["zoom"];
+
+            expect(zoomDebut).toBeLessThanOrEqual(zoomFin);
+        });
+    });
+
+    describe("Methode dezoomer", () => {
+        it("Ne depasse pas la valeur minimale", () => {
+            let zoomDebut: number;
+            let zoomFin: number;
+
+            do {
+                zoomDebut = cls["zoom"];
+                cls.dezoomer();
+                zoomFin = cls["zoom"];
+            }
+            while (zoomDebut !== ZOOM_MINIMUM);
+
+            expect(zoomFin).toEqual(ZOOM_MINIMUM);
+        });
+
+        it("Augmente le zoom", () => {
+            const zoomDebut: number = cls["zoom"];
+            cls.dezoomer();
+            const zoomFin: number = cls["zoom"];
+
+            expect(zoomFin).toBeLessThanOrEqual(zoomDebut);
+        });
+    });
+
+    it("Redimensionnement", () => {
+        const REDIMENSIONNEMENT: number = 120;
+        const nouvLargeur: number = cls["largeur"] + REDIMENSIONNEMENT;
+        const nouvHauteur: number = cls["hauteur"] - REDIMENSIONNEMENT;
+
+        cls.redimensionnement(nouvLargeur, nouvHauteur);
+
+        const redLargeur: number = cls["largeur"];
+        const redHauteur: number = cls["hauteur"];
+
+        assert(nouvLargeur === redLargeur && nouvHauteur === redHauteur);
+    });
+
     afterEach(() => {
         cls = null;
     });
