@@ -29,6 +29,10 @@ describe("Choix Course Component", () => {
         expect(true).toBe(true);
     });
 
+    it("Should be defined", () => {
+        expect(fixture).toBeDefined();
+    });
+
     afterEach(() => {
         fixture = null;
         component = null;
