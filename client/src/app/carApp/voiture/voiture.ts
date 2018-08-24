@@ -8,9 +8,11 @@ import { IObjetEnMouvement } from "./IObjetEnMouvement";
 import { VerificateurSortiePiste } from "./VerificateurSortiePiste";
 import { SonCollision } from "../son/SonCollision";
 import { SonSortieRoute } from "../son/SonSortieRoute";
-import { MAXIMUM_STEERING_ANGLE, INITIAL_WEIGHT_DISTRIBUTION, MINIMUM_SPEED, NUMBER_REAR_WHEELS,
-         NUMBER_WHEELS, CAR_SURFACE, AIR_DENSITY, TIRE_PRESSURE, VITESSE_MIN, DEFAULT_WHEELBASE,
-         DEFAULT_MASS, DEFAULT_DRAG_COEFFICIENT, DISTRIBUTION_POIDS_MINIMAL, DISTRIBUTION_POIDS_MAXIMAL} from "./constantesVoiture";
+import {
+    MAXIMUM_STEERING_ANGLE, INITIAL_WEIGHT_DISTRIBUTION, MINIMUM_SPEED, NUMBER_REAR_WHEELS,
+    NUMBER_WHEELS, CAR_SURFACE, AIR_DENSITY, TIRE_PRESSURE, VITESSE_MIN, DEFAULT_WHEELBASE,
+    DEFAULT_MASS, DEFAULT_DRAG_COEFFICIENT, DISTRIBUTION_POIDS_MINIMAL, DISTRIBUTION_POIDS_MAXIMAL
+} from "./constantesVoiture";
 
 export class Voiture extends Object3D implements IObjetEnMouvement {
     private readonly moteur: Engine;
@@ -103,7 +105,14 @@ export class Voiture extends Object3D implements IObjetEnMouvement {
         this.add(this.sonCollision.obtenirSon);
         this.sonSortieRoute = new SonSortieRoute();
         this.add(this.sonSortieRoute.obtenirSon);
-     }
+    }
+
+    public supprimerSons(): void {
+        this.remove(this.sonVoiture.obtenirSonRepos);
+        this.remove(this.sonVoiture.obtenirSonAccel);
+        this.remove(this.sonCollision.obtenirSon);
+        this.remove(this.sonSortieRoute.obtenirSon);
+    }
 
     public initialiser(texture: Object3D, angle: number): void {
         this.add(texture);
