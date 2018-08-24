@@ -1,4 +1,4 @@
-import { Injectable, Inject } from "@angular/core";
+import { Injectable, Inject, OnDestroy } from "@angular/core";
 import { ObjectLoader, Object3D, Euler, Vector3, Group, LoadingManager } from "three";
 import { Voiture } from "../voiture/voiture";
 import { GestionnaireClavier } from "../clavier/gestionnaireClavier";
@@ -44,7 +44,7 @@ const FREIN_RELEVE: EvenementClavier = new EvenementClavier("s", TypeEvenementCl
 const INTERRUPTEUR_LUMIERE: EvenementClavier = new EvenementClavier("l", TypeEvenementClavier.TOUCHE_RELEVEE);
 
 @Injectable()
-export class GestionnaireVoitures {
+export class GestionnaireVoitures implements OnDestroy {
 
     private _voitureJoueur: Voiture;
     private _voituresAI: Voiture[];
@@ -180,5 +180,12 @@ export class GestionnaireVoitures {
     public get voituresEnMouvement(): IObjetEnMouvement[] {
         return (this.controleursAI as IObjetEnMouvement[])
                 .concat(this.controleurJoueur as IObjetEnMouvement);
+    }
+
+    public ngOnDestroy(): void {
+        this._voitureJoueur.supprimerSons();
+        for (const voitureAI of this._voituresAI) {
+            voitureAI.supprimerSons();
+        }
     }
 }
