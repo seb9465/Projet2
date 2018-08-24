@@ -25,7 +25,9 @@ export abstract class AbstractListePisteComponent implements OnInit, OnDestroy {
     }
 
     public desinscriptionAuxPistes(): void {
-        this.abonnementPistes.unsubscribe();
+        if (this.abonnementPistes) {
+            this.abonnementPistes.unsubscribe();
+        }
     }
 
     public ngOnDestroy(): void {
