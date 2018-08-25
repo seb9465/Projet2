@@ -1,4 +1,4 @@
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { AbstractGameComponent } from "../abstract-component/abstract.game.component";
 import { ServiceDeRenduPistes } from "../serviceDeRendu/serviceDeRenduPistes";
 import { GestionnaireClavier } from "../clavier/gestionnaireClavier";
@@ -15,7 +15,7 @@ import { Subscription } from "rxjs/Subscription";
     styleUrls: ["./piste.component.css"]
 })
 
-export class PisteComponent extends AbstractGameComponent {
+export class PisteComponent extends AbstractGameComponent implements OnInit {
     public nombreDePoints: number;
     public souscriptionNbPoints: Subscription;
     public estBoucle: boolean;
@@ -53,6 +53,9 @@ export class PisteComponent extends AbstractGameComponent {
         }
 
         this.editeurPiste.importerPiste();
+    }
+
+    public ngOnInit(): void {
         this.souscrireNombrePoints();
         this.souscrireEstBoucle();
         this.souscrireRespectContraintePiste();
