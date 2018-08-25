@@ -38,6 +38,10 @@ describe("Gestionnaire Edition Piste service", () => {
         expect(true).toBe(true);
     });
 
+    it("Should be defined", () => {
+        expect(service).toBeDefined();
+    });
+
     afterEach(() => {
         service = null;
     });
