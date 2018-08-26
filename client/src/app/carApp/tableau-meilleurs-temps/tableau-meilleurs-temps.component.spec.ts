@@ -4,33 +4,33 @@ import { GestionnaireBDCourse } from "../baseDeDonnee/GestionnaireBDCourse";
 import { GestionnaireDesTempsService } from "../GestionnaireDesTemps/gestionnaire-des-temps.service";
 import { FormsModule } from "../../../../node_modules/@angular/forms";
 import { MatDividerModule } from "../../../../node_modules/@angular/material/divider";
-import { Point } from "../elementsGeometrie/point";
-import { PisteBD } from "../piste/IPisteBD";
+// import { Point } from "../elementsGeometrie/point";
+// import { PisteBD } from "../piste/IPisteBD";
 import { TempsJoueur } from "../GestionnaireDesTemps/tempsJoueur";
-import { ITempsBD } from "../piste/ITempsBD";
-import { ResultatJoueur } from "../fin-course/resultatJoueur";
+// import { ITempsBD } from "../piste/ITempsBD";
+// import { ResultatJoueur } from "../fin-course/resultatJoueur";
 
 describe("Tableau Meilleurs Temps Component", () => {
-    const LONGUEUR: number = 100;
-    const PISTE_TEST: Point[] = [
-        new Point(0, 0),
-        new Point(-LONGUEUR, 0),
-        new Point(-LONGUEUR, -LONGUEUR),
-        new Point(0, -LONGUEUR),
-    ];
-    const PISTE: PisteBD = {
-        _id: "2",
-        nom: "Piste 2",
-        description: "Champs de ble",
-        points: PISTE_TEST,
-        type: "Type1",
-        temps: [
-            { nom: "Joe La Bine", min: 0, sec: 0, milliSec: 0 },
-            { nom: "Joe La Bine", min: 1, sec: 0, milliSec: 0 },
-            { nom: "Joe La Bine", min: 2, sec: 0, milliSec: 0 },
-            { nom: "Joe La Bine", min: 0, sec: 30, milliSec: 0 }],
-        nbFoisJoue: 2
-    };
+    // const LONGUEUR: number = 100;
+    // const PISTE_TEST: Point[] = [
+    //     new Point(0, 0),
+    //     new Point(-LONGUEUR, 0),
+    //     new Point(-LONGUEUR, -LONGUEUR),
+    //     new Point(0, -LONGUEUR),
+    // ];
+    // const PISTE: PisteBD = {
+    //     _id: "2",
+    //     nom: "Piste 2",
+    //     description: "Champs de ble",
+    //     points: PISTE_TEST,
+    //     type: "Type1",
+    //     temps: [
+    //         { nom: "Joe La Bine", min: 0, sec: 0, milliSec: 0 },
+    //         { nom: "Joe La Bine", min: 1, sec: 0, milliSec: 0 },
+    //         { nom: "Joe La Bine", min: 2, sec: 0, milliSec: 0 },
+    //         { nom: "Joe La Bine", min: 0, sec: 30, milliSec: 0 }],
+    //     nbFoisJoue: 2
+    // };
     const NB_MILLISECS_DANS_UNE_MIN: number = 60000;
     const TEMPS_JOUEUR: TempsJoueur = new TempsJoueur();
     TEMPS_JOUEUR.nom = "Joe La Bine";
