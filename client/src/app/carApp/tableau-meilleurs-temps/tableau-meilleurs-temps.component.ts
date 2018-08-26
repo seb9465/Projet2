@@ -25,11 +25,11 @@ export class TableauMeilleursTempsComponent implements OnInit {
         private gestionnaireTemps: GestionnaireDesTempsService) {
         this._nomJoueur = "";
         this._joueurASoumisAuTableau = false;
-        this._pisteCourante = this.gestionnaireBD.pisteJeu;
-        this.classerTempsTableau();
     }
 
     public ngOnInit(): void {
+        this._pisteCourante = this.gestionnaireBD.pisteJeu;
+        this.classerTempsTableau();
         this._resultatsCourse = new Array<ResultatJoueur>();
         this.obtenirResultats();
         this.formatterTempsDuJoueurAAJouter();
