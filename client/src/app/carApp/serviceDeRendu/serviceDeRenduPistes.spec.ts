@@ -4,7 +4,7 @@ import { GestionnaireEcran } from "../ecran/gestionnaireEcran";
 import { GestionnaireCamera } from "../camera/GestionnaireCamera";
 import { ServiceDeRenduPistes } from "./serviceDeRenduPistes";
 
-describe("Gestionnaire Scene Piste Service", () => {
+describe("Service De Rendu Pistes Service", () => {
     let service: ServiceDeRenduPistes;
     let mockGestionnaireScene: GestionnaireScene;
     let mockGestionnaireEcran: GestionnaireEcran;
