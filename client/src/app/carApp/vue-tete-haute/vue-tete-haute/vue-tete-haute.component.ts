@@ -28,8 +28,6 @@ export class VueTeteHauteComponent implements OnInit {
         this.tempsActuel = 0;
         this.numTour = 1;
         this.initialisationDesTemps();
-        this.souscriptionTour();
-        this.souscriptionDebutCourse();
     }
 
     private initialisationDesTemps(): void {
@@ -45,7 +43,10 @@ export class VueTeteHauteComponent implements OnInit {
         this.updateTempsCourse();
     }
 
-    public ngOnInit(): void {}
+    public ngOnInit(): void {
+        this.souscriptionTour();
+        this.souscriptionDebutCourse();
+    }
 
     private updateTempsCourse(): void {
         this.rafraichissement = setInterval(() => {
