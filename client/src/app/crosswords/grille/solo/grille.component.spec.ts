@@ -5,7 +5,7 @@ import { ServiceInteractionComponent } from "../../service-interaction-component
 import { InfojoueurService } from "../../service-info-joueur/infojoueur.service";
 import { TAILLE_TABLEAU } from "../../constantes";
 import { listeMotsLongue, mockMatrice, unMotHorizontal } from "./../../objetsTest/objetsTest";
-import { REGLE_JEU, GrilleAbs } from "../grilleAbs";
+import { REGLE_JEU } from "../grilleAbs";
 import { Mot } from "../../objetsTest/mot";
 import { LettreGrille } from "../../objetsTest/lettreGrille";
 import { of } from "rxjs/observable/of";
