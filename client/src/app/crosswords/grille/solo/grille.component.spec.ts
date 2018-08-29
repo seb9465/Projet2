@@ -8,6 +8,7 @@ import { REGLE_JEU } from "../grilleAbs";
 import { Mot } from "../../objetsTest/mot";
 import { LettreGrille } from "../../objetsTest/lettreGrille";
 import { of } from "rxjs/observable/of";
+import { EncadrementCase } from "../librairieGrille/encadrementCase";
 
 interface OpaciteEntry {
     input: boolean;
@@ -153,7 +154,15 @@ describe("GrilleComponent", () => {
     });
 
     describe("enleverSelection function", () => {
+        it("Should call the appliquerStyleDefautGrille of the EncadrementCase class", () => {
+            let spy: jasmine.Spy = spyOn(EncadrementCase, "appliquerStyleDefautGrille");
+            component["mots"] = listeMotsLongue;
+            component["matriceDesMotsSurGrille"] = mockMatrice;
 
+            component.enleverSelection("0", "0");
+
+            expect(spy).toHaveBeenCalled();
+        });
     });
 
     describe("switchCheatMode function", () => {
