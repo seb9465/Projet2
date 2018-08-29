@@ -63,7 +63,8 @@ export class GrilleComponent extends GrilleAbs implements OnInit {
     }
 
     public enleverSelection(x: string, y: string): void {
-        EncadrementCase.appliquerStyleDefautGrille(document);
+        // matrice
+        // mots
         super.remettreCasseOpaque();
     }
 
