@@ -7,6 +7,7 @@ import { listeMotsLongue, mockMatrice, unMotHorizontal } from "./../../objetsTes
 import { REGLE_JEU } from "../grilleAbs";
 import { Mot } from "../../objetsTest/mot";
 import { LettreGrille } from "../../objetsTest/lettreGrille";
+import { of } from "rxjs/observable/of";
 
 interface OpaciteEntry {
     input: boolean;
@@ -53,6 +54,9 @@ describe("GrilleComponent", () => {
     });
 
     describe("Constructor function", () => {
+        it("Shoudl be defined", () => {
+            expect(component).toBeDefined();
+        });
         it("Should initialize the lockedLetter matrix with 'false'", () => {
             for (let i: number = 0; i < TAILLE_TABLEAU; i++) {
                 for (let j: number = 0; j < TAILLE_TABLEAU; j++) {
@@ -68,6 +72,96 @@ describe("GrilleComponent", () => {
             expect(fixture.componentInstance["miseEnEvidence"]).toBeDefined();
             expect(fixture.componentInstance["miseEnEvidence"]).toBeTruthy();
         });
+    });
+
+    describe("initialiserSouscriptions function", () => {
+        let spyServiceReceptionMots: jasmine.Spy;
+        let spyServiceReceptionMotSelectionne: jasmine.Spy;
+        let spyServiceReceptionMatriceLettres: jasmine.Spy;
+        let spyRemplirPositionLettres: jasmine.Spy;
+        let spyMiseEnEvidence: jasmine.Spy;
+
+        beforeEach(() => {
+            spyServiceReceptionMots = mockServiceInteraction.serviceReceptionMots.and.returnValue(of(listeMotsLongue));
+            spyServiceReceptionMotSelectionne = mockServiceInteraction.serviceReceptionMotSelectionne.and.returnValue(of(unMotHorizontal));
+            spyServiceReceptionMatriceLettres = mockServiceInteraction.serviceReceptionMatriceLettres.and.returnValue(of(mockMatrice));
+            spyRemplirPositionLettres = spyOn<any>(component, "remplirPositionLettres");
+            spyMiseEnEvidence = spyOn<any>(component["miseEnEvidence"], "miseEvidenceMot");
+
+            component["initialiserSouscriptions"]();
+        });
+
+        it("Should have called the serviceReceptionMots function", () => {
+            expect(spyServiceReceptionMots).toHaveBeenCalled();
+        });
+        it("Should have called the serviceReceptionMotSelectionne function", () => {
+            expect(spyServiceReceptionMotSelectionne).toHaveBeenCalled();
+        });
+        it("Should have called the serviceReceptionMatriceLettres function", () => {
+            expect(spyServiceReceptionMatriceLettres).toHaveBeenCalled();
+        });
+
+        it("Should subscribe to the mots", () => {
+            expect(component["subscriptionMots"]).not.toBeNull();
+            expect(component["subscriptionMots"]).not.toBeUndefined();
+        });
+        it("Should set the mots with the received value", () => {
+            expect(component["mots"]).toEqual(listeMotsLongue);
+        });
+        it("Should call the remplirPositionLettres function when subscribing to the mots", () => {
+            expect(spyRemplirPositionLettres).toHaveBeenCalled();
+        });
+
+        it("Should subscribe to the matrice", () => {
+            expect(component["subscriptionMatrice"]).not.toBeNull();
+            expect(component["subscriptionMatrice"]).not.toBeUndefined();
+        });
+        it("Should set the matriceDesMotsSurGrile property with the received value", () => {
+            expect(component["matriceDesMotsSurGrille"]).toEqual(mockMatrice);
+        });
+
+        it("Should subscribe to the mot selectionne", () => {
+            expect(component["subscriptionMotSelec"]).not.toBeNull();
+            expect(component["subscriptionMotSelec"]).not.toBeUndefined();
+        });
+        it("Should set the motSelectionne property with the received value", () => {
+            expect(component["motSelectionne"]).toBe(unMotHorizontal);
+        });
+        it("Should set the motSelectionne's mot to upperCase", () => {
+            expect(component["motSelectionne"].mot).toEqual(unMotHorizontal.mot.toUpperCase());
+        });
+        it("Should call the miseEnvidence function", () => {
+            expect(spyMiseEnEvidence).toHaveBeenCalledWith(component["motSelectionne"], "red");
+        });
+
+        afterEach(() => {
+            spyServiceReceptionMots = null;
+            spyServiceReceptionMotSelectionne = null;
+            spyServiceReceptionMatriceLettres = null;
+            spyRemplirPositionLettres = null;
+        });
+    });
+
+    describe("envoyerMotTrouve function", () => {
+        it("Should call the serviceEnvoieMotTrouve function of the ListeMotsService", () => {
+            const spy: jasmine.Spy = mockServiceInteraction.serviceEnvoieMotTrouve;
+
+            component["envoyerMotTrouve"](unMotHorizontal);
+
+            expect(spy).toHaveBeenCalledWith(unMotHorizontal);
+        });
+    });
+
+    describe("enleverSelection function", () => {
+
+    });
+
+    describe("switchCheatMode function", () => {
+
+    });
+
+    describe("retrieveWordFromClick function", () => {
+
     });
 
     describe("remettreCaseOpaque function", () => {
@@ -135,7 +229,7 @@ describe("GrilleComponent", () => {
     describe("opacite function", () => {
         const entries: OpaciteEntry[] = [
             { input: true, expectedOutput: "0" },
-            { input: false, expectedOutput: ".3"}
+            { input: false, expectedOutput: ".3" }
         ];
         for (const entry of entries) {
             it("Should be " + entry.input.toString(), () => {
@@ -148,7 +242,7 @@ describe("GrilleComponent", () => {
 
     describe("manageEntry function", () => {
         it("Should jump to the next letter if a letter is pressed", () => {
-            const keyEvent: KeyboardEvent = new KeyboardEvent("keydown", { "key" : "E" });
+            const keyEvent: KeyboardEvent = new KeyboardEvent("keydown", { "key": "E" });
             const initialPosition: number = 0;
             component["focus"]["positionCourante"] = initialPosition;
             component["motSelectionne"] = unMotHorizontal;
