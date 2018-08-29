@@ -19,12 +19,15 @@ export class GrilleComponent extends GrilleAbs implements OnInit {
         super(_servicePointage);
     }
 
-    /* tslint:disable-next-line:max-func-body-length */
     public ngOnInit(): void {
         this.listeMotsService.souscrireRequeteGrille();
         this.mots = this.listeMotsService.mots;
         this.matriceDesMotsSurGrille = this.listeMotsService.matrice;
 
+        this.initialiserSouscriptions();
+    }
+
+    private initialiserSouscriptions(): void {
         this.subscriptionMots = this.listeMotsService
             .serviceReceptionMots()
             .subscribe((mots) => {
@@ -58,6 +61,7 @@ export class GrilleComponent extends GrilleAbs implements OnInit {
     protected envoieMotSelectionne(): void {
         this.listeMotsService.serviceEnvoieMotSelectionne(this.motSelectionne);
     }
+
     public enleverSelection(x: string, y: string): void {
         EncadrementCase.appliquerStyleDefautGrille(document);
         super.remettreCasseOpaque();
@@ -70,6 +74,7 @@ export class GrilleComponent extends GrilleAbs implements OnInit {
         this.listeMotsService.serviceEnvoieMots(this.mots);
         this.listeMotsService.souscrireServiceSocket();
     }
+
     protected retrieveWordFromClick(event: KeyboardEvent): Mot {
         const mot: Mot = super.retrieveWordFromClick(event);
         this.motSelectionne = mot;
