@@ -10,7 +10,7 @@ import { InfojoueurService } from "../service-info-joueur/infojoueur.service";
 
 })
 export class MainGrilleComponent implements OnInit {
-    private _motsObtenus: boolean;
+    public _motsObtenus: boolean;
 
     public constructor(private serviceInteractionComposants: ServiceInteractionComponent) {
         this._motsObtenus = false;
