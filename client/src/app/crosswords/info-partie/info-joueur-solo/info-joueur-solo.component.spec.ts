@@ -7,7 +7,6 @@ import { Router } from "@angular/router";
 import { ABREVIATION_HEURES, ABREVIATION_MINUTES, ABREVIATION_SECONDES } from "../../constantes";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { Difficulte } from "../../../../../../common/communication/Difficulte";
-import { InfoPartieAbs } from "../info-partie-abs";
 import { listeMotsLongue, listeMotsCourte } from "../../objetsTest/objetsTest";
 import { of } from "../../../../../node_modules/rxjs/observable/of";
 
