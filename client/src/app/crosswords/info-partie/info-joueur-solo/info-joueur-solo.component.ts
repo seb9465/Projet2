@@ -82,6 +82,7 @@ export class InfoJoueurSoloComponent extends InfoPartieAbs implements OnInit, On
     private majBarreProgression(): void {
         this._barreProgression.style.width = String(this.pourcentagePoint) + "%";
         if (this.pourcentagePoint === POURCENTAGE_MAX) {
+            this.arreterTimer();
             this.router.navigateByUrl("FinPartie");
         }
     }
