@@ -12,6 +12,7 @@ import { ChoixCourseComponent } from "./carApp/choixCourse-component/choixCourse
 import { FinPartieSoloComponent } from "./crosswords/fin-partie/solo/fin-partie-solo.component";
 import { TableauMeilleursTempsComponent } from "./carApp/tableau-meilleurs-temps/tableau-meilleurs-temps.component";
 import { FinCourseComponent } from "./carApp/fin-course/fin-course.component";
+import { EnregistrerPartieSoloComponent } from "./crosswords/enregistrer-partie-solo/enregistrer-partie-solo.component";
 
 const routes: Routes = [
   { path: "CarGame", component: CarGameComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: "admin", component: AdministrateurComponent },
   { path: "choixCourse", component: ChoixCourseComponent },
   { path: "tableauMeilleursTemps", component: TableauMeilleursTempsComponent },
-  { path: "finCourse", component: FinCourseComponent }
+  { path: "finCourse", component: FinCourseComponent },
+  { path: "EnregistrerCrosswordSolo", component: EnregistrerPartieSoloComponent }
 ];
 
 @NgModule({
