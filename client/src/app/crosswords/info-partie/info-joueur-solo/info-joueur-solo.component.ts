@@ -23,9 +23,10 @@ export class InfoJoueurSoloComponent extends InfoPartieAbs implements OnInit, On
     private _nbMotsDecouverts: number;
     private _barreProgression: HTMLElement;
     private _subscriptionNbMotsDecouv: Subscription;
+    private _subscriptionMotsObtenus: Subscription;
 
     public constructor( private _servicePointage: InfojoueurService,
-                        private _requeteGrille: ServiceInteractionComponent,
+                        private _serviceInteractionComp: ServiceInteractionComponent,
                         private httpReq: ServiceHttp,
                         private router: Router) {
         super();
@@ -41,13 +42,18 @@ export class InfoJoueurSoloComponent extends InfoPartieAbs implements OnInit, On
     }
 
     protected initialiserSouscriptions(): void {
-        super.initialiserSouscriptions();
+        this._subscriptionMotsObtenus = this._serviceInteractionComp.receptionMotsObtenus()
+            .subscribe((motsObtenus) => {
+                if (motsObtenus) {
+                    super.initialiserSouscriptionsTimer();
+                }
+            });
         this.souscrireListeDeMots();
         this.souscrireMotsDecouverts();
     }
 
     private souscrireListeDeMots(): void {
-        this._subscriptionListeMots = this._requeteGrille.serviceReceptionMots()
+        this._subscriptionListeMots = this._serviceInteractionComp.serviceReceptionMots()
             .subscribe((listeMots) => {
                 this._listeMots = listeMots;
             });
@@ -81,14 +87,13 @@ export class InfoJoueurSoloComponent extends InfoPartieAbs implements OnInit, On
     }
 
     private desinscrireSouscriptions(): void {
-        if (this._subscriptionListeMots) {
-            this._subscriptionListeMots.unsubscribe();
+        if (this._subscriptionMotsObtenus) {
+            this._subscriptionMotsObtenus.unsubscribe();
+            this._subscriptionMotsObtenus = null;
         }
         if (this._subscriptionNbMotsDecouv) {
             this._subscriptionNbMotsDecouv.unsubscribe();
-        }
-        if (this._subscriptionTimer) {
-            this._subscriptionTimer.unsubscribe();
+            this._subscriptionNbMotsDecouv = null;
         }
     }
 }

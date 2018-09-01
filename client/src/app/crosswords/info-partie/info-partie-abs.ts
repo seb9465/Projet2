@@ -3,8 +3,9 @@ import { Mot } from "../objetsTest/mot";
 import * as CONST from "../constantes";
 import { TimerObservable } from "rxjs/observable/TimerObservable";
 import { Observable } from "rxjs/Observable";
+import { OnDestroy } from "@angular/core";
 
-export abstract class InfoPartieAbs {
+export abstract class InfoPartieAbs implements OnDestroy {
     protected _listeMots: Mot[];
     private _timer: number;
     private _formatedTimer: string;
@@ -19,6 +20,7 @@ export abstract class InfoPartieAbs {
         this._listeMots = [];
         this._timer = 0;
         this._formatedTimer = "";
+        this.formatterTimer();
         this._timerObservable$ = TimerObservable.create(
             0,
             CONST.UNE_SECONDE_EN_MILISECONDES
@@ -50,9 +52,7 @@ export abstract class InfoPartieAbs {
             CONST.ABREVIATION_SECONDES;
     }
 
-    protected initialiserSouscriptions(): void {
-        // this.souscrireListeDeMots();
-        // this.souscrireMotsDecouverts();
+    protected initialiserSouscriptionsTimer(): void {
         this.souscrireTimer();
     }
 
@@ -63,5 +63,16 @@ export abstract class InfoPartieAbs {
                 this.formatterTimer();
             }
         );
+    }
+
+    public ngOnDestroy(): void {
+        if (this._subscriptionListeMots) {
+            this._subscriptionListeMots.unsubscribe();
+            this._subscriptionListeMots = null;
+        }
+        if (this._subscriptionTimer) {
+            this._subscriptionTimer.unsubscribe();
+            this._subscriptionTimer = null;
+        }
     }
 }
