@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { TAILLE_TABLEAU } from "../constantes";
 import { Mot } from "../objetsTest/mot";
 import { LettreGrille } from "../objetsTest/lettreGrille";
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { ServiceHttp } from "../serviceHttp/http-request.service";
 
 export const CASE_NOIR: LettreGrille = { caseDecouverte: false, lettre: "1", lettreDecouverte: false };
@@ -11,24 +11,36 @@ export const CASE_NOIR: LettreGrille = { caseDecouverte: false, lettre: "1", let
 // Classe sans HttpReq: pourrait être réutilisée pour le service de socket..?
 
 @Injectable()
-export class ServiceInteractionComponent {
+export class ServiceInteractionComponent implements OnInit {
     protected _mots: Mot[];
     protected matriceDesMotsSurGrille: Array<Array<LettreGrille>>;
-    protected listeMotsSujet: Subject<Mot[]> = new Subject<Mot[]>();
+    protected _motsObtenus: boolean;
+
+    protected motsObtenusSujet: Subject<boolean> = new Subject<boolean>();
+    protected motsObtenusObservable$: Observable<boolean> = this.motsObtenusSujet.asObservable();
+
     protected matriceDesMotsSurGrilleSujet: Subject<Array<Array<LettreGrille>>> = new Subject<Array<Array<LettreGrille>>>();
-    protected motSelectionneSuject: Subject<Mot> = new Subject<Mot>();
-    protected listeMotsObservable$: Observable<Mot[]> = this.listeMotsSujet.asObservable();
     protected matriceDesMotsSurGrilleObservable$: Observable<Array<Array<LettreGrille>>> = this.matriceDesMotsSurGrilleSujet.asObservable();
+
+    protected listeMotsSujet: Subject<Mot[]> = new Subject<Mot[]>();
+    protected listeMotsObservable$: Observable<Mot[]> = this.listeMotsSujet.asObservable();
+
+    protected motSelectionneSuject: Subject<Mot> = new Subject<Mot>();
     protected motSelectionneObservable$: Observable<Mot> = this.motSelectionneSuject.asObservable();
+
     protected motTrouveSujet: Subject<Mot> = new Subject<Mot>();
     protected motTrouveObservable$: Observable<Mot> = this.motTrouveSujet.asObservable();
+
     protected motPerduSujet: Subject<Mot> = new Subject<Mot>();
     protected motPerduObservable$: Observable<Mot> = this.motPerduSujet.asObservable();
-    protected _motsObtenus: boolean;
 
     public constructor(private httpReq: ServiceHttp) {
         this._motsObtenus = false;
         this.genererGrille();
+    }
+
+    public ngOnInit(): void {
+        this.envoieMotsObtenus();
     }
 
     public get mots(): Mot[] {
@@ -37,10 +49,6 @@ export class ServiceInteractionComponent {
 
     public get matrice(): Array<Array<LettreGrille>> {
         return this.matriceDesMotsSurGrille;
-    }
-
-    public get motsObtenus(): boolean {
-        return this._motsObtenus;
     }
 
     private genererGrille(): void {
@@ -61,6 +69,7 @@ export class ServiceInteractionComponent {
     public souscrireRequeteGrille(): void {
         this.httpReq.obtenirMots().subscribe((x) => {
             this._motsObtenus = true;
+            this.envoieMotsObtenus();
             this._mots = x;
             this.serviceEnvoieMots(this.mots);
             this.serviceEnvoieMatriceLettres(this.matriceDesMotsSurGrille);
@@ -97,6 +106,10 @@ export class ServiceInteractionComponent {
         this.listeMotsSujet.next(mots);
     }
 
+    public envoieMotsObtenus(): void {
+        this.motsObtenusSujet.next(this._motsObtenus);
+    }
+
     public serviceEnvoieMatriceLettres(matriceLettres: Array<Array<LettreGrille>>): void {
         this.matriceDesMotsSurGrilleSujet.next(matriceLettres);
     }
@@ -115,6 +128,10 @@ export class ServiceInteractionComponent {
 
     public serviceReceptionMots(): Observable<Mot[]> {
         return this.listeMotsObservable$;
+    }
+
+    public receptionMotsObtenus(): Observable<boolean> {
+        return this.motsObtenusObservable$;
     }
 
     public serviceReceptionMatriceLettres(): Observable<Array<Array<LettreGrille>>> {
