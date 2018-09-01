@@ -10,11 +10,16 @@ import { InfojoueurService } from "../service-info-joueur/infojoueur.service";
 
 })
 export class MainGrilleComponent implements OnInit {
-    private motsObtenus: boolean;
+    private _motsObtenus: boolean;
 
     public constructor(private serviceInteractionComposants: ServiceInteractionComponent) {
-        this.motsObtenus = false;
+        this._motsObtenus = false;
     }
 
-    public ngOnInit(): void { }
+    public ngOnInit(): void { 
+        this.serviceInteractionComposants.receptionMotsObtenus()
+            .subscribe((motsObtenus) => {
+                this._motsObtenus = motsObtenus;
+            });
+    }
 }
