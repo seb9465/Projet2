@@ -65,14 +65,18 @@ export abstract class InfoPartieAbs implements OnDestroy {
         );
     }
 
+    protected arreterTimer(): void {
+        if (this._subscriptionListeMots) {
+            this._subscriptionListeMots.unsubscribe();
+        }
+    }
+
     public ngOnDestroy(): void {
         if (this._subscriptionListeMots) {
             this._subscriptionListeMots.unsubscribe();
             this._subscriptionListeMots = null;
         }
-        if (this._subscriptionTimer) {
-            this._subscriptionTimer.unsubscribe();
-            this._subscriptionTimer = null;
-        }
+        this.arreterTimer();
+        this._subscriptionTimer = null;
     }
 }
