@@ -42,14 +42,18 @@ export class InfoJoueurSoloComponent extends InfoPartieAbs implements OnInit, On
     }
 
     protected initialiserSouscriptions(): void {
-        this._subscriptionMotsObtenus = this._serviceInteractionComp.receptionMotsObtenus()
-            .subscribe((motsObtenus) => {
-                if (motsObtenus) {
-                    super.initialiserSouscriptionsTimer();
-                }
-            });
+        this.souscrireMotsObtenus();
         this.souscrireListeDeMots();
         this.souscrireMotsDecouverts();
+    }
+
+    private souscrireMotsObtenus(): void {
+        this._subscriptionMotsObtenus = this._serviceInteractionComp.receptionMotsObtenus()
+        .subscribe((motsObtenus) => {
+            if (motsObtenus) {
+                super.initialiserSouscriptionsTimer();
+            }
+        });
     }
 
     private souscrireListeDeMots(): void {

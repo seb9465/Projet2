@@ -21,7 +21,10 @@ describe("Info Joueur Solo", () => {
 
     beforeEach(() => {
         mockInfoJoueurService = jasmine.createSpyObj(["serviceReceptionPointage"]);
-        mockServiceInteraction = jasmine.createSpyObj(["serviceReceptionMots"]);
+        mockServiceInteraction = jasmine.createSpyObj([
+            "serviceReceptionMots",
+            "receptionMotsObtenus"
+        ]);
         mockServiceHttp = jasmine.createSpyObj(["difficulte"]);
         mockRouter = jasmine.createSpyObj(["navigateByUrl"]);
 
@@ -67,30 +70,27 @@ describe("Info Joueur Solo", () => {
     });
 
     describe("InitialiserSouscriptions function", () => {
+        let spyMotsObtenus: jasmine.Spy;
         let spyListeMots: jasmine.Spy;
         let spyMotsDecouverts: jasmine.Spy;
-        let spySuperFunction: jasmine.Spy;
 
         beforeEach(() => {
+            spyMotsObtenus = spyOn<any>(component, "souscrireMotsObtenus");
             spyListeMots = spyOn<any>(component, "souscrireListeDeMots");
             spyMotsDecouverts = spyOn<any>(component, "souscrireMotsDecouverts");
-            spySuperFunction = spyOn<any>(InfoPartieAbs.prototype, "initialiserSouscriptions");
+
+            component["initialiserSouscriptions"]();
         });
 
-        it("Should call the souscrireListeDeMots function", () => {
-            component["initialiserSouscriptions"]();
 
+        it("Should call the souscrireMotsObtenus function", () => {
+            expect(spyMotsObtenus).toHaveBeenCalled();
+        });
+        it("Should call the souscrireListeDeMots function", () => {
             expect(spyListeMots).toHaveBeenCalled();
         });
         it("Should call the souscrireMotsDecouverts function", () => {
-            component["initialiserSouscriptions"]();
-
             expect(spyMotsDecouverts).toHaveBeenCalled();
-        });
-        it("Should call the super function", () => {
-            component["initialiserSouscriptions"]();
-
-            expect(spySuperFunction).toHaveBeenCalled();
         });
     });
 
