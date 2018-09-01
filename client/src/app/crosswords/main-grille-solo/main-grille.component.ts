@@ -3,15 +3,18 @@ import { ServiceInteractionComponent } from "../service-interaction-component/se
 import { InfojoueurService } from "../service-info-joueur/infojoueur.service";
 
 @Component({
-  selector: "app-main-grille",
-  templateUrl: "./main-grille.component.html",
-  styleUrls: ["./main-grille.component.css"],
-  providers: [ ServiceInteractionComponent, InfojoueurService ]
+    selector: "app-main-grille",
+    templateUrl: "./main-grille.component.html",
+    styleUrls: ["./main-grille.component.css"],
+    providers: [ServiceInteractionComponent, InfojoueurService]
 
 })
 export class MainGrilleComponent implements OnInit {
+    private motsObtenus: boolean;
 
-  public constructor() { }
+    public constructor(private serviceInteractionComposants: ServiceInteractionComponent) {
+        this.motsObtenus = false;
+    }
 
-  public ngOnInit(): void { }
+    public ngOnInit(): void { }
 }

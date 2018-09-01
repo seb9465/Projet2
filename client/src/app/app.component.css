@@ -1,22 +1,23 @@
 
 #topMenu {
-    height:5vh;
-    width:100vw;
-    margin-top: 10px;
-    display:block;
-    text-align:center;
+    position: relative;
+    height: 5vh;
+    width: 100vw;
+    display: block;
+    text-align: center;
 }
 
 .menuItem {
-    position:relative;
-    padding:8px;
+    line-height: 5vh;
+    position: relative;
+    padding: 8px;
     font-family: 'Press Start 2P', cursive;
-    font-size:10px;
+    font-size: 10px;
     cursor: pointer;
-    text-decoration:none;
-    color:purple;
+    text-decoration: none;
+    color: purple;
     background-color: white;
-    border-radius:5px;
+    border-radius: 5px;
     border: 2px solid rgba(0, 0, 0, 0.747);
 }
 
@@ -28,9 +29,9 @@
 
 
 #app {
-    height:95vh;
-    padding:8px;
-    width: 100vw;
+    height:95%;
+    width: 100%;
+    overflow: hidden;
 }
 
 #bgHome {
