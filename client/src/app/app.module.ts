@@ -56,6 +56,7 @@ import { EstUnChiffreDirective } from "./carApp/directive-est-un-chiffre/est-un-
 import { ServiceDeRenduApercu } from "./carApp/serviceDeRendu/serviceDeRenduApercu";
 import { GestionnaireSceneApercu } from "./carApp/scene/GestionnaireSceneApercu";
 import { NbCaractMaxDirective } from "./carApp/directive-nb-caract-max/nb-caract-max.directive";
+import { EnregistrerPartieSoloComponent } from './crosswords/enregistrer-partie-solo/enregistrer-partie-solo.component';
 
 @NgModule({
     declarations: [
@@ -81,7 +82,8 @@ import { NbCaractMaxDirective } from "./carApp/directive-nb-caract-max/nb-caract
         VueTeteHauteComponent,
         TableauMeilleursTempsComponent,
         EstUnChiffreDirective,
-        NbCaractMaxDirective
+        NbCaractMaxDirective,
+        EnregistrerPartieSoloComponent
     ],
     imports: [
         BrowserModule,
