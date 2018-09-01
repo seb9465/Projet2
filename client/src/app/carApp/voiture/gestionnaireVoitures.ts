@@ -184,8 +184,30 @@ export class GestionnaireVoitures implements OnDestroy {
 
     public ngOnDestroy(): void {
         this._voitureJoueur.supprimerSons();
-        for (const voitureAI of this._voituresAI) {
-            voitureAI.supprimerSons();
+        this._voitureJoueur = null;
+
+        if (this.voituresAI) {
+            for (let voitureAI of this._voituresAI) {
+                voitureAI.supprimerSons();
+                voitureAI = null;
+            }
         }
+        this._voituresAI = null;
+
+        this.controleurJoueur = null;
+
+        if (this.controleursAI) {
+            for (let controleurAI of this.controleursAI) {
+                controleurAI = null;
+            }
+        }
+        this.controleursAI = null;
+
+        this.gestionnaireCollisions = null;
+
+        this.clavier.ngOnDestroy();
+
+        /* tslint:disable-next-line:no-console */
+        console.log("Gestionnaire Voiture deleted.");
     }
 }
