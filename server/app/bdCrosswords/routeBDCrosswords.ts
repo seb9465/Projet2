@@ -36,6 +36,10 @@ export class RouteBDCrosswords extends ServiceWeb {
             await this.bdCrosswords.requeteSupprimerPistes(req, res);
         });
 
+        router.delete("/supprimerUnePartie/:id", async (req: Request, res: Response) => {
+            await this.bdCrosswords.requeteSupprimerUnePiste(req, res);
+        });
+
         return router;
     }
 }

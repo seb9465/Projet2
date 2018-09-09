@@ -111,6 +111,13 @@ export class BaseDonneesCrosswords {
         this.assurerConnection().catch(() => {
             throw new ErreurConnectionBD();
         });
-        res.send(this.supprimerToutesLesParties());
+        res.send(await this.supprimerToutesLesParties());
+    }
+
+    public async requeteSupprimerUnePiste(req: Request, res: Response): Promise<void> {
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
+        res.send(await this.supprimerUnePartie(req.params.id));
     }
 }
