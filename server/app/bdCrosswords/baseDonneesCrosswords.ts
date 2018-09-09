@@ -2,6 +2,9 @@ import { injectable } from "inversify";
 import { Mongoose, Schema, Model, Document } from "mongoose";
 import { Request, Response } from "express";
 import { ErreurConnectionBD } from "../exceptions/erreurConnectionBD";
+import { PartieBD } from "./../../../common/communication/PartieBD";
+import { ErreurRechercheBaseDonnees } from "../exceptions/erreurRechercheBD";
+import { MongoError } from "mongodb";
 
 const URL_BD: string = "mongodb://admin:admin@ds123129.mlab.com:23129/log2990";
 
@@ -39,10 +42,51 @@ export class BaseDonneesCrosswords {
         await this.model.create(partie);
     }
 
+    private async ajouterParties(partiesJson: {}[]): Promise<void> {
+        this.model.collection.insertMany(partiesJson, (err: MongoError) => {
+            if (err) {
+                /* tslint:disable-next-line:no-console */
+                return console.log(err);
+            } else {
+                /* tslint:disable-next-line:no-console */
+                console.log("Parties successfully added to the DB.");
+            }
+        });
+    }
+
+    private async obtenirParties(): Promise<PartieBD[]> {
+        const parties: PartieBD[] = [];
+
+        await this.model
+            .find()
+            .then((res: Document[]) => {
+                for (const doc of res) {
+                    parties.push(doc.toObject());
+                }
+            })
+            .catch(() => { throw new ErreurRechercheBaseDonnees; });
+
+        return parties;
+    }
+
     public async requeteAjouterPartie(req: Request, res: Response): Promise<void> {
         this.assurerConnection().catch(() => {
             throw new ErreurConnectionBD();
         });
         res.send(await this.ajouterPartie(req.body));
+    }
+
+    public async requeteAjouterParties(req: Request, res: Response): Promise<void> {
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
+        res.send(await this.ajouterParties(req.body));
+    }
+
+    public async requeteObtenirParties(req: Request, res: Response): Promise<void> {
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
+        res.send(await this.obtenirParties());
     }
 }
