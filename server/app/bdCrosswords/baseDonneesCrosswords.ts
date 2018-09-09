@@ -5,6 +5,7 @@ import { ErreurConnectionBD } from "../exceptions/erreurConnectionBD";
 import { PartieBD } from "./../../../common/communication/PartieBD";
 import { ErreurRechercheBaseDonnees } from "../exceptions/erreurRechercheBD";
 import { MongoError } from "mongodb";
+import { ErreurSupressionBaseDonnees } from "../exceptions/erreurSupressionBD";
 
 const URL_BD: string = "mongodb://admin:admin@ds123129.mlab.com:23129/log2990";
 
@@ -69,6 +70,22 @@ export class BaseDonneesCrosswords {
         return parties;
     }
 
+    private async supprimerUnePartie(id: string): Promise<void> {
+        await this.model.findByIdAndRemove(id)
+            .exec()
+            .catch(() => {
+                throw new ErreurSupressionBaseDonnees();
+            });
+    }
+
+    private async supprimerToutesLesParties(): Promise<void> {
+        const parties: PartieBD[] = await this.obtenirParties();
+
+        for (const partie of parties) {
+            await this.supprimerUnePartie(partie._id);
+        }
+    }
+
     public async requeteAjouterPartie(req: Request, res: Response): Promise<void> {
         this.assurerConnection().catch(() => {
             throw new ErreurConnectionBD();
@@ -88,5 +105,12 @@ export class BaseDonneesCrosswords {
             throw new ErreurConnectionBD();
         });
         res.send(await this.obtenirParties());
+    }
+
+    public async requeteSupprimerPistes(req: Request, res: Response): Promise<void> {
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
+        res.send(this.supprimerToutesLesParties());
     }
 }
