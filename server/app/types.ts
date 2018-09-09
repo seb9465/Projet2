@@ -11,5 +11,8 @@ export default  {
         GenerateurGrille: Symbol("GenerateurGrille"),
 
         RouteBaseDonneesCourse: Symbol("RouteBaseDonneesCourse"),
-        BaseDonneesCourse: Symbol("BaseDonneesCourse")
+        BaseDonneesCourse: Symbol("BaseDonneesCourse"),
+
+        RouteBDCrosswords: Symbol("RouteBDCrosswords"),
+        BaseDonneesCrosswords: Symbol("BaseDonneesCrosswords"),
 };
