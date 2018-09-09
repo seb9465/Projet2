@@ -16,8 +16,13 @@ export class RouteBDCrosswords extends ServiceWeb {
         const router: Router = Router();
 
         router.get("/", async (req: Request, res: Response) => {
-            
-        })
+            await this.bdCrosswords.assurerConnection();
+            res.send("Connection made with the BD");
+        });
+
+        router.post("/ajouterPartie", async (req: Request, res: Response) => {
+            await this.bdCrosswords.requeteAjouterPartie(req, res);
+        });
 
         return router;
     }

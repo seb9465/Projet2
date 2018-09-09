@@ -11,6 +11,7 @@ import { ServiceWeb } from "./serviceweb";
 import { RouteServiceLexical } from "./serviceLexical/routeServiceLexical";
 import { RouteGenGrille } from "./generateurGrille/routeGenGrille";
 import { RouteBaseDonneesCourse } from "./baseDonnees/routeBaseDonneesCourse";
+import { RouteBDCrosswords } from "./bdCrosswords/routeBDCrosswords";
 
 @injectable()
 export class Application {
@@ -20,7 +21,8 @@ export class Application {
 
     constructor(@inject(Types.RouteServiceLexical) private serviceLexical: RouteServiceLexical,
                 @inject(Types.RouteGenGrille) private routeGenGrille: RouteGenGrille,
-                @inject(Types.RouteBaseDonneesCourse) private baseDonneesCourse: RouteBaseDonneesCourse) {
+                @inject(Types.RouteBaseDonneesCourse) private baseDonneesCourse: RouteBaseDonneesCourse,
+                @inject(Types.RouteBDCrosswords) private routeBDCrosswords: RouteBDCrosswords) {
         this.app = express();
 
         this.config();
@@ -50,6 +52,7 @@ export class Application {
         this.ajouterService(this.serviceLexical);
         this.ajouterService(this.routeGenGrille);
         this.ajouterService(this.baseDonneesCourse);
+        this.ajouterService(this.routeBDCrosswords);
 
         this.errorHandeling();
     }

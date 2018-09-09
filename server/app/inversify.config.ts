@@ -11,6 +11,8 @@ import { GenerateurGrille } from "./generateurGrille/generateurGrille";
 
 import { RouteBaseDonneesCourse } from "./baseDonnees/routeBaseDonneesCourse";
 import { BaseDonneesCourse } from "./baseDonnees/baseDonneesCourse";
+import { BaseDonneesCrosswords } from "./bdCrosswords/baseDonneesCrosswords";
+import { RouteBDCrosswords } from "./bdCrosswords/routeBDCrosswords";
 
 const container: Container = new Container();
 
@@ -25,5 +27,8 @@ container.bind(Types.RouteGenGrille).to(RouteGenGrille);
 
 container.bind(Types.BaseDonneesCourse).to(BaseDonneesCourse);
 container.bind(Types.RouteBaseDonneesCourse).to(RouteBaseDonneesCourse);
+
+container.bind(Types.BaseDonneesCrosswords).to(BaseDonneesCrosswords);
+container.bind(Types.RouteBDCrosswords).to(RouteBDCrosswords);
 
 export { container };
