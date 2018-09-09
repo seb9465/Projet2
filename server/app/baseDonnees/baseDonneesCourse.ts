@@ -31,7 +31,7 @@ export class BaseDonneesCourse {
     }
 
     private async seConnecter(): Promise<void> {
-        await this.mongoose.connect(URL_BD);
+        await this.mongoose.connect(URL_BD, { useNewUrlParser: true });
     }
 
     private get estConnecte(): boolean {
