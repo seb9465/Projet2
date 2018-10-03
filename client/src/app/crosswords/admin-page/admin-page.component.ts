@@ -8,6 +8,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AdminPageComponent implements OnInit {
     private myParams: {};
+    private myStyle: {};
 
     // tslint:disable-next-line:max-func-body-length
     public constructor() {
@@ -121,10 +122,13 @@ export class AdminPageComponent implements OnInit {
             },
             "retina_detect": true
           };
+        this.myStyle = {
+            "position": "fixed",
+            "width": "100%",
+            "height": "100%",
+        };
     }
 
-    public ngOnInit(): void {
-        
-    }
+    public ngOnInit(): void { }
 
 }
