@@ -1,11 +1,11 @@
 <particles [params]="myParams" [style]="myStyle"></particles>
-<p>
-  admin-page works!
-</p>
+<h1 id="titre-page">Page Admin</h1>
 
 <mat-accordion multi="false">
-    <mat-expansion-panel *ngFor="let partie of listeParties">
-        <mat-expansion-panel-header>{{ partie.nomPartie }}</mat-expansion-panel-header>
-
+    <mat-expansion-panel *ngFor="let partie of listeParties" class="unePartie">
+        <mat-expansion-panel-header>{{ partie.nomPartie | uppercase }}</mat-expansion-panel-header>
+        <div id="informations">
+            <span>HELLO WORLD</span>
+        </div>
     </mat-expansion-panel>
 </mat-accordion>
