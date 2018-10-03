@@ -47,6 +47,7 @@ import { TimerService } from "./carApp/timer/timer.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatDividerModule } from "@angular/material/divider";
+import { ParticlesModule } from "angular-particle";
 
 import { DecimalPipe } from "@angular/common";
 import { FinCourseComponent } from "./carApp/fin-course/fin-course.component";
@@ -94,7 +95,8 @@ import { AdminPageComponent } from "./crosswords/admin-page/admin-page.component
         FormsModule,
         BrowserAnimationsModule,
         MatExpansionModule,
-        MatDividerModule
+        MatDividerModule,
+        ParticlesModule
     ],
     providers: [
         ServiceDeRenduApercu,
