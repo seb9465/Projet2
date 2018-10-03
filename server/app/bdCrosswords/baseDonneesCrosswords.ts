@@ -19,7 +19,7 @@ export class BaseDonneesCrosswords {
     constructor() {
         this.mongoose = new Mongoose();
         this.schema = new Schema({
-            nomPartie: String
+            nomPartie: { type: String, unique: true }
         });
         this.model = this.mongoose.model("crossword", this.schema);
     }
