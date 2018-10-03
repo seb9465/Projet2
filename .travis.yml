@@ -2,8 +2,8 @@ language: node_js
 
 install:
 - npm install -g @angular/cli
-- npm install npm@latest -g
-- nvm install
+- npm install npm@8.12.0 -g
+- npm install
 - npm install -g codecov
 
 before_script:
