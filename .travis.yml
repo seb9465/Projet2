@@ -3,7 +3,7 @@ language: node_js
 install:
 - npm install -g @angular/cli
 - npm install npm@latest -g
-- npm install
+- nvm install
 - npm install -g codecov
 
 before_script:
