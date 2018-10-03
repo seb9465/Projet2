@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-// import { HttpClient } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+import { IPartieCrosswords } from "./../../../../../common/communication/IPartieCrosswords";
 
 @Component({
     selector: "app-admin-page",
@@ -9,9 +10,10 @@ import { Component, OnInit } from "@angular/core";
 export class AdminPageComponent implements OnInit {
     private myParams: {};
     private myStyle: {};
+    private listeParties: IPartieCrosswords[];
 
     // tslint:disable-next-line:max-func-body-length
-    public constructor() {
+    public constructor(private _http: HttpClient) {
         this.myParams = {
             "particles": {
               "number": {
@@ -129,6 +131,12 @@ export class AdminPageComponent implements OnInit {
         };
     }
 
-    public ngOnInit(): void { }
+    public ngOnInit(): void {
+        this._http.get<IPartieCrosswords[]>("http://localhost:3000/crosswords/obtenirParties").subscribe((data: IPartieCrosswords[]) => {
+            this.listeParties = data;
+            // tslint:disable-next-line:no-console
+            console.log(this.listeParties);
+        });
+    }
 
 }

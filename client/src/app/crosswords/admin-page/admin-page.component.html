@@ -4,8 +4,8 @@
 </p>
 
 <mat-accordion multi="false">
-    <mat-expansion-panel>
-        <span>HELLO</span>
+    <mat-expansion-panel *ngFor="let partie of listeParties">
+        <mat-expansion-panel-header>{{ partie.nomPartie }}</mat-expansion-panel-header>
 
     </mat-expansion-panel>
 </mat-accordion>
