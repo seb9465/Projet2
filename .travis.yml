@@ -1,5 +1,8 @@
-language: node_js
-
+language: node_jslanguage: node_js
+node_js:
+  - "iojs"
+  - "7"
+  
 install:
 - npm install -g @angular/cli
 
