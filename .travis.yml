@@ -4,7 +4,7 @@ before_script:
 - npm install -g @angular/cli
 - cd client/
 - npm install npm -g
-- npm install -g codecov
+- pip install --user codecov
 - npm install
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
