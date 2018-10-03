@@ -2,10 +2,10 @@ language: node_js
 
 before_script:
 - npm install -g @angular/cli
+- npm install npm@latest -g
 - cd client/
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-- npm install npm -g
 
 script:
 - npm run test:coverage
