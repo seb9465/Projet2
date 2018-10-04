@@ -1,6 +1,6 @@
 
 #topMenu {
-    position: relative;
+    position: fixed;
     height: 5vh;
     width: 100vw;
     display: block;
@@ -29,9 +29,12 @@
 
 
 #app {
-    height:95%;
-    width: 100%;
-    overflow: hidden;
+    position: fixed;
+    top: 5vh;
+    height:95vh;
+    width: 100vw;
+    overflow: auto;
+    background-color:transparent;
 }
 
 #bgHome {

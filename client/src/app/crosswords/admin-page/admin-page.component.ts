@@ -125,9 +125,12 @@ export class AdminPageComponent implements OnInit {
             "retina_detect": true
           };
         this.myStyle = {
-            "position": "fixed",
+            "position": "absolute",
             "width": "100%",
             "height": "100%",
+            "top": "0",
+            "left": "0",
+            "z-index": "-9999",
         };
     }
 
@@ -137,6 +140,10 @@ export class AdminPageComponent implements OnInit {
             // tslint:disable-next-line:no-console
             console.log(this.listeParties);
         });
+    }
+
+    public supprimerToutesLesParties(): void {
+
     }
 
 }

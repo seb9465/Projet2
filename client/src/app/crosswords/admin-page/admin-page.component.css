@@ -14,3 +14,19 @@ mat-expansion-panel-header {
     left: 0px;
     margin-bottom: 5px;
 }
+
+#suppToutesParties:hover {
+    color: white !important;
+    background-color: blue !important;
+}
+
+#suppToutesParties {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: purple;
+    padding: 6px;
+    cursor:pointer;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid rgba(0,0,0, 0.747);
+}
