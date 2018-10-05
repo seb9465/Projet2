@@ -1,11 +1,4 @@
 language: node_jslanguage: node_js
-node_js:
-  - "iojs"
-  - "7"
-
-cache:
-  directories:
-    - "node_modules"
 
 before_script:
 - cd client/
