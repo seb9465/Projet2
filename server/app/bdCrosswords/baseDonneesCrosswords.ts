@@ -7,7 +7,8 @@ import { ErreurRechercheBaseDonnees } from "../exceptions/erreurRechercheBD";
 import { MongoError } from "mongodb";
 import { ErreurSupressionBaseDonnees } from "../exceptions/erreurSupressionBD";
 
-const URL_BD: string = "mongodb://admin:admin@ds123129.mlab.com:23129/log2990";
+// const URL_BD: string = "mongodb://admin:admin@ds123129.mlab.com:23129/log2990";
+const URL_BD: string = "mongodb://localhost:27017/log2990";
 
 @injectable()
 export class BaseDonneesCrosswords {
