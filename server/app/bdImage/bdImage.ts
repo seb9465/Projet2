@@ -7,9 +7,9 @@ import { ErreurRechercheBaseDonnees } from "../exceptions/erreurRechercheBD";
 
 const URL_BD: string = "mongodb://admin:admin@ds123129.mlab.com:23129/log2990";
 
-// interface Image {
-//     img: { data: Buffer, contentType: String };
-// }
+interface Image {
+    img: { data: Buffer, contentType: String };
+}
 
 @injectable()
 export class BaseDonneesImage {
@@ -40,22 +40,22 @@ export class BaseDonneesImage {
         }
     }
 
+    // tslint:disable-next-line:no-any
+    private async uploadImage(req: Request): Promise <void> {
+        const image: Image = {
+            img: {
+                data: fs.readFileSync("./assets/image001.png"),
+                contentType: "image/png",
+            }
+        };
+        await this.model.create(image);
+    }
+
     public async requeteUpload(req: Request, res: Response): Promise<void> {
         this.assurerConnection().catch(() => {
             throw new ErreurConnectionBD();
         });
-
-        // tslint:disable-next-line:no-any
-        const a: any = new this.model();
-        a.img.data = fs.readFileSync("./assets/image001.png");
-        a.img.contentType = "image/png";
-        res.send(
-            await a.save((err: Error) => {
-                if (err) {
-                    throw err;
-                }
-            })
-        );
+        res.send(this.uploadImage(req));
     }
 
     public async requeteDownload(req: Request, res: Response): Promise<void> {
