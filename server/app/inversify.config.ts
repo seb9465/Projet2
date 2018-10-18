@@ -13,6 +13,8 @@ import { RouteBaseDonneesCourse } from "./baseDonnees/routeBaseDonneesCourse";
 import { BaseDonneesCourse } from "./baseDonnees/baseDonneesCourse";
 import { BaseDonneesCrosswords } from "./bdCrosswords/baseDonneesCrosswords";
 import { RouteBDCrosswords } from "./bdCrosswords/routeBDCrosswords";
+import { BaseDonneesImage } from "./bdImage/bdImage";
+import { RouteBaseDonneesImage } from "./bdImage/routeBDImage";
 
 const container: Container = new Container();
 
@@ -30,5 +32,8 @@ container.bind(Types.RouteBaseDonneesCourse).to(RouteBaseDonneesCourse);
 
 container.bind(Types.BaseDonneesCrosswords).to(BaseDonneesCrosswords);
 container.bind(Types.RouteBDCrosswords).to(RouteBDCrosswords);
+
+container.bind(Types.BaseDonneesImage).to(BaseDonneesImage);
+container.bind(Types.RouteBaseDonneesImage).to(RouteBaseDonneesImage);
 
 export { container };

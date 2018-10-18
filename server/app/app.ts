@@ -4,6 +4,7 @@ import * as logger from "morgan";
 import * as cookieParser from "cookie-parser";
 import * as bodyParser from "body-parser";
 import * as cors from "cors";
+// import * as multer from "multer";
 import Types from "./types";
 import { injectable, inject } from "inversify";
 
@@ -12,6 +13,7 @@ import { RouteServiceLexical } from "./serviceLexical/routeServiceLexical";
 import { RouteGenGrille } from "./generateurGrille/routeGenGrille";
 import { RouteBaseDonneesCourse } from "./baseDonnees/routeBaseDonneesCourse";
 import { RouteBDCrosswords } from "./bdCrosswords/routeBDCrosswords";
+import { RouteBaseDonneesImage } from "./bdImage/routeBDImage";
 
 @injectable()
 export class Application {
@@ -19,10 +21,12 @@ export class Application {
     private readonly internalError: number = 500;
     public app: express.Application;
 
-    constructor(@inject(Types.RouteServiceLexical) private serviceLexical: RouteServiceLexical,
-                @inject(Types.RouteGenGrille) private routeGenGrille: RouteGenGrille,
-                @inject(Types.RouteBaseDonneesCourse) private baseDonneesCourse: RouteBaseDonneesCourse,
-                @inject(Types.RouteBDCrosswords) private routeBDCrosswords: RouteBDCrosswords) {
+    constructor(
+        @inject(Types.RouteServiceLexical) private routeServiceLexical: RouteServiceLexical,
+        @inject(Types.RouteGenGrille) private routeGenGrille: RouteGenGrille,
+        @inject(Types.RouteBaseDonneesCourse) private routeBaseDonneesCourse: RouteBaseDonneesCourse,
+        @inject(Types.RouteBDCrosswords) private routeBDCrosswords: RouteBDCrosswords,
+        @inject(Types.RouteBaseDonneesImage) private routeBaseDonneesImage: RouteBaseDonneesImage) {
         this.app = express();
 
         this.config();
@@ -45,15 +49,21 @@ export class Application {
             res.header("Access-Control-Allow-Headers",
                        "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json,Authorization");
             next();
-          });
+        });
+        // this.app.use(multer({
+        //     dest: "./ uploads /",
+        //     rename: (filename: any) => {
+        //         return filename;
+        //     }
+        // }));
     }
 
     public routes(): void {
-        this.ajouterService(this.serviceLexical);
+        this.ajouterService(this.routeServiceLexical);
         this.ajouterService(this.routeGenGrille);
-        this.ajouterService(this.baseDonneesCourse);
+        this.ajouterService(this.routeBaseDonneesCourse);
         this.ajouterService(this.routeBDCrosswords);
-
+        this.ajouterService(this.routeBaseDonneesImage);
         this.errorHandeling();
     }
 
@@ -72,7 +82,7 @@ export class Application {
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             next();
-          });
+        });
 
         // development error handler
         // will print stacktrace

@@ -15,4 +15,7 @@ export default  {
 
         RouteBDCrosswords: Symbol("RouteBDCrosswords"),
         BaseDonneesCrosswords: Symbol("BaseDonneesCrosswords"),
+
+        RouteBaseDonneesImage: Symbol("RouteBaseDonneesImage"),
+        BaseDonneesImage: Symbol("BaseDonneesImage"),
 };
