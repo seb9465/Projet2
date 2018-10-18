@@ -1,4 +1,4 @@
-language: node_jslanguage: node_js
+language: node_js
 node_js:
   - "iojs"
   - "7"
@@ -9,6 +9,7 @@ cache:
 
 install:
 - npm install -g @angular/cli
+- nvm install v8.9.1
 
 before_script:
 - cd client/
