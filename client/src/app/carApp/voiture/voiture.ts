@@ -72,15 +72,15 @@ export class Voiture extends Object3D implements IObjetEnMouvement {
         dragCoefficient: number = DEFAULT_DRAG_COEFFICIENT) {
         super();
         if (wheelbase <= 0) {
-            console.error("Wheelbase should be greater than 0.");
+            // console.error("Wheelbase should be greater than 0.");
             wheelbase = DEFAULT_WHEELBASE;
         }
         if (mass <= 0) {
-            console.error("Mass should be greater than 0.");
+            // console.error("Mass should be greater than 0.");
             mass = DEFAULT_MASS;
         }
         if (dragCoefficient <= 0) {
-            console.error("Drag coefficient should be greater than 0.");
+            // console.error("Drag coefficient should be greater than 0.");
             dragCoefficient = DEFAULT_DRAG_COEFFICIENT;
         }
         this.moteur = engine;

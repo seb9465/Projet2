@@ -34,17 +34,17 @@ export class Wheel {
         radius: number = DEFAULT_WHEEL_RADIUS,
         frictionCoefficient: number = DEFAULT_FRICTION_COEFFICIENT) {
         if (mass <= 0) {
-            console.error("Mass cannot be <= 0. Reverting to default value.");
+            // console.error("Mass cannot be <= 0. Reverting to default value.");
             mass = DEFAULT_WHEEL_MASS;
         }
 
         if (radius <= 0) {
-            console.error("Radius cannot be <= 0. Reverting to default value.");
+            // console.error("Radius cannot be <= 0. Reverting to default value.");
             radius = DEFAULT_WHEEL_RADIUS;
         }
 
         if (frictionCoefficient <= 0) {
-            console.error("Friction coefficient cannot be <= 0. Reverting to default value.");
+            // console.error("Friction coefficient cannot be <= 0. Reverting to default value.");
             frictionCoefficient = DEFAULT_FRICTION_COEFFICIENT;
         }
 

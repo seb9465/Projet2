@@ -3,7 +3,10 @@
 
 module.exports = function (config) {
   config.set({
-    basePath: '',
+    basePath: '.',
+    exclude: [
+        "./**/carApp/**/*.spec.ts"
+    ],
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),

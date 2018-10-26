@@ -104,7 +104,7 @@ export class Engine {
     private getRPM(speed: number, wheelRadius: number): number {
         if (speed < 0) {
             speed = 0;
-            console.error("Speed cannot be negative, using 0 as a fallback value.");
+            // console.error("Speed cannot be negative, using 0 as a fallback value.");
         }
 
         if (wheelRadius <= 0) {
