@@ -1,8 +1,5 @@
 import * as assert from "assert";
 import { BaseDonneesCrosswords } from "./baseDonneesCrosswords";
-import { PartieBD } from "../../../common/communication/PartieBD";
-
-// const URL_SERVICE: string = "http://localhost:3000/crosswords/";
 
 describe("Base Donnees Crosswords", () => {
     let service: BaseDonneesCrosswords;
@@ -39,22 +36,31 @@ describe("Base Donnees Crosswords", () => {
     });
 
     describe("ObtenirParties function", () => {
-        it("Should be empty at first", async () => {
-            await service["seConnecter"]();
-            service["obtenirParties"]().then((data: PartieBD[]) => {
-                assert(data.length === 0);
-            }).catch((err: Error) => {
-                assert(false);
-            });
-        });
+        // it("Should be empty at first", async () => {
+        //     await service["seConnecter"]();
+        //     service["obtenirParties"]().then((data: PartieBD[]) => {
+        //         assert(data.length === 0);
+        //     }).catch((err: Error) => {
+        //         assert(false);
+        //     });
+        // });
     });
 
-    describe("AjouterPartie function", () => {
+    describe("AjouterPartie function", async () => {
         it("Should add a Partie", async () => {
+            const nomParties: string[] = [
+                "Partie2",
+                "p",
+                "une autre partie",
+                "un très long nom de partie"
+            ];
             await service["seConnecter"]();
-            service["ajouterPartie"]({nomPartie: "Partie10"}).then(() => {
-                assert(true);
-            });
+            for (const nomDePartie of nomParties) {
+                await service["ajouterPartie"]({nomPartie: nomDePartie}).catch((err: Error) => {
+                    throw err;
+                });
+            }
+            assert(true);
         });
     });
 
