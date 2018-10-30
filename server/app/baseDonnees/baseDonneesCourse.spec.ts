@@ -1,8 +1,9 @@
 import * as assert from "assert";
 import { BaseDonneesCourse } from "./baseDonneesCourse";
+import * as sinon from "sinon";
 
-describe("Tests base de données du jeu de course", () => {
-    describe("Tests du constructeur", () => {
+describe("Base De Donnees Course", () => {
+    describe("Constructeur", () => {
         it ("bon fonctionnement du constructeur", (done: MochaDone) => {
             assert.ok(new BaseDonneesCourse);
             done();
@@ -23,6 +24,23 @@ describe("Tests base de données du jeu de course", () => {
         it ("Le constructeur crée bien le modèle de piste.", (done: MochaDone) => {
             assert.ok(baseDonneesCourse["modelPiste"]);
             done();
+        });
+    });
+
+    describe("Fonction seConnecter", () => {
+        let bd: BaseDonneesCourse;
+
+        beforeEach(() => {
+            bd = new BaseDonneesCourse();
+        });
+
+        it("Devrait appeller la fonction connect de Mongoose", () => {
+            const stub: sinon.SinonStub = sinon.stub(bd["mongoose"], "connect")
+                .withArgs(sinon.match.string, sinon.match.object);
+
+            bd["seConnecter"]();
+
+            assert(stub.calledOnce);
         });
     });
 });
