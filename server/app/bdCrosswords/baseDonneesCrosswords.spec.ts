@@ -48,8 +48,9 @@ describe("Base Donnees Crosswords", () => {
 
     describe("supprimerUnePartie function", async () => {
         it("Devrait supprimer une partie", async () => {
-            const nomPartie: string = "NomDUnePartie";
-            await service.obtenirIdDunePartie(nomPartie).then((res: string) => {
+            const nomDePartie: string = "Nom au hasard";
+            await service["ajouterPartie"]({ nomPartie: nomDePartie });
+            await service.obtenirIdDunePartie(nomDePartie).then((res: string) => {
                 assert(res !== undefined);
             });
         });
@@ -62,9 +63,12 @@ describe("Base Donnees Crosswords", () => {
             ];
             await service["seConnecter"]();
             for (const nomDePartie of nomParties) {
-                await service["ajouterPartie"]({nomPartie: nomDePartie}).catch((err: Error) => {
-                    throw err;
-                });
+                const estDejaDansBD: boolean = await service["nomPartieEstDansBaseDonnees"](nomDePartie);
+                if (!estDejaDansBD) {
+                    await service["ajouterPartie"]({nomPartie: nomDePartie}).catch((err: Error) => {
+                        throw err;
+                    });
+                }
             }
             assert(true);
         });

@@ -40,19 +40,16 @@ export class BaseDonneesCrosswords {
     }
 
     private async ajouterPartie(partieJson: {}): Promise<void> {
+        await this.assurerConnection().catch((err: MongoError) => {
+            throw err;
+        });
         const partie: Document = new this.model(partieJson);
         await this.model.create(partie);
     }
 
     private async ajouterParties(partiesJson: {}[]): Promise<void> {
         this.model.collection.insertMany(partiesJson, (err: MongoError) => {
-            if (err) {
-                /* tslint:disable-next-line:no-console */
-                return console.log(err);
-            } else {
-                /* tslint:disable-next-line:no-console */
-                console.log("Parties successfully added to the DB.");
-            }
+            throw err;
         });
     }
 
