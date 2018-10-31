@@ -71,7 +71,24 @@ export class BaseDonneesCrosswords {
         return parties;
     }
 
+    private async nomPartieEstDansBaseDonnees(nomPartie: string): Promise<boolean> {
+        await this.assurerConnection().catch((err: MongoError) => {
+            throw err;
+        });
+
+        const document: Document = await this.model.findOne({
+            nomPartie: nomPartie
+        }).exec().catch((err: MongoError) => {
+            throw err;
+        });
+
+        return document !== null;
+    }
+
     public async obtenirIdDunePartie(nomDePartie: string): Promise<string> {
+        await this.assurerConnection().catch((err: MongoError) => {
+            throw err;
+        });
         const res: Document = await this.model.findOne({nomPartie: nomDePartie})
             .exec()
             .catch((err: MongoError) => {
@@ -141,5 +158,9 @@ export class BaseDonneesCrosswords {
             throw new ErreurConnectionBD();
         });
         res.send(await this.supprimerUnePartie(req.params.id));
+    }
+
+    public async requeteNomPartieEstDansBaseDonnees(req: Request, res: Response): Promise<void> {
+        res.send(await this.nomPartieEstDansBaseDonnees(req.params.id));
     }
 }
