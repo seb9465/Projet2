@@ -73,7 +73,10 @@ export class BaseDonneesCrosswords {
 
     public async obtenirIdDunePartie(nomDePartie: string): Promise<string> {
         const res: Document = await this.model.findOne({nomPartie: nomDePartie})
-            .exec();
+            .exec()
+            .catch((err: MongoError) => {
+                throw err;
+            });
         const resObj: PartieBD = res.toObject();
         if (resObj) {
             return resObj._id;
