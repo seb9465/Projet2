@@ -36,6 +36,10 @@ export class RouteBDCrosswords extends ServiceWeb {
             await this.bdCrosswords.requeteObtenirIdDunePartie(req, res);
         });
 
+        router.get("/nomPartieEstDansBaseDonnees/:id", async (req: Request, res: Response) => {
+            await this.bdCrosswords.requeteNomPartieEstDansBaseDonnees(req, res);
+        });
+
         router.delete("/supprimerToutesLesParties", async (req: Request, res: Response) => {
             await this.bdCrosswords.requeteSupprimerPistes(req, res);
         });
