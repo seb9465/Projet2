@@ -71,6 +71,17 @@ export class BaseDonneesCrosswords {
         return parties;
     }
 
+    public async obtenirIdDunePartie(nomDePartie: string): Promise<string> {
+        const res: Document = await this.model.findOne({nomPartie: nomDePartie})
+            .exec();
+        const resObj: PartieBD = res.toObject();
+        if (resObj) {
+            return resObj._id;
+        }
+
+        return "";
+    }
+
     private async supprimerUnePartie(id: string): Promise<void> {
         await this.model.findByIdAndRemove(id)
             .exec()
@@ -106,6 +117,13 @@ export class BaseDonneesCrosswords {
             throw new ErreurConnectionBD();
         });
         res.send(await this.obtenirParties());
+    }
+
+    public async requeteObtenirIdDunePartie(req: Request, res: Response): Promise<void> {
+        await this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
+        res.send(await this.obtenirIdDunePartie(req.params.id));
     }
 
     public async requeteSupprimerPistes(req: Request, res: Response): Promise<void> {

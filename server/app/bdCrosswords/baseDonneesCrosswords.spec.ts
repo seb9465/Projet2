@@ -46,12 +46,19 @@ describe("Base Donnees Crosswords", () => {
         // });
     });
 
+    describe("supprimerUnePartie function", () => {
+        it("Devrait supprimer une partie", async () => {
+            // const nomPartie: string = "Partie2";
+            // const id: string = await service.obtenirIdDunePartie(nomPartie);
+            // tslint:disable-next-line:no-console
+            // console.log(id);
+            // assert(id !== undefined);
+        });
+    });
+
     describe("AjouterPartie function", async () => {
         it("Should add a Partie", async () => {
             const nomParties: string[] = [
-                "Partie2",
-                "p",
-                "une autre partie",
                 "un très long nom de partie"
             ];
             await service["seConnecter"]();
