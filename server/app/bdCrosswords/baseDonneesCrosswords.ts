@@ -40,20 +40,42 @@ export class BaseDonneesCrosswords {
     }
 
     private async ajouterPartie(partieJson: {}): Promise<void> {
-        await this.assurerConnection().catch((err: MongoError) => {
-            throw err;
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
         });
         const partie: Document = new this.model(partieJson);
-        await this.model.create(partie);
+        await this.model.create(partie).catch((err: MongoError) => {
+            throw err;
+        });
     }
 
     private async ajouterParties(partiesJson: {}[]): Promise<void> {
-        this.model.collection.insertMany(partiesJson, (err: MongoError) => {
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
+
+        await this.model.collection.insertMany(partiesJson).catch((err: MongoError) => {
             throw err;
         });
     }
 
+    public async ajouterPartiesBD(parties: PartieBD[]): Promise<void> {
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
+
+        for (const partie of parties) {
+            await this.model.create(partie).catch((err: MongoError) => {
+                throw err;
+            });
+        }
+    }
+
     private async obtenirParties(): Promise<PartieBD[]> {
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
+
         const parties: PartieBD[] = [];
 
         await this.model
@@ -69,10 +91,9 @@ export class BaseDonneesCrosswords {
     }
 
     private async nomPartieEstDansBaseDonnees(nomPartie: string): Promise<boolean> {
-        await this.assurerConnection().catch((err: MongoError) => {
-            throw err;
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
         });
-
         const document: Document = await this.model.findOne({
             nomPartie: nomPartie
         }).exec().catch((err: MongoError) => {
@@ -83,8 +104,8 @@ export class BaseDonneesCrosswords {
     }
 
     public async obtenirIdDunePartie(nomDePartie: string): Promise<string> {
-        await this.assurerConnection().catch((err: MongoError) => {
-            throw err;
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
         });
         const res: Document = await this.model.findOne({nomPartie: nomDePartie})
             .exec()
@@ -100,6 +121,9 @@ export class BaseDonneesCrosswords {
     }
 
     private async supprimerUnePartie(id: string): Promise<void> {
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
         await this.model.findByIdAndRemove(id)
             .exec()
             .catch(() => {
@@ -108,7 +132,9 @@ export class BaseDonneesCrosswords {
     }
 
     private async supprimerToutesLesParties(): Promise<void> {
-        const parties: PartieBD[] = await this.obtenirParties();
+        const parties: PartieBD[] = await this.obtenirParties().catch((err: MongoError) => {
+            throw err;
+        });
 
         for (const partie of parties) {
             await this.supprimerUnePartie(partie._id);
