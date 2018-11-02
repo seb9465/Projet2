@@ -137,8 +137,6 @@ export class AdminPageComponent implements OnInit {
     public ngOnInit(): void {
         this._http.get<IPartieCrosswords[]>("http://localhost:3000/crosswords/obtenirParties").subscribe((data: IPartieCrosswords[]) => {
             this.listeParties = data;
-            // tslint:disable-next-line:no-console
-            console.log(this.listeParties);
         });
     }
 
