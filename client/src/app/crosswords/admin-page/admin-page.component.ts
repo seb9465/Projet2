@@ -10,7 +10,7 @@ import { IPartieCrosswords } from "./../../../../../common/communication/IPartie
 export class AdminPageComponent implements OnInit {
     public myParams: {};
     public myStyle: {};
-    // private listeParties: IPartieCrosswords[];
+    private listeParties: IPartieCrosswords[];
 
     // tslint:disable-next-line:max-func-body-length
     public constructor(private _http: HttpClient) {
