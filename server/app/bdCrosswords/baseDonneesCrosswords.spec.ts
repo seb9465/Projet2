@@ -1,7 +1,6 @@
 import * as assert from "assert";
 import { BaseDonneesCrosswords } from "./baseDonneesCrosswords";
 import { PartieBD } from "../../../common/communication/PartieBD";
-// import { PartieBD } from "../../../common/communication/PartieBD";
 
 describe("Base Donnees Crosswords", () => {
     let service: BaseDonneesCrosswords;
@@ -35,17 +34,6 @@ describe("Base Donnees Crosswords", () => {
                 done();
             });
         });
-    });
-
-    describe("ObtenirParties function", () => {
-        // it("Should be empty at first", async () => {
-        //     await service["seConnecter"]();
-        //     service["obtenirParties"]().then((data: PartieBD[]) => {
-        //         assert(data.length === 0);
-        //     }).catch((err: Error) => {
-        //         assert(false);
-        //     });
-        // });
     });
 
     describe("supprimerUnePartie function", async () => {
