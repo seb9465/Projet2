@@ -28,6 +28,10 @@ export class RouteBDCrosswords extends ServiceWeb {
             await this.bdCrosswords.requeteAjouterParties(req, res);
         });
 
+        router.post("/ajouterPartiesDeTypeBD", async (req: Request, res: Response) => {
+            await this.bdCrosswords.requeteAjouterPartiesBD(req, res);
+        });
+
         router.get("/obtenirParties", async (req: Request, res: Response) => {
             await this.bdCrosswords.requeteObtenirParties(req, res);
         });

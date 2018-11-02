@@ -8,7 +8,6 @@ import { MongoError } from "mongodb";
 import { ErreurSupressionBaseDonnees } from "../exceptions/erreurSupressionBD";
 
 const URL_BD: string = "mongodb://admin:admin@ds123129.mlab.com:23129/log2990";
-// const URL_BD: string = "mongodb://localhost:27017/log2990";
 
 @injectable()
 export class BaseDonneesCrosswords {
@@ -43,6 +42,7 @@ export class BaseDonneesCrosswords {
         this.assurerConnection().catch(() => {
             throw new ErreurConnectionBD();
         });
+
         const partie: Document = new this.model(partieJson);
         await this.model.create(partie).catch((err: MongoError) => {
             throw err;
@@ -94,6 +94,7 @@ export class BaseDonneesCrosswords {
         this.assurerConnection().catch(() => {
             throw new ErreurConnectionBD();
         });
+
         const document: Document = await this.model.findOne({
             nomPartie: nomPartie
         }).exec().catch((err: MongoError) => {
@@ -107,23 +108,23 @@ export class BaseDonneesCrosswords {
         this.assurerConnection().catch(() => {
             throw new ErreurConnectionBD();
         });
+
         const res: Document = await this.model.findOne({nomPartie: nomDePartie})
             .exec()
             .catch((err: MongoError) => {
                 throw err;
             });
-        const resObj: PartieBD = res.toObject();
-        if (resObj) {
-            return resObj._id;
-        }
 
-        return "";
+        const resObj: PartieBD = res.toObject();
+
+        return resObj ? resObj._id : "";
     }
 
     private async supprimerUnePartie(id: string): Promise<void> {
         this.assurerConnection().catch(() => {
             throw new ErreurConnectionBD();
         });
+
         await this.model.findByIdAndRemove(id)
             .exec()
             .catch(() => {
@@ -132,6 +133,10 @@ export class BaseDonneesCrosswords {
     }
 
     private async supprimerToutesLesParties(): Promise<void> {
+        this.assurerConnection().catch(() => {
+            throw new ErreurConnectionBD();
+        });
+
         const parties: PartieBD[] = await this.obtenirParties().catch((err: MongoError) => {
             throw err;
         });
@@ -142,48 +147,34 @@ export class BaseDonneesCrosswords {
     }
 
     public async requeteAjouterPartie(req: Request, res: Response): Promise<void> {
-        this.assurerConnection().catch(() => {
-            throw new ErreurConnectionBD();
-        });
         res.send(await this.ajouterPartie(req.body));
     }
 
     public async requeteAjouterParties(req: Request, res: Response): Promise<void> {
-        this.assurerConnection().catch(() => {
-            throw new ErreurConnectionBD();
-        });
         res.send(await this.ajouterParties(req.body));
     }
 
     public async requeteObtenirParties(req: Request, res: Response): Promise<void> {
-        this.assurerConnection().catch(() => {
-            throw new ErreurConnectionBD();
-        });
         res.send(await this.obtenirParties());
     }
 
     public async requeteObtenirIdDunePartie(req: Request, res: Response): Promise<void> {
-        await this.assurerConnection().catch(() => {
-            throw new ErreurConnectionBD();
-        });
         res.send(await this.obtenirIdDunePartie(req.params.id));
     }
 
     public async requeteSupprimerPistes(req: Request, res: Response): Promise<void> {
-        this.assurerConnection().catch(() => {
-            throw new ErreurConnectionBD();
-        });
         res.send(await this.supprimerToutesLesParties());
     }
 
     public async requeteSupprimerUnePiste(req: Request, res: Response): Promise<void> {
-        this.assurerConnection().catch(() => {
-            throw new ErreurConnectionBD();
-        });
         res.send(await this.supprimerUnePartie(req.params.id));
     }
 
     public async requeteNomPartieEstDansBaseDonnees(req: Request, res: Response): Promise<void> {
         res.send(await this.nomPartieEstDansBaseDonnees(req.params.id));
+    }
+
+    public async requeteAjouterPartiesBD(req: Request, res: Response): Promise<void> {
+        res.send(await this.ajouterPartiesBD(req.body));
     }
 }

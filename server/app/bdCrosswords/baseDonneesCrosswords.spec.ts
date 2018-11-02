@@ -81,22 +81,31 @@ describe("Base Donnees Crosswords", () => {
     describe("Petite sequence", async () => {
         let parties: PartieBD[];
 
-        it("Random", async () => {
+        it("Devrait recuperer les parties deja présentes dans la BD", async () => {
             parties = await service["obtenirParties"]();
             assert(true);
         });
 
-        it("Random 2", async () => {
+        it("Devrait supprimer toutes les donnees dans la BD", async () => {
             await service["supprimerToutesLesParties"]();
-            assert(true);
-        });
-
-        it("Random 3", async () => {
             const partiesApresSuppression: PartieBD[] = await service["obtenirParties"]();
             assert(partiesApresSuppression.length === 0);
         });
 
-        it("Random 4", async () => {
+        it("Devrait ajouter une partie dans la BD", async () => {
+            await service["ajouterPartie"]({nomPartie: "Nom de partie"});
+            const partieEstDansBD: boolean = await service["nomPartieEstDansBaseDonnees"]("Nom de partie");
+            assert(partieEstDansBD);
+        });
+
+        it("Devrait récuperer le id de cette partie ajoutée", async () => {
+            const id: string = await service["obtenirIdDunePartie"]("Nom de partie");
+            await service["supprimerUnePartie"](id);
+            const partieEstDansBD: boolean = await service["nomPartieEstDansBaseDonnees"]("Nom de partie");
+            assert(!partieEstDansBD);
+        });
+
+        it("Devrait remettre les donnees initiales dans la BD", async () => {
             await service.ajouterPartiesBD(parties);
             assert(true);
         });
