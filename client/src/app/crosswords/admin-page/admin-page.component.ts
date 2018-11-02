@@ -146,4 +146,8 @@ export class AdminPageComponent implements OnInit {
         this.listeParties = [];
     }
 
+    public ajouterUnePartie(): void {
+        document.getElementById("overlay").classList.remove("closed");
+        document.getElementById("overlay").classList.add("opened");
+    }
 }
