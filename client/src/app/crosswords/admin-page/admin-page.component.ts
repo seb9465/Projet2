@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { IPartieCrosswords } from "./../../../../../common/communication/IPartieCrosswords";
+import { URI_OTENIR_PARTIES, URI_SUPPRESSION_TOUTES_PARTIES } from "../../Constantes/routeBDCrosswords";
 
 @Component({
     selector: "app-admin-page",
@@ -10,7 +11,7 @@ import { IPartieCrosswords } from "./../../../../../common/communication/IPartie
 export class AdminPageComponent implements OnInit {
     public myParams: {};
     public myStyle: {};
-    private listeParties: IPartieCrosswords[];
+    protected listeParties: IPartieCrosswords[];
 
     // tslint:disable-next-line:max-func-body-length
     public constructor(private _http: HttpClient) {
@@ -135,13 +136,14 @@ export class AdminPageComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this._http.get<IPartieCrosswords[]>("http://localhost:3000/crosswords/obtenirParties").subscribe((data: IPartieCrosswords[]) => {
+        this._http.get<IPartieCrosswords[]>(URI_OTENIR_PARTIES).subscribe((data: IPartieCrosswords[]) => {
             this.listeParties = data;
         });
     }
 
-    public supprimerToutesLesParties(): void {
-
+    public async supprimerToutesLesParties(): Promise<void> {
+        await this._http.delete(URI_SUPPRESSION_TOUTES_PARTIES);
+        this.listeParties = [];
     }
 
 }
