@@ -150,4 +150,9 @@ export class AdminPageComponent implements OnInit {
         document.getElementById("overlay").classList.remove("closed");
         document.getElementById("overlay").classList.add("opened");
     }
+
+    public removeOverlay(): void {
+        document.getElementById("overlay").classList.remove("opened");
+        document.getElementById("overlay").classList.add("closed");
+    }
 }
