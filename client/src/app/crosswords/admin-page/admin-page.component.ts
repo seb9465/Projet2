@@ -8,9 +8,9 @@ import { IPartieCrosswords } from "./../../../../../common/communication/IPartie
     styleUrls: ["./admin-page.component.css"]
 })
 export class AdminPageComponent implements OnInit {
-    private myParams: {};
-    private myStyle: {};
-    private listeParties: IPartieCrosswords[];
+    public myParams: {};
+    public myStyle: {};
+    // private listeParties: IPartieCrosswords[];
 
     // tslint:disable-next-line:max-func-body-length
     public constructor(private _http: HttpClient) {
@@ -136,7 +136,7 @@ export class AdminPageComponent implements OnInit {
 
     public ngOnInit(): void {
         this._http.get<IPartieCrosswords[]>("http://localhost:3000/crosswords/obtenirParties").subscribe((data: IPartieCrosswords[]) => {
-            this.listeParties = data;
+            // this.listeParties = data;
         });
     }
 
