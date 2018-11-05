@@ -50,3 +50,12 @@ mat-expansion-panel-header {
 .opened {
     display: block;
 }
+
+#container_ajout_partie {
+    position: relative;
+    margin: auto;
+    vertical-align: middle;
+    height: 50%;
+    width: 50%;
+    background-color: white;
+}
