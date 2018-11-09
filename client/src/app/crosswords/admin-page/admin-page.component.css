@@ -32,7 +32,7 @@ mat-expansion-panel-header {
 }
 
 #overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0px;
     z-index: 99999;
@@ -52,10 +52,13 @@ mat-expansion-panel-header {
 }
 
 #container_ajout_partie {
-    position: relative;
-    margin: auto;
-    vertical-align: middle;
-    height: 50%;
-    width: 50%;
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: white;
 }
